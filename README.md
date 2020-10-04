@@ -1,1 +1,2 @@
 # PSOC
+Examples of projects
