@@ -1,0 +1,301 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfile D:\Studia\PSOC\Buzzer\MF_CS_SLIDE\MF_CS_SLIDE\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ; fingerposition -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3802              add SP,2
+ 0004                   .dbline 19
+ 0004           ; 
+ 0004           ; #include <m8c.h>        /* part specific constants and macros */
+ 0004           ; #include "PSoCAPI.h"    /* PSoC API definitions for all User Modules */
+ 0004           ; #define POS           1
+ 0004           ; #define BUFSIZE               1
+ 0004           ; #define RWBOUNDARY    2
+ 0004           ; #define BLUE  1
+ 0004           ; #define GREEN 2
+ 0004           ; #define RED           3
+ 0004           ; #define NO_FINGER     0xFF
+ 0004           ; 
+ 0004           ; struct I2C_Regs 
+ 0004           ; { 
+ 0004           ; BYTE led;
+ 0004           ; BYTE sliderPos;
+ 0004           ; } Data_Regs;
+ 0004           ; 
+ 0004           ; void main(void)
+ 0004           ; {
+ 0004                   .dbline 21
+ 0004           ;        int fingerposition;
+ 0004           ;        EzI2Cs_SetRamBuffer(sizeof(Data_Regs), RWBOUNDARY, (BYTE *) &Data_Regs);   /* Setting RAM Buffer */
+ 0004 10                push X
+ 0005 5000              mov A,>_Data_Regs
+ 0007 08                push A
+ 0008 5000              mov A,<_Data_Regs
+ 000A 08                push A
+ 000B 5002              mov A,2
+ 000D 08                push A
+ 000E 08                push A
+ 000F 7C0000            xcall _EzI2Cs_SetRamBuffer
+ 0012 38FC              add SP,-4
+ 0014 20                pop X
+ 0015                   .dbline 22
+ 0015           ;        M8C_EnableGInt ;   /* Enabling the Global Interrupts */
+ 0015 7101                      or  F, 01h
+ 0017           
+ 0017                   .dbline 24
+ 0017           ; 
+ 0017           ;       CSD_Start();   /*Start CSD Module */
+ 0017 10                push X
+ 0018 7C0000            xcall _CSD_Start
+ 001B                   .dbline 25
+ 001B           ;       CSD_ScanAllSensors();   /* Scan all the available sensors */
+ 001B 7C0000            xcall _CSD_ScanAllSensors
+ 001E                   .dbline 26
+ 001E           ;       CSD_InitializeBaselines() ;   /* Initialise base line for the sensors */
+ 001E 7C0000            xcall _CSD_InitializeBaselines
+ 0021                   .dbline 27
+ 0021           ;       CSD_SetDefaultFingerThresholds();
+ 0021 7C0000            xcall _CSD_SetDefaultFingerThresholds
+ 0024                   .dbline 28
+ 0024           ;       LED_BLUE_Start();
+ 0024 7C0000            xcall _LED_BLUE_Start
+ 0027                   .dbline 29
+ 0027           ;       LED_GREEN_Start();
+ 0027 7C0000            xcall _LED_GREEN_Start
+ 002A                   .dbline 30
+ 002A           ;       LED_RED_Start();
+ 002A 7C0000            xcall _LED_RED_Start
+ 002D                   .dbline 31
+ 002D           ;       EzI2Cs_Start();   /* Turn on I2C */
+ 002D 7C0000            xcall _EzI2Cs_Start
+ 0030                   .dbline 32
+ 0030           ;       PWM8_1_Start();
+ 0030 7C0000            xcall _PWM8_1_Start
+ 0033 20                pop X
+ 0034 80E1              xjmp L3
+ 0036           L2:
+ 0036                   .dbline 34
+ 0036           ;       while(1) /*Infinite loop */
+ 0036           ;       {
+ 0036                   .dbline 35
+ 0036           ;               CSD_ScanAllSensors();  /*Scan all sensors in array (buttons and sliders) */
+ 0036 10                push X
+ 0037 7C0000            xcall _CSD_ScanAllSensors
+ 003A                   .dbline 36
+ 003A           ;               CSD_UpdateAllBaselines();
+ 003A 7C0000            xcall _CSD_UpdateAllBaselines
+ 003D                   .dbline 37
+ 003D           ;               LED_RED_Off();
+ 003D 7C0000            xcall _LED_RED_Off
+ 0040                   .dbline 38
+ 0040           ;               LED_GREEN_Off();
+ 0040 7C0000            xcall _LED_GREEN_Off
+ 0043                   .dbline 39
+ 0043           ;               LED_BLUE_Off();
+ 0043 7C0000            xcall _LED_BLUE_Off
+ 0046                   .dbline 41
+ 0046           ; 
+ 0046           ;               if(CSD_bIsAnySensorActive())  /* is any sensor active */
+ 0046 7C0000            xcall _CSD_bIsAnySensorActive
+ 0049 20                pop X
+ 004A 62D000            mov REG[0xd0],>__r0
+ 004D 3900              cmp A,0
+ 004F A0BD              jz L5
+ 0051                   .dbline 43
+ 0051           ;               {
+ 0051           ;                       fingerposition = CSD_wGetCentroidPos(POS);  /*Get the centroid position for the system  */
+ 0051                   .dbline 43
+ 0051 10                push X
+ 0052 5001              mov A,1
+ 0054 7C0000            xcall _CSD_wGetCentroidPos
+ 0057 62D000            mov REG[0xd0],>__r0
+ 005A 5A00              mov [__r0],X
+ 005C 20                pop X
+ 005D 5401              mov [X+1],A
+ 005F 5100              mov A,[__r0]
+ 0061 5400              mov [X+0],A
+ 0063                   .dbline 44
+ 0063           ;                       PWM8_1_WritePeriod((BYTE)fingerposition/2);
+ 0063 5201              mov A,[X+1]
+ 0065 5300              mov [__r0],A
+ 0067 5002              mov A,2
+ 0069 08                push A
+ 006A 5100              mov A,[__r0]
+ 006C 08                push A
+ 006D 7C0000            xcall __divmodu_8X8_8
+ 0070 18                pop A
+ 0071 38FF              add SP,-1
+ 0073 10                push X
+ 0074 7C0000            xcall _PWM8_1_WritePeriod
+ 0077 20                pop X
+ 0078                   .dbline 45
+ 0078           ;                       PWM8_1_WritePulseWidth((BYTE)fingerposition/4);
+ 0078 62D000            mov REG[0xd0],>__r0
+ 007B 5201              mov A,[X+1]
+ 007D 5300              mov [__r0],A
+ 007F 5004              mov A,4
+ 0081 08                push A
+ 0082 5100              mov A,[__r0]
+ 0084 08                push A
+ 0085 7C0000            xcall __divmodu_8X8_8
+ 0088 18                pop A
+ 0089 38FF              add SP,-1
+ 008B 10                push X
+ 008C 7C0000            xcall _PWM8_1_WritePulseWidth
+ 008F 20                pop X
+ 0090                   .dbline 46
+ 0090           ;                       if(fingerposition < 33 && fingerposition >0) /*If the value returned from Centroid position is 
+ 0090 5201              mov A,[X+1]
+ 0092 1121              sub A,33
+ 0094 5200              mov A,[X+0]
+ 0096 3180              xor A,-128
+ 0098 1980              sbb A,(0 ^ 0x80)
+ 009A D021              jnc L7
+ 009C           X1:
+ 009C 5000              mov A,0
+ 009E 1301              sub A,[X+1]
+ 00A0 5200              mov A,[X+0]
+ 00A2 3180              xor A,-128
+ 00A4 62D000            mov REG[0xd0],>__r0
+ 00A7 5300              mov [__rX],A
+ 00A9 5080              mov A,(0 ^ 0x80)
+ 00AB 1A00              sbb A,[__rX]
+ 00AD D00E              jnc L7
+ 00AF           X2:
+ 00AF                   .dbline 49
+ 00AF           ;                                                      greater than 0 and less than or equal to 33 */
+ 00AF           ;                       {                       
+ 00AF           ;                               Data_Regs.led = BLUE;
+ 00AF                   .dbline 49
+ 00AF 62D000            mov REG[0xd0],>_Data_Regs
+ 00B2 550001            mov [_Data_Regs],1
+ 00B5                   .dbline 50
+ 00B5           ;                               LED_BLUE_On();
+ 00B5 10                push X
+ 00B6 7C0000            xcall _LED_BLUE_On
+ 00B9 20                pop X
+ 00BA                   .dbline 51
+ 00BA           ;                       }
+ 00BA 8049              xjmp L8
+ 00BC           L7:
+ 00BC                   .dbline 52
+ 00BC           ;                       else if(fingerposition < 66 && fingerposition >=33)  /*If the value returned from Centroid position is 
+ 00BC 5201              mov A,[X+1]
+ 00BE 1142              sub A,66
+ 00C0 5200              mov A,[X+0]
+ 00C2 3180              xor A,-128
+ 00C4 1980              sbb A,(0 ^ 0x80)
+ 00C6 D01A              jnc L9
+ 00C8           X3:
+ 00C8 5201              mov A,[X+1]
+ 00CA 1121              sub A,33
+ 00CC 5200              mov A,[X+0]
+ 00CE 3180              xor A,-128
+ 00D0 1980              sbb A,(0 ^ 0x80)
+ 00D2 C00E              jc L9
+ 00D4           X4:
+ 00D4                   .dbline 57
+ 00D4           ;                                                             greater than 33 and less than or equal to 66 */
+ 00D4           ; 
+ 00D4           ;                       {
+ 00D4           ;                               
+ 00D4           ;                               Data_Regs.led = GREEN;
+ 00D4                   .dbline 57
+ 00D4 62D000            mov REG[0xd0],>_Data_Regs
+ 00D7 550002            mov [_Data_Regs],2
+ 00DA                   .dbline 59
+ 00DA           ; 
+ 00DA           ;                               LED_GREEN_On();
+ 00DA 10                push X
+ 00DB 7C0000            xcall _LED_GREEN_On
+ 00DE 20                pop X
+ 00DF                   .dbline 60
+ 00DF           ;                       }
+ 00DF 8024              xjmp L10
+ 00E1           L9:
+ 00E1                   .dbline 61
+ 00E1           ;                       else if(fingerposition < 99 && fingerposition >=66)  /*If the value returned from Centroid position is
+ 00E1 5201              mov A,[X+1]
+ 00E3 1163              sub A,99
+ 00E5 5200              mov A,[X+0]
+ 00E7 3180              xor A,-128
+ 00E9 1980              sbb A,(0 ^ 0x80)
+ 00EB D018              jnc L11
+ 00ED           X5:
+ 00ED 5201              mov A,[X+1]
+ 00EF 1142              sub A,66
+ 00F1 5200              mov A,[X+0]
+ 00F3 3180              xor A,-128
+ 00F5 1980              sbb A,(0 ^ 0x80)
+ 00F7 C00C              jc L11
+ 00F9           X6:
+ 00F9                   .dbline 65
+ 00F9           ;                                                             greater than 66 and less than or equal to 99 */
+ 00F9           ;                       {
+ 00F9           ;                               
+ 00F9           ;                               Data_Regs.led = RED;
+ 00F9                   .dbline 65
+ 00F9 62D000            mov REG[0xd0],>_Data_Regs
+ 00FC 550003            mov [_Data_Regs],3
+ 00FF                   .dbline 66
+ 00FF           ;                               LED_RED_On();
+ 00FF 10                push X
+ 0100 7C0000            xcall _LED_RED_On
+ 0103 20                pop X
+ 0104                   .dbline 67
+ 0104           ;                       }
+ 0104           L11:
+ 0104           L10:
+ 0104           L8:
+ 0104                   .dbline 68
+ 0104           ;                       Data_Regs.sliderPos = (BYTE) fingerposition;                    
+ 0104 5201              mov A,[X+1]
+ 0106 62D000            mov REG[0xd0],>_Data_Regs
+ 0109 5301              mov [_Data_Regs+1],A
+ 010B                   .dbline 69
+ 010B           ;               }
+ 010B 800A              xjmp L6
+ 010D           L5:
+ 010D                   .dbline 71
+ 010D           ;               else
+ 010D           ;               {
+ 010D                   .dbline 73
+ 010D           ;                       
+ 010D           ;                       Data_Regs.sliderPos = 0;
+ 010D 62D000            mov REG[0xd0],>_Data_Regs
+ 0110 550100            mov [_Data_Regs+1],0
+ 0113                   .dbline 74
+ 0113           ;                       Data_Regs.led = 0;                      
+ 0113 550000            mov [_Data_Regs],0
+ 0116                   .dbline 75
+ 0116           ;               }
+ 0116           L6:
+ 0116                   .dbline 76
+ 0116           ;       }
+ 0116           L3:
+ 0116                   .dbline 33
+ 0116 8F1F              xjmp L2
+ 0118           X0:
+ 0118                   .dbline -2
+ 0118           L1:
+ 0118 38FE              add SP,-2
+ 011A 20                pop X
+ 011B                   .dbline 0 ; func end
+ 011B 8FFF              jmp .
+ 011D                   .dbsym l fingerposition 0 I
+ 011D                   .dbend
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\Buzzer\MF_CS_SLIDE\MF_CS_SLIDE\main.c
+ 0000           _Data_Regs::
+ 0000 0000              .byte 0,0
+ 0002                   .dbstruct 0 2 I2C_Regs
+ 0002                   .dbfield 0 led c
+ 0002                   .dbfield 1 sliderPos c
+ 0002                   .dbend
+ 0002                   .dbsym e Data_Regs _Data_Regs S[I2C_Regs]

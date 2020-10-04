@@ -1,0 +1,482 @@
+ 0000                   cpu LMM
+                        .module capsensecontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./capsensecontrol.c
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000                   .dbfunc e CapSenseControl_INIT _CapSenseControl_INIT fV
+ 0000           _CapSenseControl_INIT::
+ 0000                   .dbline -1
+ 0000                   .dbline 36
+ 0000           ; // Dodanie naglowka bilbioteki
+ 0000           ; #include "CapSenseControl.h"
+ 0000           ; 
+ 0000           ; // Biblioteka zawierająca typy danych, stale etc.
+ 0000           ; #include <m8c.h>   
+ 0000           ; // Biblioteka zaweriajace funkcje dla peryferiów    
+ 0000           ; #include "PSoCAPI.h"   
+ 0000           ; // Biblioteka udostepniajaca funkcje abs()
+ 0000           ; #include <stdlib.h>
+ 0000           ; 
+ 0000           ; // Deklaracja dzielnika
+ 0000           ; #define Ratio 50
+ 0000           ; 
+ 0000           ; 
+ 0000           ; CapSenseControl_DataStruct CapSenseControl_Data;
+ 0000           ; CapSenseControl_ScanStruct CapSenseControl_Scan;
+ 0000           ; 
+ 0000           ; // Zmienna dzieki ktorej mozliwe jest rozróżnienie
+ 0000           ; // Nacisniecia i gestu na suwaku
+ 0000           ; BOOL CapSensPush;
+ 0000           ; int fingerposition;
+ 0000           ; int loopQty; 
+ 0000           ; 
+ 0000           ; /// <summary>
+ 0000           ; /// Funkcja inicjalizująca suwak CapSense
+ 0000           ; /// </summary>
+ 0000           ; /// <remarks> 
+ 0000           ; /// <para> CSD_Start() - inicjalizuje moduł CSD</para>
+ 0000           ; /// <para>CSD_InitializeBaselines() - Załadowanie tablicy 
+ 0000           ; /// czujników CapSense</para>
+ 0000           ; /// <para>CSD_SetDefaultFingerThresholds() - aktywacja kalibracji 
+ 0000           ; /// modulu</para>
+ 0000           ; /// </remarks>
+ 0000           ; 
+ 0000           ; void CapSenseControl_INIT(void)
+ 0000           ; {
+ 0000                   .dbline 37
+ 0000           ;     CSD_Start();   
+ 0000 10                push X
+ 0001 7C0000            xcall _CSD_Start
+ 0004                   .dbline 38
+ 0004           ;       CSD_ScanAllSensors();   
+ 0004 7C0000            xcall _CSD_ScanAllSensors
+ 0007                   .dbline 39
+ 0007           ;       CSD_InitializeBaselines();   
+ 0007 7C0000            xcall _CSD_InitializeBaselines
+ 000A                   .dbline 40
+ 000A           ;       CSD_SetDefaultFingerThresholds();
+ 000A 7C0000            xcall _CSD_SetDefaultFingerThresholds
+ 000D 20                pop X
+ 000E                   .dbline 41
+ 000E           ;       CapSenseControl_Data.led = 3;
+ 000E 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 0011 550003            mov [_CapSenseControl_Data],3
+ 0014                   .dbline 42
+ 0014           ;       CapSenseControl_Scan.action=0;
+ 0014 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 0017 550000            mov [_CapSenseControl_Scan],0
+ 001A                   .dbline 43
+ 001A           ;       CapSenseControl_Scan.value=0;
+ 001A 550100            mov [_CapSenseControl_Scan+1],0
+ 001D                   .dbline 44
+ 001D           ;       CapSensPush=FALSE;
+ 001D 62D000            mov REG[0xd0],>_CapSensPush
+ 0020 550000            mov [_CapSensPush],0
+ 0023                   .dbline 45
+ 0023           ;       loopQty=0;
+ 0023 62D000            mov REG[0xd0],>_loopQty
+ 0026 550100            mov [_loopQty+1],0
+ 0029 550000            mov [_loopQty],0
+ 002C                   .dbline 46
+ 002C           ;       fingerposition=0;
+ 002C 62D000            mov REG[0xd0],>_fingerposition
+ 002F 550100            mov [_fingerposition+1],0
+ 0032 550000            mov [_fingerposition],0
+ 0035                   .dbline -2
+ 0035           L1:
+ 0035                   .dbline 0 ; func end
+ 0035 7F                ret
+ 0036                   .dbend
+ 0036                   .dbfunc e CapSenseControl_GetNewBlinkFreq _CapSenseControl_GetNewBlinkFreq fV
+ 0036           _CapSenseControl_GetNewBlinkFreq::
+ 0036                   .dbline -1
+ 0036 10                push X
+ 0037 4F                mov X,SP
+ 0038 3802              add SP,2
+ 003A                   .dbline 61
+ 003A           ; }
+ 003A           ; 
+ 003A           ; 
+ 003A           ; /// <summary>
+ 003A           ; /// Funkcja ustawia nowa wartosc czestotliwosci migania diody
+ 003A           ; /// </summary>
+ 003A           ; /// <remarks> 
+ 003A           ; /// <para> CSD_Start() - inicjalizuje moduł CSD</para>
+ 003A           ; /// <para>CSD_InitializeBaselines() - Załadowanie tablicy 
+ 003A           ; /// czujników CapSense</para>
+ 003A           ; /// <para>CSD_SetDefaultFingerThresholds() - aktywacja kalibracji 
+ 003A           ; /// modulu</para>
+ 003A           ; /// </remarks>
+ 003A           ; void CapSenseControl_GetNewBlinkFreq(void)
+ 003A           ; {
+ 003A                   .dbline 63
+ 003A           ;       // Pobranie pozycji palca 1 tryb pracy - suwak
+ 003A           ;       fingerposition = CSD_wGetCentroidPos(1); 
+ 003A 10                push X
+ 003B 5001              mov A,1
+ 003D 7C0000            xcall _CSD_wGetCentroidPos
+ 0040 62D000            mov REG[0xd0],>__r0
+ 0043 5A00              mov [__r0],X
+ 0045 20                pop X
+ 0046 08                push A
+ 0047 5100              mov A,[__r0]
+ 0049 62D000            mov REG[0xd0],>_fingerposition
+ 004C 5300              mov [_fingerposition],A
+ 004E 18                pop A
+ 004F 5301              mov [_fingerposition+1],A
+ 0051                   .dbline 66
+ 0051           ;       
+ 0051           ;       // Wyzerowanie pozycji palca oraz ustawienie trybu push
+ 0051           ;       if (!CapSensPush && CapSenseControl_Data.sliderPos==0)
+ 0051 62D000            mov REG[0xd0],>_CapSensPush
+ 0054 3C0000            cmp [_CapSensPush],0
+ 0057 B019              jnz L4
+ 0059 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 005C 3C0100            cmp [_CapSenseControl_Data+1],0
+ 005F B011              jnz L4
+ 0061                   .dbline 68
+ 0061           ;       {
+ 0061           ;               CapSenseControl_Data.sliderPos = (BYTE) fingerposition;
+ 0061                   .dbline 68
+ 0061 62D000            mov REG[0xd0],>_fingerposition
+ 0064 5101              mov A,[_fingerposition+1]
+ 0066 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 0069 5301              mov [_CapSenseControl_Data+1],A
+ 006B                   .dbline 69
+ 006B           ;               CapSensPush = TRUE;
+ 006B 62D000            mov REG[0xd0],>_CapSensPush
+ 006E 550001            mov [_CapSensPush],1
+ 0071                   .dbline 70
+ 0071           ;       }
+ 0071           L4:
+ 0071                   .dbline 74
+ 0071           ;       
+ 0071           ;       // Jeśli różnica miedzy aktualny pomiarem a poprzednim wieksza niz 10
+ 0071           ;       // Wykrycie wykonania gestu
+ 0071           ;       if ( abs(CapSenseControl_Data.sliderPos-fingerposition) >=10)
+ 0071 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 0074 5101              mov A,[_CapSenseControl_Data+1]
+ 0076 62D000            mov REG[0xd0],>__r0
+ 0079 5300              mov [__r1],A
+ 007B 550000            mov [__r0],0
+ 007E 62D000            mov REG[0xd0],>_fingerposition
+ 0081 5101              mov A,[_fingerposition+1]
+ 0083 62D000            mov REG[0xd0],>__r0
+ 0086 1400              sub [__r1],A
+ 0088 62D000            mov REG[0xd0],>_fingerposition
+ 008B 5100              mov A,[_fingerposition]
+ 008D 62D000            mov REG[0xd0],>__r0
+ 0090 1C00              sbb [__r0],A
+ 0092 5100              mov A,[__r0]
+ 0094 08                push A
+ 0095 5100              mov A,[__r1]
+ 0097 08                push A
+ 0098 7C0000            xcall _abs
+ 009B 38FE              add SP,-2
+ 009D 62D000            mov REG[0xd0],>__r0
+ 00A0 5100              mov A,[__r1]
+ 00A2 110A              sub A,10
+ 00A4 5100              mov A,[__r0]
+ 00A6 3180              xor A,-128
+ 00A8 1980              sbb A,(0 ^ 0x80)
+ 00AA C098              jc L8
+ 00AC           X0:
+ 00AC                   .dbline 78
+ 00AC           ;       {
+ 00AC           ;               // Gest w prawo 1 w lewo 2
+ 00AC           ;               // Ustawienie trybu na gest
+ 00AC           ;               CapSenseControl_Scan.action = CapSenseControl_Data.sliderPos-fingerposition>0 ? 1 : 2;
+ 00AC                   .dbline 78
+ 00AC 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 00AF 5101              mov A,[_CapSenseControl_Data+1]
+ 00B1 62D000            mov REG[0xd0],>__r0
+ 00B4 5300              mov [__r1],A
+ 00B6 550000            mov [__r0],0
+ 00B9 62D000            mov REG[0xd0],>_fingerposition
+ 00BC 5101              mov A,[_fingerposition+1]
+ 00BE 62D000            mov REG[0xd0],>__r0
+ 00C1 1400              sub [__r1],A
+ 00C3 62D000            mov REG[0xd0],>_fingerposition
+ 00C6 5100              mov A,[_fingerposition]
+ 00C8 62D000            mov REG[0xd0],>__r0
+ 00CB 1C00              sbb [__r0],A
+ 00CD 5000              mov A,0
+ 00CF 1200              sub A,[__r1]
+ 00D1 5100              mov A,[__r0]
+ 00D3 3180              xor A,-128
+ 00D5 5300              mov [__rX],A
+ 00D7 5080              mov A,(0 ^ 0x80)
+ 00D9 1A00              sbb A,[__rX]
+ 00DB D009              jnc L13
+ 00DD           X1:
+ 00DD 560101            mov [X+1],1
+ 00E0 560000            mov [X+0],0
+ 00E3 8007              xjmp L14
+ 00E5           L13:
+ 00E5 560102            mov [X+1],2
+ 00E8 560000            mov [X+0],0
+ 00EB           L14:
+ 00EB 5201              mov A,[X+1]
+ 00ED 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 00F0 5300              mov [_CapSenseControl_Scan],A
+ 00F2                   .dbline 79
+ 00F2           ;               CapSenseControl_Scan.value = abs(CapSenseControl_Data.sliderPos-fingerposition)/Ratio;
+ 00F2 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 00F5 5101              mov A,[_CapSenseControl_Data+1]
+ 00F7 62D000            mov REG[0xd0],>__r0
+ 00FA 5300              mov [__r1],A
+ 00FC 550000            mov [__r0],0
+ 00FF 62D000            mov REG[0xd0],>_fingerposition
+ 0102 5101              mov A,[_fingerposition+1]
+ 0104 62D000            mov REG[0xd0],>__r0
+ 0107 1400              sub [__r1],A
+ 0109 62D000            mov REG[0xd0],>_fingerposition
+ 010C 5100              mov A,[_fingerposition]
+ 010E 62D000            mov REG[0xd0],>__r0
+ 0111 1C00              sbb [__r0],A
+ 0113 5100              mov A,[__r0]
+ 0115 08                push A
+ 0116 5100              mov A,[__r1]
+ 0118 08                push A
+ 0119 7C0000            xcall _abs
+ 011C 38FE              add SP,-2
+ 011E 62D000            mov REG[0xd0],>__r0
+ 0121 5000              mov A,0
+ 0123 08                push A
+ 0124 5032              mov A,50
+ 0126 08                push A
+ 0127 5100              mov A,[__r0]
+ 0129 08                push A
+ 012A 5100              mov A,[__r1]
+ 012C 08                push A
+ 012D 7C0000            xcall __divmod_16X16_16
+ 0130 18                pop A
+ 0131 5300              mov [__r1],A
+ 0133 18                pop A
+ 0134 38FE              add SP,-2
+ 0136 5100              mov A,[__r1]
+ 0138 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 013B 5301              mov [_CapSenseControl_Scan+1],A
+ 013D                   .dbline 80
+ 013D           ;               CapSensPush = FALSE;
+ 013D 62D000            mov REG[0xd0],>_CapSensPush
+ 0140 550000            mov [_CapSensPush],0
+ 0143                   .dbline 81
+ 0143           ;       }       
+ 0143           L8:
+ 0143                   .dbline -2
+ 0143           L3:
+ 0143 38FE              add SP,-2
+ 0145 20                pop X
+ 0146                   .dbline 0 ; func end
+ 0146 7F                ret
+ 0147                   .dbend
+ 0147                   .dbfunc e CapSenseControl_ChangeActiveLED _CapSenseControl_ChangeActiveLED fV
+ 0147           _CapSenseControl_ChangeActiveLED::
+ 0147                   .dbline -1
+ 0147                   .dbline 93
+ 0147           ; }
+ 0147           ; 
+ 0147           ; /// <summary>
+ 0147           ; /// Funkcja determinuje czy po nacisnieciu ma zostac wlaczona
+ 0147           ; /// nastepna czy poprzednia dioda.
+ 0147           ; /// </summary>
+ 0147           ; /// <remarks> 
+ 0147           ; /// <para> loopQty - Zabezpieczenie, przez 10 wywolan funkcji
+ 0147           ; /// nalezy trzymac palec w tej samej pozycji na suwaku</para>
+ 0147           ; /// </remarks>
+ 0147           ; void CapSenseControl_ChangeActiveLED(void)
+ 0147           ; {
+ 0147                   .dbline 94
+ 0147           ;       loopQty++;
+ 0147 62D000            mov REG[0xd0],>_loopQty
+ 014A 7601              inc [_loopQty+1]
+ 014C 0E0000            adc [_loopQty],0
+ 014F                   .dbline 95
+ 014F           ;       if (loopQty>=10)
+ 014F 5101              mov A,[_loopQty+1]
+ 0151 110A              sub A,10
+ 0153 5100              mov A,[_loopQty]
+ 0155 3180              xor A,-128
+ 0157 1980              sbb A,(0 ^ 0x80)
+ 0159 C05E              jc L18
+ 015B           X2:
+ 015B                   .dbline 97
+ 015B           ;       {                       
+ 015B           ;               if (CapSensPush)
+ 015B                   .dbline 97
+ 015B 62D000            mov REG[0xd0],>_CapSensPush
+ 015E 3C0000            cmp [_CapSensPush],0
+ 0161 A041              jz L20
+ 0163                   .dbline 99
+ 0163           ;               {
+ 0163           ;                       if(fingerposition < 50 && fingerposition >=0)
+ 0163                   .dbline 99
+ 0163 62D000            mov REG[0xd0],>_fingerposition
+ 0166 5101              mov A,[_fingerposition+1]
+ 0168 1132              sub A,50
+ 016A 5100              mov A,[_fingerposition]
+ 016C 3180              xor A,-128
+ 016E 1980              sbb A,(0 ^ 0x80)
+ 0170 D022              jnc L22
+ 0172           X3:
+ 0172 62D000            mov REG[0xd0],>_fingerposition
+ 0175 5101              mov A,[_fingerposition+1]
+ 0177 1100              sub A,0
+ 0179 5100              mov A,[_fingerposition]
+ 017B 3180              xor A,-128
+ 017D 1980              sbb A,(0 ^ 0x80)
+ 017F C013              jc L22
+ 0181           X4:
+ 0181                   .dbline 101
+ 0181           ;                       {
+ 0181           ;                               CapSenseControl_Scan.action = 3;
+ 0181                   .dbline 101
+ 0181 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 0184 550003            mov [_CapSenseControl_Scan],3
+ 0187                   .dbline 102
+ 0187           ;                               CapSenseControl_Scan.value = CapSenseControl_Data.led;                                          
+ 0187 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 018A 5100              mov A,[_CapSenseControl_Data]
+ 018C 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 018F 5301              mov [_CapSenseControl_Scan+1],A
+ 0191                   .dbline 103
+ 0191           ;                       }
+ 0191 8011              xjmp L23
+ 0193           L22:
+ 0193                   .dbline 105
+ 0193           ;                       else
+ 0193           ;                       {
+ 0193                   .dbline 106
+ 0193           ;                       CapSenseControl_Scan.action = 4;
+ 0193 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 0196 550004            mov [_CapSenseControl_Scan],4
+ 0199                   .dbline 107
+ 0199           ;                       CapSenseControl_Scan.value = CapSenseControl_Data.led;                                          
+ 0199 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 019C 5100              mov A,[_CapSenseControl_Data]
+ 019E 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 01A1 5301              mov [_CapSenseControl_Scan+1],A
+ 01A3                   .dbline 108
+ 01A3           ;                       }
+ 01A3           L23:
+ 01A3                   .dbline 109
+ 01A3           ;               }                                                                                                                               
+ 01A3           L20:
+ 01A3                   .dbline 110
+ 01A3           ;               loopQty=0;
+ 01A3 62D000            mov REG[0xd0],>_loopQty
+ 01A6 550100            mov [_loopQty+1],0
+ 01A9 550000            mov [_loopQty],0
+ 01AC                   .dbline 111
+ 01AC           ;               CapSensPush = FALSE;
+ 01AC 62D000            mov REG[0xd0],>_CapSensPush
+ 01AF 550000            mov [_CapSensPush],0
+ 01B2                   .dbline 112
+ 01B2           ;               CapSenseControl_Data.sliderPos = 0;
+ 01B2 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 01B5 550100            mov [_CapSenseControl_Data+1],0
+ 01B8                   .dbline 113
+ 01B8           ;       }
+ 01B8           L18:
+ 01B8                   .dbline -2
+ 01B8           L17:
+ 01B8                   .dbline 0 ; func end
+ 01B8 7F                ret
+ 01B9                   .dbend
+ 01B9                   .dbstruct 0 2 CapSenseControl_ScanStruct
+ 01B9                   .dbfield 0 action c
+ 01B9                   .dbfield 1 value c
+ 01B9                   .dbend
+ 01B9                   .dbfunc e CapSenseControl_DoScan _CapSenseControl_DoScan fS[CapSenseControl_ScanStruct]
+ 01B9           _CapSenseControl_DoScan::
+ 01B9                   .dbline -1
+ 01B9 10                push X
+ 01BA 4F                mov X,SP
+ 01BB                   .dbline 120
+ 01BB           ; }
+ 01BB           ; 
+ 01BB           ; /// <summary>
+ 01BB           ; /// Glowna funkcja skanujaca suwak
+ 01BB           ; /// </summary>
+ 01BB           ; CapSenseControl_ScanStruct CapSenseControl_DoScan(void)
+ 01BB           ; {     
+ 01BB                   .dbline 121
+ 01BB           ;       CapSenseControl_Scan.action=0;
+ 01BB 62D000            mov REG[0xd0],>_CapSenseControl_Scan
+ 01BE 550000            mov [_CapSenseControl_Scan],0
+ 01C1                   .dbline 122
+ 01C1           ;       CapSenseControl_Scan.value=0;
+ 01C1 550100            mov [_CapSenseControl_Scan+1],0
+ 01C4                   .dbline 123
+ 01C4           ;       CSD_ScanAllSensors(); 
+ 01C4 10                push X
+ 01C5 7C0000            xcall _CSD_ScanAllSensors
+ 01C8                   .dbline 124
+ 01C8           ;       CSD_UpdateAllBaselines();
+ 01C8 7C0000            xcall _CSD_UpdateAllBaselines
+ 01CB                   .dbline 126
+ 01CB           ;       
+ 01CB           ;       CSD_bIsAnySensorActive() ? CapSenseControl_GetNewBlinkFreq() : CapSenseControl_ChangeActiveLED();
+ 01CB 7C0000            xcall _CSD_bIsAnySensorActive
+ 01CE 20                pop X
+ 01CF 62D000            mov REG[0xd0],>__r0
+ 01D2 3900              cmp A,0
+ 01D4 A005              jz L30
+ 01D6 9E5E              xcall _CapSenseControl_GetNewBlinkFreq
+ 01D8 8003              xjmp L31
+ 01DA           L30:
+ 01DA 9F6B              xcall _CapSenseControl_ChangeActiveLED
+ 01DC           L31:
+ 01DC                   .dbline 127
+ 01DC           ;       return CapSenseControl_Scan;
+ 01DC 62D000            mov REG[0xd0],>__r0
+ 01DF 550000            mov [__r1],<_CapSenseControl_Scan
+ 01E2 550000            mov [__r0],>_CapSenseControl_Scan
+ 01E5 52FC              mov A,[X-4]
+ 01E7 5300              mov [__r3],A
+ 01E9 52FB              mov A,[X-5]
+ 01EB 5300              mov [__r2],A
+ 01ED 5100              mov A,[__r0]
+ 01EF 60D4              mov REG[0xd4],A
+ 01F1 5100              mov A,[__r2]
+ 01F3 60D5              mov REG[0xd5],A
+ 01F5 3E00              mvi A,[__r1]
+ 01F7 3F00              mvi [__r3],A
+ 01F9 3E00              mvi A,[__r1]
+ 01FB 3F00              mvi [__r3],A
+ 01FD                   .dbline -2
+ 01FD           L27:
+ 01FD 20                pop X
+ 01FE                   .dbline 0 ; func end
+ 01FE 7F                ret
+ 01FF                   .dbend
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000           _loopQty::
+ 0000 0000              .byte 0,0
+ 0002                   .dbsym e loopQty _loopQty I
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000           _fingerposition::
+ 0000 0000              .byte 0,0
+ 0002                   .dbsym e fingerposition _fingerposition I
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000           _CapSensPush::
+ 0000 00                .byte 0
+ 0001                   .dbsym e CapSensPush _CapSensPush c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000           _CapSenseControl_Scan::
+ 0000 0000              .byte 0,0
+ 0002                   .dbsym e CapSenseControl_Scan _CapSenseControl_Scan S[CapSenseControl_ScanStruct]
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\capsensecontrol.c
+ 0000           _CapSenseControl_Data::
+ 0000 0000              .byte 0,0
+ 0002                   .dbstruct 0 2 CapSenseControl_DataStruct
+ 0002                   .dbfield 0 led c
+ 0002                   .dbfield 1 sliderPos c
+ 0002                   .dbend
+ 0002                   .dbsym e CapSenseControl_Data _CapSenseControl_Data S[CapSenseControl_DataStruct]

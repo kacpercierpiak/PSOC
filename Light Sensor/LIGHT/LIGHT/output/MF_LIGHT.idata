@@ -1,0 +1,5 @@
+flash  AE1 SRAM   12:
+ 00 9 bytes
+flash  AE5 SRAM   1B:
+ <size at next line>  32  0 32  0 32
+  [size:] 5 bytes

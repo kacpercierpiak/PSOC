@@ -1,0 +1,48 @@
+# DO NOT DELETE
+./obj/boot.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8ssc.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\lib\GlobalParams.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./obj/capsensecontrol.o :  ./lib/CSD.h ./lib/LED_BLUE.h ./lib/LED_GREEN.h\
+   ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/_const.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/limits.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/stdlib.h\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\CapSenseControl.h
+./obj/ledcontrol.o :  ./lib/CSD.h ./lib/LED_BLUE.h ./lib/LED_GREEN.h\
+   ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\LEDControl.h
+./obj/main.o :  ./lib/CSD.h ./lib/LED_BLUE.h ./lib/LED_GREEN.h\
+   ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\CapSenseControl.h\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\LEDControl.h
+./lib/obj/csd.o :  ./lib/CSD.inc ./lib/GlobalParams.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/csdhl.o :  ./lib/CSD.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/csdint.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/csdtable.o :  ./lib/CSD.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/led_blue.o :  ./lib/LED_BLUE.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/led_green.o :  ./lib/LED_GREEN.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/led_red.o :  ./lib/LED_RED.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/psocconfig.o :  ./lib/GlobalParams.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\CapSense\CapSense\CapSense\memory.inc
+./lib/obj/psocconfigtbl.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc

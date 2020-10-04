@@ -1,0 +1,732 @@
+ 0000                   cpu LMM
+                        .module ledcontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./ledcontrol.c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./ledcontrol.c
+ 0000           _LEDControl_RT::
+ 0000 0032              .word 50
+ 0002                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+ 0002                   .dbsym e LEDControl_RT _LEDControl_RT I
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+ 0000           _LEDControl_BT::
+ 0000 0032              .word 50
+ 0002                   .dbsym e LEDControl_BT _LEDControl_BT I
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+ 0000           _LEDControl_GT::
+ 0000 0032              .word 50
+ 0002                   .dbsym e LEDControl_GT _LEDControl_GT I
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\ledcontrol.c
+ 0000                   .dbfunc e LEDControl_INIT _LEDControl_INIT fV
+ 0000           _LEDControl_INIT::
+ 0000                   .dbline -1
+ 0000                   .dbline 17
+ 0000           ; #include "LEDControl.h"
+ 0000           ; #include <m8c.h>        
+ 0000           ; #include "PSoCAPI.h"    
+ 0000           ; #include <stdlib.h>
+ 0000           ; 
+ 0000           ; #define Interval 50
+ 0000           ; #define IntervalLimit 80
+ 0000           ; #define BLUE  1
+ 0000           ; #define GREEN 2
+ 0000           ; #define RED           3
+ 0000           ; 
+ 0000           ; 
+ 0000           ;       int LEDControl_RT = 50;
+ 0000           ;       int LEDControl_BT = 50;
+ 0000           ;       int LEDControl_GT = 50;
+ 0000           ; void LEDControl_INIT(void)
+ 0000           ; {
+ 0000                   .dbline 18
+ 0000           ;       LED_BLUE_Start();
+ 0000 10                push X
+ 0001 7C0000            xcall _LED_BLUE_Start
+ 0004                   .dbline 19
+ 0004           ;       LED_GREEN_Start();
+ 0004 7C0000            xcall _LED_GREEN_Start
+ 0007                   .dbline 20
+ 0007           ;       LED_RED_Start();
+ 0007 7C0000            xcall _LED_RED_Start
+ 000A                   .dbline 21
+ 000A           ;     LED_RED_On();
+ 000A 7C0000            xcall _LED_RED_On
+ 000D 20                pop X
+ 000E                   .dbline -2
+ 000E           L1:
+ 000E                   .dbline 0 ; func end
+ 000E 7F                ret
+ 000F                   .dbend
+ 000F                   .dbfunc e LEDControl_ChangeState _LEDControl_ChangeState fV
+ 000F           ;           blue -> X-6
+ 000F           ;          green -> X-5
+ 000F           ;            red -> X-4
+ 000F           _LEDControl_ChangeState::
+ 000F                   .dbline -1
+ 000F 10                push X
+ 0010 4F                mov X,SP
+ 0011                   .dbline 24
+ 0011           ; }
+ 0011           ; void LEDControl_ChangeState(BOOL red,BOOL green,BOOL blue)
+ 0011           ; {
+ 0011                   .dbline 25
+ 0011           ;       if (red)
+ 0011 3DFC00            cmp [X-4],0
+ 0014 A008              jz L3
+ 0016                   .dbline 26
+ 0016           ;               LED_RED_On();
+ 0016 10                push X
+ 0017 7C0000            xcall _LED_RED_On
+ 001A 20                pop X
+ 001B 8006              xjmp L4
+ 001D           L3:
+ 001D                   .dbline 28
+ 001D           ;       else
+ 001D           ;               LED_RED_Off();
+ 001D 10                push X
+ 001E 7C0000            xcall _LED_RED_Off
+ 0021 20                pop X
+ 0022           L4:
+ 0022                   .dbline 29
+ 0022           ;       if (green)
+ 0022 3DFB00            cmp [X-5],0
+ 0025 A008              jz L5
+ 0027                   .dbline 30
+ 0027           ;               LED_GREEN_On();
+ 0027 10                push X
+ 0028 7C0000            xcall _LED_GREEN_On
+ 002B 20                pop X
+ 002C 8006              xjmp L6
+ 002E           L5:
+ 002E                   .dbline 32
+ 002E           ;       else
+ 002E           ;               LED_GREEN_Off();
+ 002E 10                push X
+ 002F 7C0000            xcall _LED_GREEN_Off
+ 0032 20                pop X
+ 0033           L6:
+ 0033                   .dbline 33
+ 0033           ;       if (blue)
+ 0033 3DFA00            cmp [X-6],0
+ 0036 A008              jz L7
+ 0038                   .dbline 34
+ 0038           ;               LED_BLUE_On();
+ 0038 10                push X
+ 0039 7C0000            xcall _LED_BLUE_On
+ 003C 20                pop X
+ 003D 8006              xjmp L8
+ 003F           L7:
+ 003F                   .dbline 36
+ 003F           ;       else
+ 003F           ;               LED_BLUE_Off();
+ 003F 10                push X
+ 0040 7C0000            xcall _LED_BLUE_Off
+ 0043 20                pop X
+ 0044           L8:
+ 0044                   .dbline -2
+ 0044           L2:
+ 0044 20                pop X
+ 0045                   .dbline 0 ; func end
+ 0045 7F                ret
+ 0046                   .dbsym l blue -6 c
+ 0046                   .dbsym l green -5 c
+ 0046                   .dbsym l red -4 c
+ 0046                   .dbend
+ 0046                   .dbfunc e LEDControl_ChangeStateSwitch _LEDControl_ChangeStateSwitch fc
+ 0046           ;          isASC -> X-5
+ 0046           ;            led -> X-4
+ 0046           _LEDControl_ChangeStateSwitch::
+ 0046                   .dbline -1
+ 0046 10                push X
+ 0047 4F                mov X,SP
+ 0048 10                push X
+ 0049                   .dbline 39
+ 0049           ; }
+ 0049           ; BYTE LEDControl_ChangeStateSwitch(BYTE led ,BOOL isASC)
+ 0049           ; {
+ 0049                   .dbline 41
+ 0049           ;       
+ 0049           ;       switch (led)
+ 0049 3DFC00            cmp [X-4],0
+ 004C A012              jz L13
+ 004E 3DFC01            cmp [X-4],1
+ 0051 A05F              jz L19
+ 0053 3DFC02            cmp [X-4],2
+ 0056 A031              jz L16
+ 0058 3DFC03            cmp [X-4],3
+ 005B A080              jz L22
+ 005D 80A9              xjmp L10
+ 005F           L13:
+ 005F                   .dbline 44
+ 005F           ;                               {
+ 005F           ;                                       case 0:
+ 005F           ;                                               if(isASC)
+ 005F 3DFB00            cmp [X-5],0
+ 0062 A013              jz L14
+ 0064                   .dbline 46
+ 0064           ;                                               {
+ 0064           ;                                               LEDControl_ChangeState(TRUE,FALSE,FALSE);       
+ 0064                   .dbline 46
+ 0064 5000              mov A,0
+ 0066 08                push A
+ 0067 08                push A
+ 0068 5001              mov A,1
+ 006A 08                push A
+ 006B 9FA2              xcall _LEDControl_ChangeState
+ 006D 38FD              add SP,-3
+ 006F                   .dbline 47
+ 006F           ;                                               return RED;
+ 006F 62D000            mov REG[0xd0],>__r0
+ 0072 5003              mov A,3
+ 0074 8097              xjmp L9
+ 0076           L14:
+ 0076                   .dbline 50
+ 0076           ;                                               }
+ 0076           ;                                               else 
+ 0076           ;                                               {
+ 0076                   .dbline 51
+ 0076           ;                                               LEDControl_ChangeState(FALSE,FALSE,TRUE);       
+ 0076 5001              mov A,1
+ 0078 08                push A
+ 0079 5000              mov A,0
+ 007B 08                push A
+ 007C 08                push A
+ 007D 9F90              xcall _LEDControl_ChangeState
+ 007F 38FD              add SP,-3
+ 0081                   .dbline 52
+ 0081           ;                                               return BLUE;
+ 0081 62D000            mov REG[0xd0],>__r0
+ 0084 5001              mov A,1
+ 0086 8085              xjmp L9
+ 0088           L16:
+ 0088                   .dbline 56
+ 0088           ;                                               }
+ 0088           ;                                               break;
+ 0088           ;                                       case GREEN:
+ 0088           ;                                               if(isASC)
+ 0088 3DFB00            cmp [X-5],0
+ 008B A013              jz L17
+ 008D                   .dbline 58
+ 008D           ;                                               {
+ 008D           ;                                               LEDControl_ChangeState(FALSE,FALSE,TRUE);                       
+ 008D                   .dbline 58
+ 008D 5001              mov A,1
+ 008F 08                push A
+ 0090 5000              mov A,0
+ 0092 08                push A
+ 0093 08                push A
+ 0094 9F79              xcall _LEDControl_ChangeState
+ 0096 38FD              add SP,-3
+ 0098                   .dbline 59
+ 0098           ;                                               return BLUE;
+ 0098 62D000            mov REG[0xd0],>__r0
+ 009B 5001              mov A,1
+ 009D 806E              xjmp L9
+ 009F           L17:
+ 009F                   .dbline 62
+ 009F           ;                                               }
+ 009F           ;                                               else 
+ 009F           ;                                               {
+ 009F                   .dbline 63
+ 009F           ;                                               LEDControl_ChangeState(TRUE,FALSE,FALSE);       
+ 009F 5000              mov A,0
+ 00A1 08                push A
+ 00A2 08                push A
+ 00A3 5001              mov A,1
+ 00A5 08                push A
+ 00A6 9F67              xcall _LEDControl_ChangeState
+ 00A8 38FD              add SP,-3
+ 00AA                   .dbline 64
+ 00AA           ;                                               return RED;
+ 00AA 62D000            mov REG[0xd0],>__r0
+ 00AD 5003              mov A,3
+ 00AF 805C              xjmp L9
+ 00B1           L19:
+ 00B1                   .dbline 68
+ 00B1           ;                                               }
+ 00B1           ;                                               break;
+ 00B1           ;                                       case BLUE:
+ 00B1           ;                                               if(isASC)
+ 00B1 3DFB00            cmp [X-5],0
+ 00B4 A013              jz L20
+ 00B6                   .dbline 70
+ 00B6           ;                                               {
+ 00B6           ;                                               LEDControl_ChangeState(TRUE,FALSE,FALSE);               
+ 00B6                   .dbline 70
+ 00B6 5000              mov A,0
+ 00B8 08                push A
+ 00B9 08                push A
+ 00BA 5001              mov A,1
+ 00BC 08                push A
+ 00BD 9F50              xcall _LEDControl_ChangeState
+ 00BF 38FD              add SP,-3
+ 00C1                   .dbline 71
+ 00C1           ;                                               return RED;
+ 00C1 62D000            mov REG[0xd0],>__r0
+ 00C4 5003              mov A,3
+ 00C6 8045              xjmp L9
+ 00C8           L20:
+ 00C8                   .dbline 74
+ 00C8           ;                                               }
+ 00C8           ;                                               else 
+ 00C8           ;                                               {
+ 00C8                   .dbline 75
+ 00C8           ;                                               LEDControl_ChangeState(FALSE,TRUE,FALSE);       
+ 00C8 5000              mov A,0
+ 00CA 08                push A
+ 00CB 5001              mov A,1
+ 00CD 08                push A
+ 00CE 5000              mov A,0
+ 00D0 08                push A
+ 00D1 9F3C              xcall _LEDControl_ChangeState
+ 00D3 38FD              add SP,-3
+ 00D5                   .dbline 76
+ 00D5           ;                                               return GREEN;
+ 00D5 62D000            mov REG[0xd0],>__r0
+ 00D8 5002              mov A,2
+ 00DA 8031              xjmp L9
+ 00DC           L22:
+ 00DC                   .dbline 80
+ 00DC           ;                                               }
+ 00DC           ;                                               break;
+ 00DC           ;                                       case RED:
+ 00DC           ;                                               if(isASC)
+ 00DC 3DFB00            cmp [X-5],0
+ 00DF A015              jz L23
+ 00E1                   .dbline 82
+ 00E1           ;                                               {
+ 00E1           ;                                               LEDControl_ChangeState(FALSE,TRUE,FALSE);                       
+ 00E1                   .dbline 82
+ 00E1 5000              mov A,0
+ 00E3 08                push A
+ 00E4 5001              mov A,1
+ 00E6 08                push A
+ 00E7 5000              mov A,0
+ 00E9 08                push A
+ 00EA 9F23              xcall _LEDControl_ChangeState
+ 00EC 38FD              add SP,-3
+ 00EE                   .dbline 83
+ 00EE           ;                                               return GREEN;
+ 00EE 62D000            mov REG[0xd0],>__r0
+ 00F1 5002              mov A,2
+ 00F3 8018              xjmp L9
+ 00F5           L23:
+ 00F5                   .dbline 86
+ 00F5           ;                                               }
+ 00F5           ;                                               else 
+ 00F5           ;                                               {
+ 00F5                   .dbline 87
+ 00F5           ;                                               LEDControl_ChangeState(FALSE,FALSE,TRUE);       
+ 00F5 5001              mov A,1
+ 00F7 08                push A
+ 00F8 5000              mov A,0
+ 00FA 08                push A
+ 00FB 08                push A
+ 00FC 9F11              xcall _LEDControl_ChangeState
+ 00FE 38FD              add SP,-3
+ 0100                   .dbline 88
+ 0100           ;                                               return BLUE;
+ 0100 62D000            mov REG[0xd0],>__r0
+ 0103 5001              mov A,1
+ 0105 8006              xjmp L9
+ 0107           L10:
+ 0107                   .dbline 92
+ 0107           ;                                               }
+ 0107           ;                                               break;
+ 0107           ;                                       default:
+ 0107           ;                                               return 0;
+ 0107 62D000            mov REG[0xd0],>__r0
+ 010A 5000              mov A,0
+ 010C                   .dbline 93
+ 010C           ;                                               break;
+ 010C                   .dbline -2
+ 010C           L9:
+ 010C 20                pop X
+ 010D 20                pop X
+ 010E                   .dbline 0 ; func end
+ 010E 7F                ret
+ 010F                   .dbsym l isASC -5 c
+ 010F                   .dbsym l led -4 c
+ 010F                   .dbend
+ 010F                   .dbfunc e LEDControl_ChangeFrequency _LEDControl_ChangeFrequency fV
+ 010F           ;          isAdd -> X-7
+ 010F           ;          value -> X-6
+ 010F           ;            led -> X-4
+ 010F           _LEDControl_ChangeFrequency::
+ 010F                   .dbline -1
+ 010F 10                push X
+ 0110 4F                mov X,SP
+ 0111 10                push X
+ 0112                   .dbline 98
+ 0112           ;                               }
+ 0112           ;                       
+ 0112           ; }
+ 0112           ; void LEDControl_ChangeFrequency(BYTE led,int value,BYTE isAdd)
+ 0112           ; {
+ 0112                   .dbline 99
+ 0112           ;       switch (led)
+ 0112 3DFC01            cmp [X-4],1
+ 0115 A051              jz L36
+ 0117 3DFC02            cmp [X-4],2
+ 011A A092              jz L43
+ 011C 3DFC03            cmp [X-4],3
+ 011F B0D1              jnz L27
+ 0121           L29:
+ 0121                   .dbline 102
+ 0121           ;               {
+ 0121           ;                       case RED:
+ 0121           ;                               if (isAdd)
+ 0121 3DF900            cmp [X-7],0
+ 0124 A02A              jz L30
+ 0126                   .dbline 104
+ 0126           ;                               {
+ 0126           ;                                       LEDControl_RT=LEDControl_RT+value;
+ 0126                   .dbline 104
+ 0126 62D000            mov REG[0xd0],>_LEDControl_RT
+ 0129 52FB              mov A,[X-5]
+ 012B 0401              add [_LEDControl_RT+1],A
+ 012D 52FA              mov A,[X-6]
+ 012F 0C00              adc [_LEDControl_RT],A
+ 0131                   .dbline 105
+ 0131           ;                                       if(LEDControl_RT>IntervalLimit)
+ 0131 5050              mov A,80
+ 0133 1201              sub A,[_LEDControl_RT+1]
+ 0135 5100              mov A,[_LEDControl_RT]
+ 0137 3180              xor A,-128
+ 0139 62D000            mov REG[0xd0],>__r0
+ 013C 5300              mov [__rX],A
+ 013E 5080              mov A,(0 ^ 0x80)
+ 0140 1A00              sbb A,[__rX]
+ 0142 D0AE              jnc L27
+ 0144           X0:
+ 0144                   .dbline 106
+ 0144           ;                                       LEDControl_RT=IntervalLimit;
+ 0144 62D000            mov REG[0xd0],>_LEDControl_RT
+ 0147 550150            mov [_LEDControl_RT+1],80
+ 014A 550000            mov [_LEDControl_RT],0
+ 014D                   .dbline 107
+ 014D           ;                               }
+ 014D 80A3              xjmp L27
+ 014F           L30:
+ 014F                   .dbline 109
+ 014F           ;                               else 
+ 014F           ;                               {
+ 014F                   .dbline 110
+ 014F           ;                                       LEDControl_RT=LEDControl_RT-value;      
+ 014F 62D000            mov REG[0xd0],>_LEDControl_RT
+ 0152 52FB              mov A,[X-5]
+ 0154 1401              sub [_LEDControl_RT+1],A
+ 0156 52FA              mov A,[X-6]
+ 0158 1C00              sbb [_LEDControl_RT],A
+ 015A                   .dbline 111
+ 015A           ;                                       if(LEDControl_RT<0)
+ 015A 470080            tst [_LEDControl_RT],-128
+ 015D A093              jz L27
+ 015F                   .dbline 112
+ 015F           ;                                               LEDControl_RT=0;
+ 015F 550100            mov [_LEDControl_RT+1],0
+ 0162 550000            mov [_LEDControl_RT],0
+ 0165                   .dbline 113
+ 0165           ;                               }
+ 0165                   .dbline 114
+ 0165           ;                               break;
+ 0165 808B              xjmp L27
+ 0167           L36:
+ 0167                   .dbline 116
+ 0167           ;                       case BLUE:
+ 0167           ;                               if (isAdd)
+ 0167 3DF900            cmp [X-7],0
+ 016A A02A              jz L37
+ 016C                   .dbline 118
+ 016C           ;                               {
+ 016C           ;                                       LEDControl_BT=LEDControl_BT+value;
+ 016C                   .dbline 118
+ 016C 62D000            mov REG[0xd0],>_LEDControl_BT
+ 016F 52FB              mov A,[X-5]
+ 0171 0401              add [_LEDControl_BT+1],A
+ 0173 52FA              mov A,[X-6]
+ 0175 0C00              adc [_LEDControl_BT],A
+ 0177                   .dbline 119
+ 0177           ;                                       if(LEDControl_BT>IntervalLimit)
+ 0177 5050              mov A,80
+ 0179 1201              sub A,[_LEDControl_BT+1]
+ 017B 5100              mov A,[_LEDControl_BT]
+ 017D 3180              xor A,-128
+ 017F 62D000            mov REG[0xd0],>__r0
+ 0182 5300              mov [__rX],A
+ 0184 5080              mov A,(0 ^ 0x80)
+ 0186 1A00              sbb A,[__rX]
+ 0188 D068              jnc L27
+ 018A           X1:
+ 018A                   .dbline 120
+ 018A           ;                                       LEDControl_BT=IntervalLimit;
+ 018A 62D000            mov REG[0xd0],>_LEDControl_BT
+ 018D 550150            mov [_LEDControl_BT+1],80
+ 0190 550000            mov [_LEDControl_BT],0
+ 0193                   .dbline 121
+ 0193           ;                               }
+ 0193 805D              xjmp L27
+ 0195           L37:
+ 0195                   .dbline 123
+ 0195           ;                               else 
+ 0195           ;                               {
+ 0195                   .dbline 124
+ 0195           ;                                       LEDControl_BT=LEDControl_BT-value;      
+ 0195 62D000            mov REG[0xd0],>_LEDControl_BT
+ 0198 52FB              mov A,[X-5]
+ 019A 1401              sub [_LEDControl_BT+1],A
+ 019C 52FA              mov A,[X-6]
+ 019E 1C00              sbb [_LEDControl_BT],A
+ 01A0                   .dbline 125
+ 01A0           ;                                       if(LEDControl_BT<0)
+ 01A0 470080            tst [_LEDControl_BT],-128
+ 01A3 A04D              jz L27
+ 01A5                   .dbline 126
+ 01A5           ;                                       LEDControl_BT=0;
+ 01A5 550100            mov [_LEDControl_BT+1],0
+ 01A8 550000            mov [_LEDControl_BT],0
+ 01AB                   .dbline 127
+ 01AB           ;                               }
+ 01AB                   .dbline 128
+ 01AB           ;                               break;
+ 01AB 8045              xjmp L27
+ 01AD           L43:
+ 01AD                   .dbline 130
+ 01AD           ;                       case GREEN:
+ 01AD           ;                               if (isAdd)
+ 01AD 3DF900            cmp [X-7],0
+ 01B0 A02A              jz L44
+ 01B2                   .dbline 132
+ 01B2           ;                               {
+ 01B2           ;                                       LEDControl_GT=LEDControl_GT+value;
+ 01B2                   .dbline 132
+ 01B2 62D000            mov REG[0xd0],>_LEDControl_GT
+ 01B5 52FB              mov A,[X-5]
+ 01B7 0401              add [_LEDControl_GT+1],A
+ 01B9 52FA              mov A,[X-6]
+ 01BB 0C00              adc [_LEDControl_GT],A
+ 01BD                   .dbline 133
+ 01BD           ;                                       if(LEDControl_GT>IntervalLimit)
+ 01BD 5050              mov A,80
+ 01BF 1201              sub A,[_LEDControl_GT+1]
+ 01C1 5100              mov A,[_LEDControl_GT]
+ 01C3 3180              xor A,-128
+ 01C5 62D000            mov REG[0xd0],>__r0
+ 01C8 5300              mov [__rX],A
+ 01CA 5080              mov A,(0 ^ 0x80)
+ 01CC 1A00              sbb A,[__rX]
+ 01CE D022              jnc L27
+ 01D0           X2:
+ 01D0                   .dbline 134
+ 01D0           ;                                       LEDControl_GT=IntervalLimit;
+ 01D0 62D000            mov REG[0xd0],>_LEDControl_GT
+ 01D3 550150            mov [_LEDControl_GT+1],80
+ 01D6 550000            mov [_LEDControl_GT],0
+ 01D9                   .dbline 135
+ 01D9           ;                               }
+ 01D9 8017              xjmp L27
+ 01DB           L44:
+ 01DB                   .dbline 137
+ 01DB           ;                               else 
+ 01DB           ;                               {
+ 01DB                   .dbline 138
+ 01DB           ;                                       LEDControl_GT=LEDControl_GT-value;      
+ 01DB 62D000            mov REG[0xd0],>_LEDControl_GT
+ 01DE 52FB              mov A,[X-5]
+ 01E0 1401              sub [_LEDControl_GT+1],A
+ 01E2 52FA              mov A,[X-6]
+ 01E4 1C00              sbb [_LEDControl_GT],A
+ 01E6                   .dbline 139
+ 01E6           ;                                       if(LEDControl_GT<0)
+ 01E6 470080            tst [_LEDControl_GT],-128
+ 01E9 A007              jz L27
+ 01EB                   .dbline 140
+ 01EB           ;                                       LEDControl_GT=0;
+ 01EB 550100            mov [_LEDControl_GT+1],0
+ 01EE 550000            mov [_LEDControl_GT],0
+ 01F1                   .dbline 141
+ 01F1           ;                               }
+ 01F1                   .dbline 142
+ 01F1           ;                               break;
+ 01F1                   .dbline 144
+ 01F1           ;                       default:
+ 01F1           ;                               break; 
+ 01F1           L27:
+ 01F1                   .dbline -2
+ 01F1           L25:
+ 01F1 20                pop X
+ 01F2 20                pop X
+ 01F3                   .dbline 0 ; func end
+ 01F3 7F                ret
+ 01F4                   .dbsym l isAdd -7 c
+ 01F4                   .dbsym l value -6 I
+ 01F4                   .dbsym l led -4 c
+ 01F4                   .dbend
+ 01F4                   .dbfunc e LEDControl_Blink _LEDControl_Blink fI
+ 01F4           ;      blinkLoop -> X-6
+ 01F4           ;            led -> X-4
+ 01F4           _LEDControl_Blink::
+ 01F4                   .dbline -1
+ 01F4 10                push X
+ 01F5 4F                mov X,SP
+ 01F6 10                push X
+ 01F7                   .dbline 148
+ 01F7           ;               }
+ 01F7           ; }
+ 01F7           ; int LEDControl_Blink(BYTE led, int blinkLoop)
+ 01F7           ; {
+ 01F7                   .dbline 149
+ 01F7           ;       switch (led)
+ 01F7 3DFC01            cmp [X-4],1
+ 01FA A03B              jz L57
+ 01FC 3DFC02            cmp [X-4],2
+ 01FF A066              jz L60
+ 0201 3DFC03            cmp [X-4],3
+ 0204 B091              jnz L51
+ 0206           L54:
+ 0206                   .dbline 152
+ 0206           ;               {
+ 0206           ;                       case RED:
+ 0206           ;                               if (blinkLoop>=LEDControl_RT)
+ 0206 62D000            mov REG[0xd0],>_LEDControl_RT
+ 0209 52FB              mov A,[X-5]
+ 020B 1201              sub A,[_LEDControl_RT+1]
+ 020D 5100              mov A,[_LEDControl_RT]
+ 020F 3180              xor A,-128
+ 0211 62D000            mov REG[0xd0],>__r0
+ 0214 5300              mov [__rX],A
+ 0216 52FA              mov A,[X-6]
+ 0218 3180              xor A,-128
+ 021A 1A00              sbb A,[__rX]
+ 021C C00C              jc L55
+ 021E           X3:
+ 021E                   .dbline 154
+ 021E           ;                               {
+ 021E           ;                                       LED_RED_Invert();
+ 021E                   .dbline 154
+ 021E 10                push X
+ 021F 7C0000            xcall _LED_RED_Invert
+ 0222 20                pop X
+ 0223                   .dbline 155
+ 0223           ;                                       blinkLoop = 0;
+ 0223 56FB00            mov [X-5],0
+ 0226 56FA00            mov [X-6],0
+ 0229                   .dbline 156
+ 0229           ;                               }
+ 0229           L55:
+ 0229                   .dbline 157
+ 0229           ;                               return blinkLoop;
+ 0229 62D000            mov REG[0xd0],>__r0
+ 022C 52FB              mov A,[X-5]
+ 022E 5300              mov [__r1],A
+ 0230 52FA              mov A,[X-6]
+ 0232 5300              mov [__r0],A
+ 0234 806C              xjmp L50
+ 0236           L57:
+ 0236                   .dbline 160
+ 0236           ;                               break;
+ 0236           ;                       case BLUE:
+ 0236           ;                               if (blinkLoop>=LEDControl_BT)
+ 0236 62D000            mov REG[0xd0],>_LEDControl_BT
+ 0239 52FB              mov A,[X-5]
+ 023B 1201              sub A,[_LEDControl_BT+1]
+ 023D 5100              mov A,[_LEDControl_BT]
+ 023F 3180              xor A,-128
+ 0241 62D000            mov REG[0xd0],>__r0
+ 0244 5300              mov [__rX],A
+ 0246 52FA              mov A,[X-6]
+ 0248 3180              xor A,-128
+ 024A 1A00              sbb A,[__rX]
+ 024C C00C              jc L58
+ 024E           X4:
+ 024E                   .dbline 162
+ 024E           ;                               {
+ 024E           ;                                       LED_BLUE_Invert();
+ 024E                   .dbline 162
+ 024E 10                push X
+ 024F 7C0000            xcall _LED_BLUE_Invert
+ 0252 20                pop X
+ 0253                   .dbline 163
+ 0253           ;                                       blinkLoop = 0;
+ 0253 56FB00            mov [X-5],0
+ 0256 56FA00            mov [X-6],0
+ 0259                   .dbline 164
+ 0259           ;                               }
+ 0259           L58:
+ 0259                   .dbline 165
+ 0259           ;                               return blinkLoop;
+ 0259 62D000            mov REG[0xd0],>__r0
+ 025C 52FB              mov A,[X-5]
+ 025E 5300              mov [__r1],A
+ 0260 52FA              mov A,[X-6]
+ 0262 5300              mov [__r0],A
+ 0264 803C              xjmp L50
+ 0266           L60:
+ 0266                   .dbline 168
+ 0266           ;                               break;
+ 0266           ;                       case GREEN:
+ 0266           ;                               if (blinkLoop>=LEDControl_GT)
+ 0266 62D000            mov REG[0xd0],>_LEDControl_GT
+ 0269 52FB              mov A,[X-5]
+ 026B 1201              sub A,[_LEDControl_GT+1]
+ 026D 5100              mov A,[_LEDControl_GT]
+ 026F 3180              xor A,-128
+ 0271 62D000            mov REG[0xd0],>__r0
+ 0274 5300              mov [__rX],A
+ 0276 52FA              mov A,[X-6]
+ 0278 3180              xor A,-128
+ 027A 1A00              sbb A,[__rX]
+ 027C C00C              jc L61
+ 027E           X5:
+ 027E                   .dbline 170
+ 027E           ;                               {
+ 027E           ;                                       LED_GREEN_Invert();
+ 027E                   .dbline 170
+ 027E 10                push X
+ 027F 7C0000            xcall _LED_GREEN_Invert
+ 0282 20                pop X
+ 0283                   .dbline 171
+ 0283           ;                                       blinkLoop = 0;
+ 0283 56FB00            mov [X-5],0
+ 0286 56FA00            mov [X-6],0
+ 0289                   .dbline 172
+ 0289           ;                               }
+ 0289           L61:
+ 0289                   .dbline 173
+ 0289           ;                               return blinkLoop;
+ 0289 62D000            mov REG[0xd0],>__r0
+ 028C 52FB              mov A,[X-5]
+ 028E 5300              mov [__r1],A
+ 0290 52FA              mov A,[X-6]
+ 0292 5300              mov [__r0],A
+ 0294 800C              xjmp L50
+ 0296           L51:
+ 0296                   .dbline 176
+ 0296           ;                               break;
+ 0296           ;                       default:
+ 0296           ;                       return blinkLoop;
+ 0296 62D000            mov REG[0xd0],>__r0
+ 0299 52FB              mov A,[X-5]
+ 029B 5300              mov [__r1],A
+ 029D 52FA              mov A,[X-6]
+ 029F 5300              mov [__r0],A
+ 02A1                   .dbline 177
+ 02A1           ;                               break; 
+ 02A1                   .dbline -2
+ 02A1           L50:
+ 02A1 20                pop X
+ 02A2 20                pop X
+ 02A3                   .dbline 0 ; func end
+ 02A3 7F                ret
+ 02A4                   .dbsym l blinkLoop -6 I
+ 02A4                   .dbsym l led -4 c
+ 02A4                   .dbend

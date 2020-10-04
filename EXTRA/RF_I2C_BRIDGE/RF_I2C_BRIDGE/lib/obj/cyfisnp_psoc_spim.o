@@ -1,0 +1,218 @@
+XH
+H 3 areas 21 global symbols
+M cyfisnp_psoc_spim.asm
+A text size 0 flags 0
+dbfile lib/cyfisnp_psoc_spim.asm
+dbfunc 0 ? 0 I
+dbfile CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile ./lib/PSoCGPIOInt.inc
+dbfunc 0 ? 0 I
+dbfile CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc
+dbfunc 0 ? 0 I
+dbfile ./lib/CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile lib/cyfisnp_psoc_spim.asm
+dbfunc 0 ? 0 I
+dbfile Memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/cyfisnp_psoc_spim.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc
+dbfunc 0 ? 0 I
+A InterruptRAM size 5 flags 20
+S CYFISNP_Len Def0003
+S CYFISNP_Ptr Def0002
+S CYFISNP_WipLen Def0001
+S CYFISNP_WipPtr Def0000
+A UserModules size E9 flags 0
+dbfile lib/cyfisnp_psoc_spim.asm
+dbfunc 0 ? 0 I
+dbline 2 0
+dbline A4 2
+dbline A8 3
+dbline 4 5
+dbline C6 8
+dbline C7 A
+dbline D8 C
+dbline DB E
+dbline DC F
+dbline 2 11
+dbline 3 14
+dbline 102 16
+dbline 103 17
+dbline 104 18
+dbline 126 19
+dbline 5 1B
+dbline 12B 1E
+dbline 4 1F
+dbline 14C 22
+dbline 14D 24
+dbline 2 26
+dbline 3 29
+dbline 15F 2B
+dbline 2 2D
+dbline 3 30
+dbline 184 32
+dbline 185 33
+dbline 186 34
+dbline 1AA 35
+dbline 1AB 37
+dbline 1AC 39
+dbline 1AD 3B
+dbline 1AE 3D
+dbline 1AF 3F
+dbline 1B3 41
+dbline 2 43
+dbline 3 46
+dbline 1B6 48
+dbline 1B7 4A
+dbline 1B9 4C
+dbline 5 4E
+dbline 1BD 51
+dbline 1EC 52
+dbline 1ED 54
+dbline 1F1 56
+dbline 1FA 58
+dbline 200 5B
+dbline 201 5C
+dbline 202 5E
+dbline 4 60
+dbline 206 63
+dbline 210 65
+dbline 2 67
+dbline 3 6A
+dbline 23B 6C
+dbline 23C 6E
+dbline 23D 6F
+dbline 2 71
+dbline 3 74
+dbline 24A 76
+dbline 24B 79
+dbline 5 7B
+dbline 298 7E
+dbline 2AF 7F
+dbline 2B0 81
+dbline 2C6 83
+dbline 2FD 85
+dbline 305 88
+dbline 314 8B
+dbline 315 8C
+dbline 4 8E
+dbline 31E 91
+dbline 31F 93
+dbline 325 95
+dbline 326 96
+dbline 327 98
+dbline 340 99
+dbline 346 9B
+dbline 35D 9D
+dbline 35E 9E
+dbline 35F A0
+dbline 365 A2
+dbline 366 A5
+dbline 36D A6
+dbline 36F A8
+dbline 376 AA
+dbline 379 AC
+dbline 381 AE
+dbline 2 B1
+dbline 3 B4
+dbline 3E8 B6
+dbline 3EF B8
+dbline 3F0 BA
+dbline 3F1 BC
+dbline 408 BD
+dbline 40E BF
+dbline 40F C0
+dbline 464 C2
+dbline 465 C3
+dbline 46E C5
+dbline 46F C7
+dbline 472 C9
+dbline 473 CB
+dbline 48B CD
+dbline 491 CF
+dbline 492 D0
+dbline 4E8 D2
+dbline 4E9 D3
+dbline 4F6 D5
+dbline 4F7 D8
+dbline 4FA DA
+dbline 4FB DC
+dbline 4FC DD
+dbline 500 DF
+dbline 501 E0
+dbline 502 E2
+dbline 5 E3
+dbline 509 E6
+dbline 2 E7
+S _CYFISNP_FileReadRaw Def0085
+S $sb$CYFISNP_BurstWriteWipRaw Def0052
+S _CYFISNP_WriteRaw Def0003
+S $se$CYFISNP_BurstWriteWipRaw Def007F
+S _CYFISNP_BurstWriteRaw Def0056
+S CYFISNP_ReadRaw Def0005
+S CYFISNP_ReadStatusDebouncedRaw Def001F
+S CYFISNP_FileWriteRaw Def0058
+S CYFISNP_BurstReadRaw Def0083
+S $sb$CYFISNP_ReadStatusDebouncedRaw Def001F
+S $sb$CYFISNP_BurstReadRaw Def0083
+S $se$CYFISNP_ReadStatusDebouncedRaw Def0052
+S $se$CYFISNP_BurstReadRaw Def00E7
+S CYFISNP_FileWriteWipRaw Def005B
+S CYFISNP_BurstReadWipRaw Def007F
+S $sb$CYFISNP_BurstReadWipRaw Def007F
+S _CYFISNP_ReadRaw Def0005
+S $se$CYFISNP_BurstReadWipRaw Def0083
+S CYFISNP_WriteSwappedRaw Def0002
+S _CYFISNP_ReadStatusDebouncedRaw Def001F
+S _CYFISNP_FileWriteRaw Def0058
+S _CYFISNP_BurstReadRaw Def0083
+S CYFISNP_FileReadRaw Def0085
+S $sb$CYFISNP_WriteSwappedRaw Def0002
+S $se$CYFISNP_WriteSwappedRaw Def001F
+S CYFISNP_WriteRaw Def0003
+S CYFISNP_BurstWriteRaw Def0056
+S CYFISNP_FileReadWipRaw Def008B
+S CYFISNP_BurstWriteWipRaw Def0052
+T 00 00 71 00 4B 29 80 41 08 7F 60 29 5D 2A 5D 2B
+R 00 00 00 02
+T 00 0E 5B 60 29 49 2B 40 AF FC 40 40 40 5D 2A 43
+R 00 00 00 02
+T 00 1C 08 80 7F 41 08 7F 60 29 5D 2A 49 2B 10 AF
+R 00 00 00 02
+T 00 2A FC 60 29 49 2B 40 AF FC 40 40 40 5D 2A 53
+R 00 00 00 02
+T 00 38 00 04 21 03 A0 10 39 03 A0 0C 60 29 49 2B
+R 00 00 00 02 01 02 00 01
+T 00 45 08 AF FC 5D 2A 2C 00 04 51 00 04 43 08 80
+R 00 00 00 02 01 08 00 01 01 0B 00 01
+T 00 51 7F 29 40 80 06 29 40 5F 00 00 00 02 79 C0
+R 00 00 00 02 01 0A 00 01 01 0C 00 01
+T 00 5D 21 29 80 41 08 7F 60 29 3E 00 00 49 2B 10
+R 00 00 00 02 01 0B 00 01
+T 00 6A AF FC 60 29 79 DF F5 49 2B 10 AF FC 49 2B
+R 00 00 00 02
+T 00 78 20 AF FC 43 08 80 7F 29 40 80 09 29 40 5F
+R 00 00 00 02
+T 00 86 00 00 00 02 5F 00 01
+R 00 00 00 02 01 02 00 01 01 04 00 01 01 07 00 01
+T 00 8A 00 03 79 C0 59 41 08 7F 60 29 5D 2A 4E 4C
+R 00 00 00 02 01 02 00 01
+T 00 97 00 00 4E 5D 2B 60 29 5B 12 00 01 D0 09 55
+R 00 00 00 02 01 02 00 01 01 0B 00 01
+T 00 A3 00 04 00 5B 14 00 01 80 08 53 00 04 58
+R 00 00 00 02 01 02 00 01 01 07 00 01 01 0C 00 01
+T 00 AD 00 01 55 00 01 00 49 2B 40 AF FC 80 0B 60
+R 00 00 00 02 01 02 00 01 01 05 00 01
+T 00 B9 29 5D 2A 08 50 05 78 BF FE 79 DF F4 58
+R 00 00 00 02
+T 00 C6 00 04 80 0A 60 29 5D 2A 50 05 78 BF FE 79
+R 00 00 00 02 01 02 00 01
+T 00 D3 DF F5 3C 00 01 00 A0 06 5D 2A 08 7A 00 01
+R 00 00 00 02 01 05 00 01 01 0E 00 01
+T 00 DF 4E 4C 00 00 4E 43 08 80 7F 38 00
+R 00 00 00 02 01 04 00 01

@@ -1,0 +1,1703 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20000303 Stylable//EN" "http://www.w3.org/TR/2000/03/WD-SVG-20000303/DTD/ svg-20000303-stylable.dtd">
+
+<svg zoomAndPan="magnify" xmlns:xmlns="http://www.w3.org/2000/svg-20000303-stylable" font-family="Helvetica" preserveAspectRatio="xMinYMin meet" viewBox=" 0 0 1056 1125">
+  
+
+
+  
+
+
+
+  <desc>
+    InterConnect View 
+  </desc>
+  
+
+
+  
+
+  <style type="text/css">
+  </style>
+  
+
+
+  <script type="text/ecmascript">
+    
+  
+     
+  </script>
+  
+
+
+  <g id="docBody">
+      
+
+    	
+
+    <defs>
+      
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkYellow2">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="50%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkYellow3">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="10%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="20%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="30%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="40%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="50%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="60%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="70%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="80%" />
+         
+		
+        <stop style="stop-color:navajowhite" offset="90%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkYellow">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:goldenrod" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkCyan">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:darkcyan" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientMagenta">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:magenta" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientCyan">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:cyan" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+									
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientBlue">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:dodgerblue" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkGreen">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:forestgreen" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientNoColor">
+         
+		
+        <stop style="stop-color:white" offset="0%" />
+         
+		
+        <stop style="stop-color:lightgrey" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientRed">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:indianred" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkMagenta">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:mediumorchid" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientGreen">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:lightgreen" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientYellow">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:yellow" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      <linearGradient gradientTransform="rotate(90)" id="MyGradientDarkRed">
+         
+		
+        <stop style="stop-color:lightgrey" offset="0%" />
+         
+		
+        <stop style="stop-color:firebrick" offset="100%" />
+         
+		//
+        <stop style="stop-color:black" offset="100%" />
+         
+	
+      </linearGradient>
+       
+
+	
+      
+	
+      <marker preserveAspectRatio="xMidYMid meet" refY="4" refX="4" markerHeight="10" markerWidth="10" id="mCircle">
+        
+		
+        <circle style="fill:black stroke:black" r="3" cy="4" cx="4" />
+        
+	
+      </marker>
+      
+
+	
+      
+
+	
+      <g id="Symbol_AND">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+	
+			
+          <path d="M20.641,17.88H6.12V0     h14.521l1.92,0.24l1.92,0.6l1.68,1.08L27.6,3.36l1.08,1.68L29.4,6.96L29.641,9l-0.24,2.041l-0.721,1.799L27.6,14.52l-1.439,1.44     l-1.68,1.08l-1.92,0.6L20.641,17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.50,9 l 5 0" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+	
+	
+      <g id="Symbol_OR">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M35.76,9H17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_XOR">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M35.76,9H17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12     l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32     l2.16,1.56l1.68,1.68L29.641,9" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M3.84,17.88l1.44-2.16     l0.96-2.28l0.6-2.16L7.08,9L6.84,6.72l-0.6-2.28L5.28,2.16L3.84,0" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_NOT">
+        
+		
+        <g transform="scale(.52)">
+          
+			
+          <path d="M13.439,6.72l0.24,0.601l0.48,0.359h0.6    l0.6-0.359L15.48,6.72l-0.121-0.6l-0.6-0.36h-0.6l-0.48,0.36L13.439,6.72 M0,0l13.439,6.72L0,13.439V0" stroke-linejoin="round" stroke-width="1.15" />
+          
+			
+          <path d="M14.52,6.72h5.641" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.15" />
+          
+		
+        </g>
+        
+	
+      </g>
+      	
+
+	
+      <g id="Symbol_NAND">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M35.76,9H17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M32.16,9l-0.12-0.72     L31.561,7.8L30.84,7.68l-0.6,0.12l-0.6,0.48L29.52,9l0.121,0.72l0.6,0.479l0.6,0.12l0.721-0.12L32.04,9.72L32.16,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M20.641,17.88H6.12V0     h14.521l1.92,0.24l1.92,0.6l1.68,1.08L27.6,3.36l1.08,1.68L29.4,6.96L29.641,9l-0.24,2.041l-0.721,1.799L27.6,14.52l-1.439,1.44     l-1.68,1.08l-1.92,0.6L20.641,17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_NOR">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M35.76,9H17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M32.16,9l-0.12-0.72     L31.561,7.8L30.84,7.68l-0.6,0.12l-0.6,0.48L29.52,9l0.121,0.72l0.6,0.479l0.6,0.12l0.721-0.12L32.04,9.72L32.16,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_XNOR">
+        
+		
+        <g transform="scale(.35)">
+          
+			
+          <path d="M35.76,9H17.88" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12     l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32     l2.16,1.56l1.68,1.68L29.641,9" />
+          
+			
+          <path d="M29.641,9l-1.441,1.8     L26.4,12.48l-2.041,1.439l-2.399,1.32l-2.761,1.08l-2.879,0.96L13.2,17.88H6.12l1.44-2.16l1.08-2.28l0.6-2.16L9.48,9L9.24,6.72     l-0.6-2.28L7.56,2.16L6.12,0h7.08l3.12,0.6l2.879,0.96l2.761,1.08l2.399,1.32l2.16,1.56l1.68,1.68L29.641,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M3.84,17.88l1.44-2.16     l0.96-2.28l0.6-2.16L7.08,9L6.84,6.72l-0.6-2.28L5.28,2.16L3.84,0" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+			
+          <path d="M32.16,9l-0.12-0.72     L31.561,7.8L30.84,7.68l-0.6,0.12l-0.6,0.48L29.52,9l0.121,0.72l0.6,0.479l0.6,0.12l0.721-0.12L32.04,9.72L32.16,9" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_FALSE">
+        
+		
+        <g transform="scale(.40)">
+          
+			
+          <path d="M49.81,9.25     L49.57,7.21l-0.72-1.92l-1.08-1.68l-1.44-1.44l-1.68-1.08l-1.921-0.6L40.69,0.25l-1.92,0.24l-1.92,0.6l-1.68,1.08l-1.441,1.44     L32.65,5.29l-0.72,1.92l-0.24,2.04l0.24,2.04l0.72,1.92l1.079,1.681l1.441,1.439l1.68,1.08l1.92,0.6l1.92,0.24l2.039-0.24     l1.921-0.6l1.68-1.08l1.44-1.439l1.08-1.681l0.72-1.92L49.81,9.25" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      	
+
+	
+      <g id="Symbol_TRUE">
+        
+		
+        <g transform="scale(.40)">
+          
+				
+          <path d="M4.81,0.25v18" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+				
+          <path d="M0.25,18.25h9.12" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+				
+          <path d="M4.81,0.25L0.25,4.69" stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" />
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      <g id="Symbol_GROUND">
+        
+		
+        <g transform="scale(.40)">
+          
+			
+          <path d="M6.72,22.44V4.8" stroke-linejoin="round" stroke-linecap="square" stroke-width="1.5" />
+          
+			
+          <path d="M3.96,5.52L6.72,0l2.76,5.52H3.96" />
+          
+			
+          <text startOffset="0" transform="matrix(1 0 0 1 0 30.6001)">
+            <tspan font-size="8" font-family="'Courier-Bold'" y="0" x="0">
+              VCC
+            </tspan>
+          </text>
+          
+		
+        </g>
+        
+	
+      </g>
+      
+
+	
+      
+
+	
+      
+	
+	
+      
+
+
+    </defs>
+    
+
+
+
+    
+
+
+    
+
+    <g id="background">
+      
+
+
+	
+      <rect style="fill:  none" height="100%" width="100%" y="0" x="0" id="anchor_pt0" />
+      
+	
+      <rect style="fill:  none" height="96400" width="94000" y="-38560" x="-37600" id="anchor_pt2" />
+      
+	
+      <rect style="fill:  none" height="19280" width="18800" y="0" x="0" id="anchor_pt" />
+      
+
+	
+      <text startOffset="0" y="16" x="425" style="font-family:Sans-Serif;font-size:16;;" id="XYText" />
+      
+	
+	//commented out circle where cursor is
+	
+      <circle cy="0" cx="0" visibility="hidden" stroke="orange" fill="none" r="10" id="cursor" />
+      
+
+
+
+    </g>
+    
+
+
+    
+
+    <g id="Tab1">
+      
+
+      
+
+    </g>
+    
+
+
+
+    <text startOffset="0" y="100" x="100" style="font-family:Sans-Serif;font-size:32;;" id="DbgText" />
+    	
+
+  </g>
+  
+
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 22 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="29.125" x="12">
+      Port_0_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 22 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="29.125" x="958.9999999999999">
+      Port_0_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 32.25 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="39.375" x="12">
+      Port_0_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 32.25 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="39.375" x="958.9999999999999">
+      Port_0_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 42.5 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="49.625" x="12">
+      Port_0_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 42.5 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="49.625" x="958.9999999999999">
+      Port_0_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 52.75 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="59.875" x="12">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 52.75 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="59.875" x="958.9999999999999">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 63 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="70.125" x="12">
+      Port_0_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 63 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="70.125" x="958.9999999999999">
+      Port_0_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 73.25 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="80.375" x="12">
+      Port_0_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 73.25 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="80.375" x="958.9999999999999">
+      Port_0_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 83.5 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="90.625" x="12">
+      Port_0_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 83.5 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="90.625" x="958.9999999999999">
+      Port_0_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 93.75 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="100.875" x="12">
+      Port_0_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 93.75 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="100.875" x="958.9999999999999">
+      Port_0_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 109.125 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="116.25" x="12">
+      Port_1_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 109.125 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="116.25" x="958.9999999999999">
+      Port_1_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 119.375 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="126.5" x="12">
+      Port_1_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 119.375 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="126.5" x="958.9999999999999">
+      Port_1_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 129.625 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="136.75" x="12">
+      Port_1_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 129.625 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="136.75" x="958.9999999999999">
+      Port_1_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 139.875 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="147" x="12">
+      Port_1_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 139.875 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="147" x="958.9999999999999">
+      Port_1_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 150.125 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="157.25" x="12">
+      Port_1_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 150.125 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="157.25" x="958.9999999999999">
+      Port_1_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 160.375 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="167.5" x="12">
+      Port_1_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 160.375 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="167.5" x="958.9999999999999">
+      Port_1_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 170.625 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="177.75" x="12">
+      Port_1_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 170.625 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="177.75" x="958.9999999999999">
+      Port_1_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 180.875 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="188" x="12">
+      Port_1_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 180.875 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="188" x="958.9999999999999">
+      Port_1_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 196.25 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="203.375" x="12">
+      Port_2_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 196.25 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="203.375" x="958.9999999999999">
+      Port_2_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 206.5 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="213.625" x="12">
+      Port_2_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 206.5 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="213.625" x="958.9999999999999">
+      Port_2_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 216.75 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="223.875" x="12">
+      Port_2_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 216.75 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="223.875" x="958.9999999999999">
+      Port_2_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 227 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="234.125" x="12">
+      Port_2_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 227 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="234.125" x="958.9999999999999">
+      Port_2_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 237.25 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="244.375" x="12">
+      Port_2_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_4">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 237.25 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="244.375" x="958.9999999999999">
+      Port_2_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 247.5 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="254.625" x="12">
+      Port_2_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_5">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 247.5 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="254.625" x="958.9999999999999">
+      Port_2_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 257.75 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="264.875" x="12">
+      Port_2_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_6">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 257.75 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="264.875" x="958.9999999999999">
+      Port_2_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_2_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 268 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_2_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="275.125" x="12">
+      Port_2_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_2_7">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 268 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_2_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="275.125" x="958.9999999999999">
+      Port_2_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_3_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 283.375 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_3_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="290.5" x="12">
+      Port_3_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_3_0">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 283.375 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_3_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="290.5" x="958.9999999999999">
+      Port_3_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_3_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 293.625 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_3_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="300.75" x="12">
+      Port_3_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_3_1">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 293.625 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_3_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="300.75" x="958.9999999999999">
+      Port_3_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_3_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 303.875 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_3_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="311" x="12">
+      Port_3_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_3_2">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 303.875 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_3_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="311" x="958.9999999999999">
+      Port_3_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_3_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 314.125 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_3_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="321.25" x="12">
+      Port_3_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_3_3">
+    <path style="stroke:green;stroke-width:0.50;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 956.9999999999999 314.125 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_3_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="321.25" x="958.9999999999999">
+      Port_3_3
+    </text>
+  </g>
+  <path id="GlobalInEven_0" style="stroke:green;stroke-width:1.125;fill:none;" d="M 260.66666666666663 22 l 0 305" />
+  <path id="GlobalInEven_1" style="stroke:green;stroke-width:1.125;fill:none;" d="M 252.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_2" style="stroke:green;stroke-width:1.125;fill:none;" d="M 244.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_3" style="stroke:green;stroke-width:1.125;fill:none;" d="M 236.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_4" style="stroke:green;stroke-width:1.125;fill:none;" d="M 222.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_5" style="stroke:green;stroke-width:1.125;fill:none;" d="M 214.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_6" style="stroke:green;stroke-width:1.125;fill:none;" d="M 206.66666666666666 22 l 0 305" />
+  <path id="GlobalInEven_7" style="stroke:green;stroke-width:1.125;fill:none;" d="M 198.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_0" style="stroke:green;stroke-width:1.125;fill:none;" d="M 184.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_1" style="stroke:green;stroke-width:1.125;fill:none;" d="M 176.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_2" style="stroke:green;stroke-width:1.125;fill:none;" d="M 168.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_3" style="stroke:green;stroke-width:1.125;fill:none;" d="M 160.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_4" style="stroke:green;stroke-width:1.125;fill:none;" d="M 146.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_5" style="stroke:green;stroke-width:1.125;fill:none;" d="M 138.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_6" style="stroke:green;stroke-width:1.125;fill:none;" d="M 130.66666666666666 22 l 0 305" />
+  <path id="GlobalInOdd_7" style="stroke:green;stroke-width:1.125;fill:none;" d="M 122.66666666666666 22 l 0 305" />
+  <path id="AnalogMUXBus" style="stroke:green;stroke-width:1.125;fill:none;" d=" M 102.66666666666666 22 l 0 305" />
+  <path id="GlobalOutEven_0" style="stroke:green;stroke-width:1.125;fill:none;" d="M 918.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_1" style="stroke:green;stroke-width:1.125;fill:none;" d="M 910.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_2" style="stroke:green;stroke-width:1.125;fill:none;" d="M 902.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_3" style="stroke:green;stroke-width:1.125;fill:none;" d="M 894.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_4" style="stroke:green;stroke-width:1.125;fill:none;" d="M 880.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_5" style="stroke:green;stroke-width:1.125;fill:none;" d="M 872.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_6" style="stroke:green;stroke-width:1.125;fill:none;" d="M 864.9999999999999 22 l 0 305" />
+  <path id="GlobalOutEven_7" style="stroke:green;stroke-width:1.125;fill:none;" d="M 856.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_0" style="stroke:green;stroke-width:1.125;fill:none;" d="M 842.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_1" style="stroke:green;stroke-width:1.125;fill:none;" d="M 834.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_2" style="stroke:green;stroke-width:1.125;fill:none;" d="M 826.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_3" style="stroke:green;stroke-width:1.125;fill:none;" d="M 818.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_4" style="stroke:green;stroke-width:1.125;fill:none;" d="M 804.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_5" style="stroke:green;stroke-width:1.125;fill:none;" d="M 796.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_6" style="stroke:green;stroke-width:1.125;fill:none;" d="M 788.9999999999999 22 l 0 305" />
+  <path id="GlobalOutOdd_7" style="stroke:green;stroke-width:1.125;fill:none;" d="M 780.9999999999999 22 l 0 305" />
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_2LED_BLUEundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 129.625 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_2LED_BLUEundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="136.75" x="958.9999999999999">
+      Port_1_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_2LED_BLUEundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 129.625 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_2LED_BLUEundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="136.75" x="12">
+      Port_1_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_4LED_GREENundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 150.125 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_4LED_GREENundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="157.25" x="958.9999999999999">
+      Port_1_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_4LED_GREENundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 150.125 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_4LED_GREENundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="157.25" x="12">
+      Port_1_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_1_3LED_REDundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 139.875 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_1_3LED_REDundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="147" x="958.9999999999999">
+      Port_1_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_3LED_REDundefined">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 139.875 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_3LED_REDundefined_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="147" x="12">
+      Port_1_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_0">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 577.96 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="585.085" x="11">
+      Port_0_0
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_1">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 588.21 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="595.335" x="11">
+      Port_0_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_2">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 598.46 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="605.585" x="11">
+      Port_0_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_3">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 608.71 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_3_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="615.835" x="11">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_4">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 618.96 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_4_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="626.085" x="11">
+      Port_0_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_5">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 629.21 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_5_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="636.335" x="11">
+      Port_0_5
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_6">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 639.46 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_6_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="646.585" x="11">
+      Port_0_6
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_7">
+    <path style="stroke:green;fill:white;stroke-opacity:0.50;fill-opacity:0.50;" d="M 10 649.71 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_7_curve" />
+    <text startOffset="0" style=" font-size:8; fill:green" y="656.835" x="11">
+      Port_0_7
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_AnalogColumn_InputMUX_0">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 608.71 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_AnalogColumn_InputMUX_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="615.835" x="11">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_3_AnalogColumn_InputMUX_0">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 52.75 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_3_AnalogColumn_InputMUX_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="59.875" x="958.9999999999999">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_3_AnalogColumn_InputMUX_0">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 52.75 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_3_AnalogColumn_InputMUX_0_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="59.875" x="12">
+      Port_0_3
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_AnalogColumn_InputMUX_1">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 618.96 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_AnalogColumn_InputMUX_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="626.085" x="11">
+      Port_0_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINRIGHT_Port_0_4_AnalogColumn_InputMUX_1">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 63 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="DIGITALPINRIGHT_Port_0_4_AnalogColumn_InputMUX_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="70.125" x="958.9999999999999">
+      Port_0_4
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_4_AnalogColumn_InputMUX_1">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 63 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_4_AnalogColumn_InputMUX_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="70.125" x="12">
+      Port_0_4
+    </text>
+  </g>
+  <g id="PinGenericAndAnalogSelectionTable" />
+  
+
+  <g transform="translate(0,0)" id="Port_0_2">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 42.5 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="Port_0_2_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="49.625" x="958.9999999999999">
+      Port_0_2
+    </text>
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 956.9999999999999	47.625 L 902.9999999999999	47.625" id="PINCONNECTIONPort_0_2" />
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_0_2_DigitalResSelection">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 42.5 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_0_2_DigitalResSelection_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="49.625" x="12">
+      Port_0_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="ANALOGPIN_L_Port_0_2_DigitalResSelection">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 598.46 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="ANALOGPIN_L_Port_0_2_DigitalResSelection_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="605.585" x="11">
+      Port_0_2
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="Port_1_1">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 119.375 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="Port_1_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="126.5" x="958.9999999999999">
+      Port_1_1
+    </text>
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 956.9999999999999	124.5 L 834.9999999999999	124.5" id="PINCONNECTIONPort_1_1" />
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_1_1_DigitalResSelection">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 119.375 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_1_1_DigitalResSelection_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="126.5" x="12">
+      Port_1_1
+    </text>
+  </g>
+  <g transform="translate(0,0)" id="Port_3_1">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 956.9999999999999 293.625 l 64 0  l 5.125 5.125 l -5.125 5.125 l -64 0 l 0 -10.25" id="Port_3_1_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="300.75" x="958.9999999999999">
+      Port_3_1
+    </text>
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 956.9999999999999	298.75 L 834.9999999999999	298.75" id="PINCONNECTIONPort_3_1" />
+  </g>
+  <g transform="translate(0,0)" id="DIGITALPINLEFT_Port_3_1_DigitalResSelection">
+    <path style="stroke:black;stroke-width:2;fill:white;stroke-opacity:1;fill-opacity:1;" d="M 10 293.625 l 64 0 l 5.125 5.125 l -5.125 5.125 l -64 0 z" id="DIGITALPINLEFT_Port_3_1_DigitalResSelection_curve" />
+    <text startOffset="0" style=" font-size:8; fill:black" y="300.75" x="12">
+      Port_3_1
+    </text>
+  </g>
+  <g id="PinDigitalSelectionTable" />
+  
+
+  <text startOffset="0" style=" font-size:12; fill:black" y="29" x="344.41666666666663">
+    RI0[0]
+  </text>
+  <g transform="translate(298.66666666666663,32)" id="Row_0_Input_0">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M -10	-3 l 434 0 l 0 6 l -434 0 z" />
+    <path id="Row_0_Input_0_curve" style="stroke:red;stroke-width:1.125;fill:none;" d="M -10	0 l 434 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="43.5" x="344.41666666666663">
+    RI0[1]
+  </text>
+  <g transform="translate(298.66666666666663,32)" id="Row_0_Input_1">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M -10	11.5 l 434 0 l 0 6 l -434 0 z" />
+    <path id="Row_0_Input_1_curve" style="stroke:red;stroke-width:1.125;fill:none;" d="M -10	14.5 l 434 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="58" x="344.41666666666663">
+    RI0[2]
+  </text>
+  <g transform="translate(298.66666666666663,32)" id="Row_0_Input_2">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M -10	26 l 434 0 l 0 6 l -434 0 z" />
+    <path id="Row_0_Input_2_curve" style="stroke:red;stroke-width:1.125;fill:none;" d="M -10	29 l 434 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="72.5" x="344.41666666666663">
+    RI0[3]
+  </text>
+  <g transform="translate(298.66666666666663,32)" id="Row_0_Input_3">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M -10	40.5 l 434 0 l 0 6 l -434 0 z" />
+    <path id="Row_0_Input_3_curve" style="stroke:red;stroke-width:1.125;fill:none;" d="M -10	43.5 l 434 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="216.98000000000002" x="344.41666666666663">
+    RO0[0]
+  </text>
+  <g transform="translate(298.66666666666663,219.98000000000002)" id="Row_0_Output_0">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 0	-3 l 424 0 l 0	6 l -424 0 z " />
+    <path id="Row_0_Output_0_curve" style="stroke:blue;stroke-width:1.125;fill:none;" d="M 0	0 l 424 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="231.48000000000002" x="344.41666666666663">
+    RO0[1]
+  </text>
+  <g transform="translate(298.66666666666663,219.98000000000002)" id="Row_0_Output_1">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 0	11.5 l 428 0 l 0	6" />
+    <path id="Row_0_Output_1_curve" style="stroke:blue;stroke-width:1.125;fill:none;" d="M 0	14.5 l 428 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="245.98000000000002" x="344.41666666666663">
+    RO0[2]
+  </text>
+  <g transform="translate(298.66666666666663,219.98000000000002)" id="Row_0_Output_2">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 0	26 l 428 0 l 0	6" />
+    <path id="Row_0_Output_2_curve" style="stroke:blue;stroke-width:1.125;fill:none;" d="M 0	29 l 428 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="260.48" x="344.41666666666663">
+    RO0[3]
+  </text>
+  <g transform="translate(298.66666666666663,219.98000000000002)" id="Row_0_Output_3">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 0	40.5 l 428 0 l 0	6" />
+    <path id="Row_0_Output_3_curve" style="stroke:blue;stroke-width:1.125;fill:none;" d="M 0	43.5 l 428 0" />
+  </g>
+  <text startOffset="0" style=" font-size:12; fill:black" y="91" x="344.41666666666663">
+    BC0
+  </text>
+  <g transform="translate(298.66666666666663,94)" id="Row_0_Broadcast">
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M 4	-3 l 420 0 l 0 6 l -420 0 z" />
+    <path id="Row_0_Broadcast_curve" style="stroke:purple;stroke-width:1.125;fill:none;" d="M 4	0 l 420 0" />
+  </g>
+  <g transform="translate(332.41666666666663,110)" id="DBB00">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_0" />
+    <rect style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" id="DBB00_rect" />
+    <path stroke-linejoin="miter" id="DBB00_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="9" x="30">
+      DBB00
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      CNT
+    </text>
+    <path style="stroke:black;fill:mistyrose;stroke-width:.35;marker-end:none;" d="M 0 10.5 l -1 0 l -4 -4 l -10 0 l 0 8 l 10 0 l 4 -4" id="DBB00_CSD_CNT_Clock_CLOCK" />
+    <text startOffset="0" style=" font-size:8; fill:#000000" y="13.25" x="-12.5" id="DBB00_CNT_Clock_TXT">
+      1
+    </text>
+    <text startOffset="0" style=" font-size:6; fill:darkred" y="46" x="0.5">
+      CNT_Enable
+    </text>
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 8 44 l -14 0 l 0 4 l 14 0 z" />
+    <path id="DBB00_CSD_CNT_Enable_INPUT" style="stroke:black;fill:yellow;stroke-width:.35;marker-end:none;" d="M 0 46 l -1 0 l -4 -4 l -10 0 l 0 8 l 10 0 l 4 -4" />
+    <text startOffset="0" style=" font-size:8; fill:#000000" y="48.75" x="-12.5" id="DBB00_CNT_Enable_TXT">
+      0
+    </text>
+  </g>
+  <g transform="translate(437.41666666666663,110)" id="DBB01">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_1" />
+    <rect style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" id="DBB01_rect" />
+    <path stroke-linejoin="miter" id="DBB01_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="9" x="30">
+      DBB01
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      PRS16_LSB
+    </text>
+  </g>
+  <g transform="translate(542.4166666666666,110)" id="DCB02">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_2" />
+    <rect style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" id="DCB02_rect" />
+    <path stroke-linejoin="miter" id="DCB02_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="9" x="30">
+      DCB02
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      PRS16_MSB
+    </text>
+    <path id="DCB02_CSD_CompareOut_OUTPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:url(#mCircle);" d="M 60 54 l NaN 0 l 0 55.98000000000002" />
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 52 52 l 14 0 l 0 4 l -14 0 z" />
+    <text startOffset="0" style=" font-size:6; fill:darkblue ; text-anchor:end" y="54" x="59.5">
+      CompareOut
+    </text>
+    <path id="DCB02_CSD_ShieldElectrodeOut_OUTPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:none;" d="M 60 70 l 5 0" />
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 52 68 l 14 0 l 0 4 l -14 0 z" />
+    <text startOffset="0" style=" font-size:6; fill:darkblue ; text-anchor:end" y="70" x="59.5">
+      ShieldElectrodeOut
+    </text>
+  </g>
+  <g transform="translate(647.4166666666666,110)" id="DCB03">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_3" />
+    <rect style="stroke:black;stroke-width:1.125;fill:url(#MyGradientNoColor);" height="79.98" width="60" y="0" x="0" id="DCB03_rect" />
+    <path stroke-linejoin="miter" id="DCB03_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="9" x="30">
+      DCB03
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      
+    </text>
+  </g>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 257.66666666666663 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="258.66666666666663">
+    0
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 249.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 241.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 233.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 219.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="16" x="222.66666666666666">
+    GIE
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 211.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 203.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 195.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="196.66666666666666">
+    7
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 181.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="182.66666666666666">
+    0
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 173.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 165.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 157.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 143.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="16" x="146.66666666666666">
+    GIO
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 135.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 127.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 119.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d=" M 99.66666666666666 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:black;stroke-width:.500;fill:lightsteelblue;marker-end:none;" d="M 102.66666666666666 22 l -4 -4 l 0 -10 l 8 0 l 0 10 l -4 4" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="17" x="100.16666666666666">
+    
+  </text>
+  <path style="stroke:black;stroke-width:.500;fill:lightsteelblue;marker-end:none;" d="M 102.66666666666666 327 l 4 4 l 0 10 l -8 0 l 0 -10 l 4 -4" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="337" x="100.16666666666666">
+    
+  </text>
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="120.66666666666666">
+    7
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 915.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="916.9999999999999">
+    0
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 907.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 899.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 891.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 877.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="16" x="878.9999999999999">
+    GOE
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 869.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 861.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 853.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="854.9999999999999">
+    7
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 839.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="840.9999999999999">
+    0
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 831.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 823.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 815.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 801.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="16" x="802.9999999999999">
+    GOO
+  </text>
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 793.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 785.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 777.9999999999999 22 l 0 305 l 6 0 l 0 -305 z" />
+  <text startOffset="0" style=" font-size:12; fill:black" y="20" x="778.9999999999999">
+    7
+  </text>
+  <g id="HeroesofDaysGoneBy">
+    <path stroke-width="2" stroke="black" fill="yellow" d="M 956.9999999999999 347 l 20 0l 0 12l -20 0l 0 -12" />
+    <text startOffset="0" style=" font-size:10; fill:#000000" y="357" x="981.9999999999999">
+      Comparator 0-1
+    </text>
+    <path stroke-width="2" stroke="black" fill="mistyrose" d="M 956.9999999999999 359 l 20 0l 0 12l -20 0l 0 -12" />
+    <text startOffset="0" style=" font-size:10; fill:#000000" y="369" x="981.9999999999999">
+      VC 1-3
+    </text>
+    <path stroke-width="2" stroke="black" fill="lightcyan" d="M 956.9999999999999 371 l 20 0l 0 12l -20 0l 0 -12" />
+    <text startOffset="0" style=" font-size:10; fill:#000000" y="381" x="981.9999999999999">
+      SysClk*2
+    </text>
+    <path stroke-width="2" stroke="black" fill="palegreen" d="M 956.9999999999999 383 l 20 0l 0 12l -20 0l 0 -12" />
+    <text startOffset="0" style=" font-size:10; fill:#000000" y="393" x="981.9999999999999">
+      CPU_32_KHz
+    </text>
+    <path stroke-width="2" stroke="black" fill="lightsteelblue" d="M 956.9999999999999 395 l 20 0l 0 12l -20 0l 0 -12" />
+    <text startOffset="0" style=" font-size:10; fill:#000000" y="405" x="981.9999999999999">
+      AnalogMUXBus
+    </text>
+  </g>
+  <g id="CreateRILinesConnections0">
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 288.66666666666663	32 L 260.66666666666663	32" id="ROW_INPUT_MUX_Row_0_Input_0" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 288.66666666666663	46.5 L 252.66666666666666	46.5" id="ROW_INPUT_MUX_Row_0_Input_1" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 288.66666666666663	61 L 244.66666666666666	61" id="ROW_INPUT_MUX_Row_0_Input_2" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 288.66666666666663	75.5 L 236.66666666666666	75.5" id="ROW_INPUT_MUX_Row_0_Input_3" />
+  </g>
+  <path style="stroke:red;stroke-width:1.125;fill:white;fill-opacity:1.0;" d="M 273.66666666666663	27 L 283.66666666666663	27 L 283.66666666666663	37 L 273.66666666666663	37 L 273.66666666666663	27 M 281.66666666666663	30 l -3 0   l 0 4  l -3 0" id="Row_0_Input_0_SYNC" />
+  <path style="stroke:red;stroke-width:1.125;fill:white;fill-opacity:1.0;" d="M 273.66666666666663	41.5 L 283.66666666666663	41.5 L 283.66666666666663	51.5 L 273.66666666666663	51.5 L 273.66666666666663	41.5 M 281.66666666666663	44.5 l -3 0   l 0 4  l -3 0" id="Row_0_Input_1_SYNC" />
+  <path style="stroke:red;stroke-width:1.125;fill:white;fill-opacity:1.0;" d="M 273.66666666666663	56 L 283.66666666666663	56 L 283.66666666666663	66 L 273.66666666666663	66 L 273.66666666666663	56 M 281.66666666666663	59 l -3 0   l 0 4  l -3 0" id="Row_0_Input_2_SYNC" />
+  <path style="stroke:red;stroke-width:1.125;fill:white;fill-opacity:1.0;" d="M 273.66666666666663	70.5 L 283.66666666666663	70.5 L 283.66666666666663	80.5 L 273.66666666666663	80.5 L 273.66666666666663	70.5 M 281.66666666666663	73.5 l -3 0   l 0 4  l -3 0" id="Row_0_Input_3_SYNC" />
+  <path style="stroke:blue;stroke-width:1;marker-end:url(#mCircle);" d="M 760.6666666666666	223.98000000000002 L 918.9999999999999	223.98000000000002" id="Row_0_Output_0_Row_0_Output_0_Drive_0" />
+  <path style="stroke:blue;stroke-width:1.125;fill:white;fill-opacity:1;" d="M 746.6666666666666	217.98000000000002 L 760.6666666666666	217.98000000000002 L 760.6666666666666	229.98000000000002 L 746.6666666666666	229.98000000000002 L 746.6666666666666	217.98000000000002 z  M 760.6666666666666	223.98000000000002 l -7 0 l 0 -4 l -7 0" id="Row_0_Output_0_ROWLUT" />
+  <use transform="" xlink:href="" style="fill: white; stroke: blue" id="SYMBOL_Row_0_Output_0" />
+  <path style="stroke:blue;stroke-width:1;fill:none;" d=" M 746.6666666666666 219.98000000000002 L 722.6666666666666 219.98000000000002" id="Row_0_Output_0_ROW_A_INPUT" />
+  <path style="stroke:blue;stroke-width:1.125;fill:white;fill-opacity:1;" d="M 746.6666666666666	232.48000000000002 L 760.6666666666666	232.48000000000002 L 760.6666666666666	244.48000000000002 L 746.6666666666666	244.48000000000002 L 746.6666666666666	232.48000000000002 z  M 760.6666666666666	238.48000000000002 l -7 0 l 0 -4 l -7 0" id="Row_0_Output_1_ROWLUT" />
+  <use transform="" xlink:href="" style="fill: white; stroke: blue" id="SYMBOL_Row_0_Output_1" />
+  <path style="stroke:blue;stroke-width:1;fill:none;" d=" M 746.6666666666666 234.48000000000002 L 726.6666666666666 234.48000000000002" id="Row_0_Output_1_ROW_A_INPUT" />
+  <path style="stroke:blue;stroke-width:1;marker-end:url(#mCircle);" d="M 760.6666666666666	252.98000000000002 L 902.9999999999999	252.98000000000002" id="Row_0_Output_2_Row_0_Output_2_Drive_0" />
+  <path style="stroke:blue;stroke-width:1.125;fill:white;fill-opacity:1;" d="M 746.6666666666666	246.98000000000002 L 760.6666666666666	246.98000000000002 L 760.6666666666666	258.98 L 746.6666666666666	258.98 L 746.6666666666666	246.98000000000002 z  M 760.6666666666666	252.98000000000002 l -7 0 l 0 -4 l -7 0" id="Row_0_Output_2_ROWLUT" />
+  <use transform="" xlink:href="" style="fill: white; stroke: blue" id="SYMBOL_Row_0_Output_2" />
+  <path style="stroke:blue;stroke-width:1;fill:none;" d=" M 746.6666666666666 248.98000000000002 L 726.6666666666666 248.98000000000002" id="Row_0_Output_2_ROW_A_INPUT" />
+  <path style="stroke:blue;stroke-width:1.125;fill:white;fill-opacity:1;" d="M 746.6666666666666	261.48 L 760.6666666666666	261.48 L 760.6666666666666	273.48 L 746.6666666666666	273.48 L 746.6666666666666	261.48 z  M 760.6666666666666	267.48 l -7 0 l 0 -4 l -7 0" id="Row_0_Output_3_ROWLUT" />
+  <use transform="" xlink:href="" style="fill: white; stroke: blue" id="SYMBOL_Row_0_Output_3" />
+  <path style="stroke:blue;stroke-width:1;fill:none;" d=" M 746.6666666666666 263.48 L 726.6666666666666 263.48" id="Row_0_Output_3_ROW_A_INPUT" />
+  <g id="Row_0_BroadcastBCConnectionLineGroup" />
+  <path style="stroke:black;stroke-width:1;fill:none;marker-end:url(#mCircle);" d="M 602.4166666666666	115 L 612.9166666666666	115 L 612.9166666666666	94" id="Row_0_BroadcastBC_TO_BLOCKLINE" />
+  <g id="GlobalInsAndOutsConnectionsSVGNode">
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 260.66666666666663	327 L 260.66666666666663	335 L 918.9999999999999	335 L 918.9999999999999	327" id="GlobalEven_0_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 252.66666666666666	327 L 252.66666666666666	343 L 910.9999999999999	343 L 910.9999999999999	327" id="GlobalEven_1_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 244.66666666666666	327 L 244.66666666666666	351 L 902.9999999999999	351 L 902.9999999999999	327" id="GlobalEven_2_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 236.66666666666666	327 L 236.66666666666666	359 L 894.9999999999999	359 L 894.9999999999999	327" id="GlobalEven_3_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 222.66666666666666	327 L 222.66666666666666	367 L 880.9999999999999	367 L 880.9999999999999	327" id="GlobalEven_4_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 214.66666666666666	327 L 214.66666666666666	375 L 872.9999999999999	375 L 872.9999999999999	327" id="GlobalEven_5_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 206.66666666666666	327 L 206.66666666666666	383 L 864.9999999999999	383 L 864.9999999999999	327" id="GlobalEven_6_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 198.66666666666666	327 L 198.66666666666666	391 L 856.9999999999999	391 L 856.9999999999999	327" id="GlobalEven_7_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 184.66666666666666	327 L 184.66666666666666	399 L 842.9999999999999	399 L 842.9999999999999	327" id="GlobalOdd_0_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 176.66666666666666	327 L 176.66666666666666	407 L 834.9999999999999	407 L 834.9999999999999	327" id="GlobalOdd_1_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 168.66666666666666	327 L 168.66666666666666	415 L 826.9999999999999	415 L 826.9999999999999	327" id="GlobalOdd_2_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 160.66666666666666	327 L 160.66666666666666	423 L 818.9999999999999	423 L 818.9999999999999	327" id="GlobalOdd_3_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 146.66666666666666	327 L 146.66666666666666	431 L 804.9999999999999	431 L 804.9999999999999	327" id="GlobalOdd_4_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 138.66666666666666	327 L 138.66666666666666	439 L 796.9999999999999	439 L 796.9999999999999	327" id="GlobalOdd_5_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 130.66666666666666	327 L 130.66666666666666	447 L 788.9999999999999	447 L 788.9999999999999	327" id="GlobalOdd_6_Interconnect" />
+    <path style="stroke:green;stroke-width:1;fill:none;stroke-dasharray:5, 5;" d=" M 122.66666666666666	327 L 122.66666666666666	455 L 780.9999999999999	455 L 780.9999999999999	327" id="GlobalOdd_7_Interconnect" />
+  </g>
+  <g id="DIGITALPINLEFT_Port_1_2_LED_BLUEundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 45.5625 130.625 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="137.75" x="47.5625">
+      LED_BLUE
+    </text>
+  </g>
+  <g id="DIGITALPINRIGHT_Port_1_2_LED_BLUEundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 992.5624999999999 130.625 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="137.75" x="994.5624999999999">
+      LED_BLUE
+    </text>
+  </g>
+  <g id="DIGITALPINLEFT_Port_1_4_LED_GREENundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 45.5625 151.125 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="158.25" x="47.5625">
+      LED_GREEN
+    </text>
+  </g>
+  <g id="DIGITALPINRIGHT_Port_1_4_LED_GREENundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 992.5624999999999 151.125 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="158.25" x="994.5624999999999">
+      LED_GREEN
+    </text>
+  </g>
+  <g id="DIGITALPINLEFT_Port_1_3_LED_REDundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 45.5625 140.875 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="148" x="47.5625">
+      LED_RED
+    </text>
+  </g>
+  <g id="DIGITALPINRIGHT_Port_1_3_LED_REDundefined_TXT">
+    <path stroke="grey" fill="grey" stroke-opacity="0.35" fill-opacity="0.25" d="M 992.5624999999999 140.875 l 30 0  l 0 8.25 l -30 0  l 0 -8.25" />
+    <text startOffset="0" style=" font-size:6; fill:#000000" y="148" x="994.5624999999999">
+      LED_RED
+    </text>
+  </g>
+  <g transform="translate(224.66666666666663,577.96)" id="ACE00">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_0 0" />
+    <rect id="ACE00_rect" style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" />
+    <path stroke-linejoin="miter" id="ACE00_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="11" x="30">
+      ACE00
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      CMP0
+    </text>
+    <text startOffset="0" style=" font-size:6; fill:darkred" y="46" x="0.5">
+      CMP0Reference
+    </text>
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 8 44 l -14 0 l 0 4 l 14 0 z" />
+    <path id="ACE00_CSD_CMP0Reference_INPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:none;" d="M 0 46 l -5 0" />
+    <text startOffset="0" y="44.5" x="-1" style="font-size:6; fill:#000000; text-anchor:end" id="ACE00_CMP0Reference_TXT">
+      VBG
+    </text>
+    <text startOffset="0" style=" font-size:6; fill:darkred" y="62" x="0.5">
+      CMP0_Input
+    </text>
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 8 60 l -14 0 l 0 4 l 14 0 z" />
+    <path id="ACE00_CSD_CMP0_Input_INPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:none;" d=" M 0 62 L -4.5 62 L -4.5 81.98 L 249.5	81.98 L 249.5	10 L 245	10" />
+  </g>
+  <g transform="translate(224.66666666666663,677.94)" id="ASE10">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_1 0" />
+    <rect id="ASE10_rect" style="stroke:black;stroke-width:1.125;fill:url(#MyGradientNoColor);" height="79.98" width="60" y="0" x="0" />
+    <path stroke-linejoin="miter" id="ASE10_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="11" x="30">
+      ASE10
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      
+    </text>
+  </g>
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z " transform="translate(178.66666666666663,525.96)" />
+  <g transform="translate(178.66666666666663,525.96)" id="AnalogColumn_InputMUX_0_daddy">
+    <path d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z M 23 14 l 0 15" style="stroke:black;stroke-width:1.125;fill:none;" id="AnalogColumn_InputMUX_0" />
+    <path d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z " style="stroke:black;stroke-width:.1;fill:white;fill-opacity:.1;" />
+    <path id="AnalogColumn_InputMUX_0_Port_0_1_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 9.2 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_0_Port_0_3_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 18.4 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_0_Port_0_5_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 27.599999999999998 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_0_Port_0_7_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 36.8 0 l 0 -5.6000000000000005" />
+    <text startOffset="0" style=" font-size:7; fill:#000000" y="9" id="AnalogColumn_InputMUX_0_daddy_XT" x="46">
+      Port_0_3
+    </text>
+  </g>
+  <path id="AnalogColumn_InputMUX_0_ANALOG_CLOCK_SELECTSVGMUX_CONNECTION" style="stroke:blue;stroke-width:1;fill:none;" d=" M 201.66666666666663	539.96 L 201.66666666666663 532.96 L 197.06666666666663 532.96 L 197.06666666666663 529.46 L  197.06666666666663 518.96 L  97.125 518.96 L  97.125 613.835 L  79.125 613.835" />
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z " transform="translate(173.66666666666663,567.96)" />
+  <g transform="translate(173.66666666666663,567.96)" id="AnalogColumn_Clock_0">
+    <path style="stroke:black;stroke-width:.500;fill:white;stroke-opacity:0.1;fill-opacity:0.1;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z " />
+    <path id="AnalogColumn_Clock_0_path" style="stroke:black;stroke-width:1.125;fill:none;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z  M 14 20 l 12.333333333333334 0M 0 24 l -8 0M 0 32 l -8 0" />
+  </g>
+  <path style="stroke:black;stroke-width:.500;fill:mistyrose;marker-end:none;" id="AnalogColumn_Clock_0_XXXOffSheetDude" d="M 173.66666666666663 591.96 l -2 0 l -4 -4 l -10 0 l 0 8 l 10 0 l 4 -4" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="594.71" x="161.16666666666663" id="AnalogColumn_Clock_0_XXXOffSheetDude_TEXT">
+    1
+  </text>
+  <path id="AnalogColumn_Clock_0_ANALOG_COLUMN_CLOCK_MUX_CONNECTION" style="stroke:blue;stroke-width:1;fill:white;fill-opacity:0.05;" d=" M 187.66666666666663	587.96 L 180.66666666666663 587.96 L 180.66666666666663 591.96 L 173.66666666666663 591.96" />
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d=" M 0 13 l 14 0 l 0 13.75 l -14 0 z " transform="translate(198.66666666666663,567.96)" />
+  <g transform="translate(198.66666666666663,567.96)" id="AnalogColumnClockDivider_0">
+    <path id="AnalogColumnClockDivider_0_path" style="stroke:black;stroke-width:1.125;fill:none;" d=" M 0 13 l 14 0 l 0 13.75 l -14 0 z  M 14 20 l 18.5 0" />
+  </g>
+  <g transform="translate(198.66666666666663,567.96)" id="AnalogColumnClockDivider_0Display">
+    <text startOffset="0" style="font-size:8;	fill:blue; stroke: none;	text-anchor:middle" y="23" x="7">
+      / 1
+    </text>
+  </g>
+  <g transform="translate(315.66666666666663,588.96)" id="AnalogLUT_0">
+    <path style="stroke:black;stroke-width:.500;fill:white;fill-opacity:1;stroke-opacity:0;" d=" M 0 0 l 19 0 l 0 14 l -19 0 l 0 -14 z  M 4.75 14 l 0 145.22 M 9.5 0 l 0 -10" />
+    <path id="AnalogLUT_0_path" style="stroke:black;stroke-width:1.125;fill:none;" d=" M 0 0 l 19 0 l 0 14 l -19 0 l 0 -14 z  M 4.75 14 l 0 145.22 M 9.5 0 l 0 -10" />
+    <rect style="fill:lemonchiffon" height="53" width="10" y="88" x="0" id="Comparator 0_RC" />
+    <text startOffset="0" transform="rotate(270,7,140)" style=" font-size:8; fill:black" y="140" x="7">
+      Comparator 0
+    </text>
+  </g>
+  <path style="stroke:blue;stroke-width:1;fill:white;fill-opacity:0.05;" transform="translate(315.66666666666663,588.96)" d=" M 13.5 14 L 13.5 7 M 13.5 7 L 9.5 7 L 9.5 0" id="ANALOG_LUT_SYMBOL_AnalogLUT_0" />
+  <path id="AddANALOG_LUT_RCLAnalogLUT_0" style="stroke:black;stroke-width:1;fill:none;marker-end:url(#mCircle);" transform="translate(315.66666666666663,588.96)" d=" M 14.25 14 L 14.25 76.98 L 190.5 76.98" />
+  <g transform="translate(315.66666666666663,588.96)" id="ComparatorBus_0">
+    <path d="" />
+  </g>
+  <path style="stroke:black;stroke-width:.500;fill:yellow;marker-end:none;" d="M 321.16666666666663 584.96 l 0 -10 l 4 -4 l 4 4 l 0 10 l -8 0 z" id="ComparatorBus_0_path_indecator" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="581.96" x="322.66666666666663">
+    0
+  </text>
+  <path style="stroke:black;stroke-width:0.75;fill:Yellow;marker-end:none;" id="ComparatorBus0OutputControl0" d="M 843.1166666666667 512.96 l 3.2 3.2 l 0 10 l -6.4 0 l 0 -10 l 3.2 -3.2M843.1166666666667 512.96 l 0 -15" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="523.96" x="840.8666666666667">
+    0
+  </text>
+  <path style="stroke:black;stroke-width:0.75;fill:Yellow;marker-end:none;" id="ComparatorBus0OutputControl4" d="M 805.0166666666666 512.96 l 3.2 3.2 l 0 10 l -6.4 0 l 0 -10 l 3.2 -3.2M805.0166666666666 512.96 l 0 -15" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="523.96" x="802.7666666666667">
+    0
+  </text>
+  <g transform="translate(409.66666666666663,577.96)" id="ACE01">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_0 1" />
+    <rect id="ACE01_rect" style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" />
+    <path stroke-linejoin="miter" id="ACE01_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="11" x="30">
+      ACE01
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      CMP
+    </text>
+    <text startOffset="0" style=" font-size:6; fill:darkred" y="46" x="0.5">
+      CMP_Input
+    </text>
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 8 44 l -14 0 l 0 4 l 14 0 z" />
+    <path id="ACE01_CSD_CMP_Input_INPUT" style="stroke:black;fill:lightsteelblue;stroke-width:.35;marker-end:none;" d="M 0 46 l -1 0 l -4 -4 l -10 0 l 0 8 l 10 0 l 4 -4" />
+    <text startOffset="0" style=" font-size:6; fill:darkred" y="62" x="0.5">
+      Reference
+    </text>
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 8 60 l -14 0 l 0 4 l 14 0 z" />
+    <path id="ACE01_CSD_Reference_INPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:none;" d="M 0 62 l -5 0" />
+    <text startOffset="0" y="60.5" x="-1" style="font-size:6; fill:#000000; text-anchor:end" id="ACE01_Reference_TXT">
+      VBG
+    </text>
+    <path id="ACE01_CSD_OUTPUT_0_OUTPUT" style="stroke:black;fill:none;stroke-width:1;marker-end:url(#mCircle);" d="M 60 54 l 35.75 0 " />
+    <path style="stroke:red;fill:red;fill-opacity:0.005;stroke-opacity:0.005;" d="M 52 52 l 14 0 l 0 4 l -14 0 z" />
+  </g>
+  <g transform="translate(409.66666666666663,677.94)" id="ASE11">
+    <rect style="stroke:none;stroke-width:.500;fill:none;fill-opacity:0.55;" height="99.98" width="80" y="-10" x="-10" id="HATCH_1 1" />
+    <rect id="ASE11_rect" style="stroke:black;stroke-width:1.125;fill:url(#MyGradientBlue);" height="79.98" width="60" y="0" x="0" />
+    <path stroke-linejoin="miter" id="ASE11_Clock" style="stroke:black;fill:black;" d="M 1 2 l 8 8 l -8 8 l 0 -16 z" />
+    <text startOffset="0" style=" font-size:10; fill:black ; text-anchor:middle" y="11" x="30">
+      ASE11
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="27" x="30">
+      CSD
+    </text>
+    <text startOffset="0" style=" font-size:10; fill:black;  text-anchor:middle" y="39" x="30">
+      CMP_REF
+    </text>
+  </g>
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z " transform="translate(363.66666666666663,525.96)" />
+  <g transform="translate(363.66666666666663,525.96)" id="AnalogColumn_InputMUX_1_daddy">
+    <path d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z M 30.666666666666664 14 l 0 15" style="stroke:black;stroke-width:1.125;fill:none;" id="AnalogColumn_InputMUX_1" />
+    <path d=" M 0 0 l 46 0 l -7 14 l -32 0 l -7 -14  z " style="stroke:black;stroke-width:.1;fill:white;fill-opacity:.1;" />
+    <path id="AnalogColumn_InputMUX_1_Port_0_0_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 9.2 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_1_Port_0_2_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 18.4 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_1_Port_0_4_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 27.599999999999998 0 l 0 -5.6000000000000005" />
+    <path id="AnalogColumn_InputMUX_1_Port_0_6_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 36.8 0 l 0 -5.6000000000000005" />
+    <text startOffset="0" style=" font-size:7; fill:#000000" y="9" id="AnalogColumn_InputMUX_1_daddy_XT" x="46">
+      Port_0_4
+    </text>
+  </g>
+  <path id="AnalogColumn_InputMUX_1_ANALOG_CLOCK_SELECTSVGMUX_CONNECTION" style="stroke:blue;stroke-width:1;fill:none;" d=" M 394.41666666666663	539.96 L 394.41666666666663 532.96 L 391.26666666666665 532.96 L 391.26666666666665 529.46 L  391.26666666666665 515.46 L  93.625 515.46 L  93.625 624.085 L  79.125 624.085" />
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z " transform="translate(358.66666666666663,567.96)" />
+  <g transform="translate(358.66666666666663,567.96)" id="AnalogColumn_Clock_1">
+    <path style="stroke:black;stroke-width:.500;fill:white;stroke-opacity:0.1;fill-opacity:0.1;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z " />
+    <path id="AnalogColumn_Clock_1_path" style="stroke:black;stroke-width:1.125;fill:none;" d="M 0 0 l 14 7 l 0 26 l -14 7 l 0 -40 z  M 14 20 l 12.333333333333334 0M 0 24 l -8 0M 0 32 l -8 0" />
+  </g>
+  <path style="stroke:black;stroke-width:.500;fill:mistyrose;marker-end:none;" id="AnalogColumn_Clock_1_XXXOffSheetDude" d="M 358.66666666666663 591.96 l -2 0 l -4 -4 l -10 0 l 0 8 l 10 0 l 4 -4" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="594.71" x="346.16666666666663" id="AnalogColumn_Clock_1_XXXOffSheetDude_TEXT">
+    1
+  </text>
+  <path id="AnalogColumn_Clock_1_ANALOG_COLUMN_CLOCK_MUX_CONNECTION" style="stroke:blue;stroke-width:1;fill:white;fill-opacity:0.05;" d=" M 372.66666666666663	587.96 L 365.66666666666663 587.96 L 365.66666666666663 591.96 L 358.66666666666663 591.96" />
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d=" M 0 13 l 14 0 l 0 13.75 l -14 0 z " transform="translate(383.66666666666663,567.96)" />
+  <g transform="translate(383.66666666666663,567.96)" id="AnalogColumnClockDivider_1">
+    <path id="AnalogColumnClockDivider_1_path" style="stroke:black;stroke-width:1.125;fill:none;" d=" M 0 13 l 14 0 l 0 13.75 l -14 0 z  M 14 20 l 18.5 0" />
+  </g>
+  <g transform="translate(383.66666666666663,567.96)" id="AnalogColumnClockDivider_1Display">
+    <text startOffset="0" style="font-size:8;	fill:blue; stroke: none;	text-anchor:middle" y="23" x="7">
+      / 1
+    </text>
+  </g>
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d="M 0 0 l 36 0 l -7 14 l -22 0 l -7 -14 z " transform="translate(370.66666666666663,548.96)" />
+  <g transform="translate(370.66666666666663,548.96)" id="AnalogColumn_InputSelect_1">
+    <path id="AnalogColumn_InputSelect_1_path" style="stroke:black;stroke-width:1.125;fill:white;fill-opacity:0.1;" d="M 0 0 l 36 0 l -7 14 l -22 0 l -7 -14 z " />
+    <path style="stroke:red;stroke-width:1;fill:white;marker-end:url(#mCircle);" d=" M -169.14999999999998 -5 l .2 0 " />
+    <path d="M 8.25 0 l 0 -5 l -177.5 0 M 18 14 l 0 7.5" style="stroke:black;stroke-width:.500;fill:none;" />
+  </g>
+  <path id="AnalogColumn_InputSelect_1_COLUMN_INPUT_SELECT_CONNECTION" style="stroke:blue;stroke-width:1;fill:white;fill-opacity:0.1;" d=" M 388.66666666666663	562.96 L 388.66666666666663 555.96 L 394.66666666666663 555.96 L 394.66666666666663 548.96" />
+  <g transform="translate(500.66666666666663,588.96)" id="AnalogLUT_1">
+    <path style="stroke:black;stroke-width:.500;fill:white;fill-opacity:1;stroke-opacity:0;" d=" M 0 0 l 19 0 l 0 14 l -19 0 l 0 -14 z  M 4.75 14 l 0 145.22 M 9.5 0 l 0 -10" />
+    <path id="AnalogLUT_1_path" style="stroke:black;stroke-width:1.125;fill:none;" d=" M 0 0 l 19 0 l 0 14 l -19 0 l 0 -14 z  M 4.75 14 l 0 145.22 M 9.5 0 l 0 -10" />
+    <rect style="fill:lemonchiffon" height="53" width="10" y="88" x="0" id="Comparator 1_RC" />
+    <text startOffset="0" transform="rotate(270,7,140)" style=" font-size:8; fill:black" y="140" x="7">
+      Comparator 1
+    </text>
+  </g>
+  <use transform=" translate(505.16666666666663, 599.96) rotate(270) scale(1.0, 1.5)" xlink:href="#Symbol_NOT" style="fill: white; stroke: blue" id="ANALOG_LUT_SYMBOL_AnalogLUT_1XX" />
+  <path style="stroke:blue;stroke-width:1;fill:white;fill-opacity:0.05;" transform="translate(500.66666666666663,588.96)" d=" M 5.5 14 L 5.5 10" id="ANALOG_LUT_SYMBOL_AnalogLUT_1" />
+  <g transform="translate(500.66666666666663,588.96)" id="ComparatorBus_1">
+    <path d="" />
+  </g>
+  <path style="stroke:black;stroke-width:.500;fill:yellow;marker-end:none;" d="M 506.16666666666663 584.96 l 0 -10 l 4 -4 l 4 4 l 0 10 l -8 0 z" id="ComparatorBus_1_path_indecator" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="581.96" x="507.66666666666663">
+    1
+  </text>
+  <path style="stroke:black;stroke-width:0.75;fill:Yellow;marker-end:none;" id="ComparatorBus1OutputControl1" d="M 835.0666666666666 512.96 l 3.2 3.2 l 0 10 l -6.4 0 l 0 -10 l 3.2 -3.2M835.0666666666666 512.96 l 0 -185.96000000000004" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="523.96" x="832.8166666666666">
+    1
+  </text>
+  <path style="stroke:black;stroke-width:0.75;fill:Yellow;marker-end:none;" id="ComparatorBus1OutputControl5" d="M 796.9666666666666 512.96 l 3.2 3.2 l 0 10 l -6.4 0 l 0 -10 l 3.2 -3.2M796.9666666666666 512.96 l 0 -15" />
+  <text startOffset="0" style=" font-size:8; fill:#000000" y="523.96" x="794.7166666666666">
+    1
+  </text>
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 16" transform="translate(161.66666666666663,473.96000000000003)" />
+  <g transform="translate(161.66666666666663,473.96000000000003)" id="AnalogClock_0_Select">
+    <path style="stroke:black;stroke-width:1;fill:white;marker-end:url(#mCircle);" d=" M 26 14 l 0 16" />
+    <path style="stroke:black;stroke-width:.500;fill:white;stroke-opacity:0.15;fill-opacity:0.1;" stroke-linejoin="miter" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 16" />
+    <path id="AnalogClock_0_Select_path" stroke-linejoin="miter" style="stroke:black;stroke-width:1.125;fill:none;fill-opacity:1.0;" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 16 M 3.5 30 l 186 0M 12 102 l -8 0 l 0 -72M 197 102 l -8 0 l 0 -72" />
+    <path id="AnalogClock_0_Select_DBB00_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 8 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_0_Select_DBB01_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 20 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_0_Select_DCB02_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 32 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_0_Select_DCB03_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 44 0 l 0 -5.6000000000000005" />
+    <text startOffset="0" style=" font-size:7; fill:#000000" y="9" id="AnalogClock_0_Select_XT" x="56">
+      
+    </text>
+  </g>
+  <path style="stroke:white;stroke-width:0.5;fill:white;" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 8" transform="translate(316.66666666666663,473.96000000000003)" />
+  <g transform="translate(316.66666666666663,473.96000000000003)" id="AnalogClock_1_Select">
+    <path style="stroke:black;stroke-width:1;fill:white;marker-end:url(#mCircle);" d=" M 26 14 l 0 8" />
+    <path style="stroke:black;stroke-width:.500;fill:white;stroke-opacity:0.15;fill-opacity:0.1;" stroke-linejoin="miter" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 8" />
+    <path id="AnalogClock_1_Select_path" stroke-linejoin="miter" style="stroke:black;stroke-width:1.125;fill:none;fill-opacity:1.0;" d="M -4 0 l 60 0 l -7 14 l -46 0 l -7 -14 z  M 26 14 l 0 8 M -159.5 22 l 186 0M -143 110 l -16 0 l 0 -88M 42 110 l -16 0 l 0 -88" />
+    <path id="AnalogClock_1_Select_DBB00_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 8 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_1_Select_DBB01_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 20 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_1_Select_DCB02_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 32 0 l 0 -5.6000000000000005" />
+    <path id="AnalogClock_1_Select_DCB03_MUXIN" style="stroke:black;stroke-width:.500;fill:white;" d="M 44 0 l 0 -5.6000000000000005" />
+    <text startOffset="0" style=" font-size:7; fill:#000000" y="9" id="AnalogClock_1_Select_XT" x="56">
+      
+    </text>
+  </g>
+  <g>
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	37.375 L 102.66666666666666	37.375" id="Port_0_1_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	201.375 L 102.66666666666666	201.375" id="Port_2_0_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	211.625 L 102.66666666666666	211.625" id="Port_2_1_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	221.875 L 102.66666666666666	221.875" id="Port_2_2_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	232.125 L 102.66666666666666	232.125" id="Port_2_3_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	242.375 L 102.66666666666666	242.375" id="Port_2_4_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	252.625 L 102.66666666666666	252.625" id="Port_2_5_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	262.875 L 102.66666666666666	262.875" id="Port_2_6_AnalogMUXBus_Line" />
+    <path style="stroke:black;stroke-width:1;marker-end:url(#mCircle);" d="M 79.125	273.125 L 102.66666666666666	273.125" id="Port_2_7_AnalogMUXBus_Line" />
+  </g>
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+  <rect height="0" width="0" />
+</svg>

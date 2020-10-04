@@ -1,0 +1,102 @@
+XH
+H 3 areas 3 global symbols
+M psocconfigtbl.asm
+A text size 0 flags 0
+dbfile lib/psocconfigtbl.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+dbfunc 0 ? 0 I
+A lit size 6C flags 0
+S LoadConfigTBL_MF_TEMP_Bank0 Def0000
+S LoadConfigTBL_MF_TEMP_Bank1 Def0033
+A psoc_config size 85 flags 0
+dbfile lib/psocconfigtbl.asm
+dbfunc 0 ? 0 I
+dbline 2 0
+dbline 69 2
+dbline 2 5
+dbline 6B 7
+dbline 6C A
+dbline 2 D
+dbline 6E F
+dbline 6F 12
+dbline 2 15
+dbline 71 17
+dbline 72 1A
+dbline 2 1D
+dbline 74 1F
+dbline 75 22
+dbline 2 25
+dbline 77 27
+dbline 78 2A
+dbline 2 2D
+dbline 7A 2F
+dbline 7B 32
+dbline 2 35
+dbline 7D 37
+dbline 7E 3A
+dbline 2 3D
+dbline 80 3F
+dbline 81 42
+dbline 2 45
+dbline 83 47
+dbline 84 4A
+dbline 2 4D
+dbline 86 4F
+dbline 87 52
+dbline 2 55
+dbline 89 57
+dbline 8A 5A
+dbline 2 5D
+dbline 8C 5F
+dbline 8D 62
+dbline 2 65
+dbline 8F 67
+dbline 90 6A
+dbline 2 6D
+dbline 92 6F
+dbline 93 72
+dbline 2 75
+dbline 95 77
+dbline 96 7A
+dbline 2 7D
+dbline 98 7F
+dbline 2 82
+dbline 9A 84
+S LoadConfigTBL_MF_TEMP_Ordered Def0000
+T 00 00 76 69 77 00 23 00 21 00 22 00 69 24 84 00
+R 00 00 00 01
+T 00 0E 27 00 25 F9 26 64 60 03 64 00 66 00 61 00
+R 00 00 00 01
+T 00 1C E6 20 E7 00 D6 08 62 00 B0 00 B1 00 B2 00
+R 00 00 00 01
+T 00 2A B3 33 B4 33 B5 00 B6 08 FF 20 21 21 55 22
+R 00 00 00 01
+T 00 38 40 E6 00 66 00 24 31 25 16 26 46 61 00 6B
+R 00 00 00 01
+T 00 46 00 60 00 62 00 67 33 64 00 FD 00 D1 00 D3
+R 00 00 00 01
+T 00 54 00 D0 00 D2 00 E1 B7 E2 00 DF 7F DE 01 DD
+R 00 00 00 01
+T 00 62 00 D8 00 D9 00 DA 00 DB 00 FF
+R 00 00 00 01
+T 00 00 70 EF 62 00 00 71 10 62 00 00 62 01 FF 70
+R 00 00 00 02
+T 00 0E EF 62 03 FF 62 02 00 71 10 62 02 00 62 03
+R 00 00 00 02
+T 00 1C 00 70 EF 62 01 00 62 04 A0 71 10 62 04 FC
+R 00 00 00 02
+T 00 2A 62 05 A3 70 EF 62 07 A3 62 06 40 71 10 62
+R 00 00 00 02
+T 00 38 06 00 62 07 00 70 EF 62 05 00 62 08 00 71
+R 00 00 00 02
+T 00 46 10 62 08 00 62 09 FF 70 EF 62 0B FF 62 0A
+R 00 00 00 02
+T 00 54 00 71 10 62 0A 00 62 0B 00 70 EF 62 09 00
+R 00 00 00 02
+T 00 62 62 0C 00 71 10 62 0C 00 62 0D 0F 70 EF 62
+R 00 00 00 02
+T 00 70 0F 0F 62 0E 00 71 10 62 0E 00 62 0F 00 70
+R 00 00 00 02
+T 00 7E EF 62 0D 00 70 EF 7F
+R 00 00 00 02

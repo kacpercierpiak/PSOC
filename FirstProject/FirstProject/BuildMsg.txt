@@ -1,0 +1,80 @@
+Starting MAKE...
+psocmakemake.exe FirstProject -oproject.mk
+
+creating project.mk 
+
+mkdepend.exe -f project.dep -p./obj/ -o.o -- -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3  -- main.c  boot.asm
+
+mkdepend.exe @mkdep
+
+mkdepend.exe @mkdep
+
+if exist output\FirstProject.rom del /F /Q  output\FirstProject.rom
+
+if exist output\FirstProject.hex del /F /Q  output\FirstProject.hex
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfig.o lib/psocconfig.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfigtbl.o lib/psocconfigtbl.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_1.o lib/pwm8_1.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_1int.o lib/pwm8_1int.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_2.o lib/pwm8_2.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_2int.o lib/pwm8_2int.asm
+
+ilibw.exe -a lib/libpsoc.a lib/obj/psocconfig.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/psocconfigtbl.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_1.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_1int.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_2.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_2int.o
+
+iccm8c.exe -g -e -c -Wf-nomac -Wf-Osize -Wf-LMM2 -D_LMM  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -o obj/main.o ./main.c
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+Linking with linkfile 
+
+-F0x30 -g -blit:0x170.0x1fff 
+
+ -bdata:0.0x100 -rwh:SSCParmBlk:0x00F7.0x00FF -BIlib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+nterruptRAM:0 -Bvirtual_registers  
+
+ -Bfirstproject_RAM 
+
+ -o"output/FirstProject" 
+
+obj/main.o 	
+
+ ./lib/libPSoc.a -LC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/LMM/eightpages C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/CY8C21030/cms.a C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/LMM/UASW/NoMAC/arith.a  
+
+ilinkm8c.exe -u ./obj/boot.o @linkfile
+
+LMM info: area 'virtual_registers' uses 2 bytes in SRAM page 0
+
+idata dump at output/FirstProject.idata
+
+  ROM 6% full. 481 out of 8192 bytes used (does not include absolute areas).
+
+  RAM 1% full. 2 bytes used (does not include stack usage).
+
+Built with ICCM8C STD V7.05.00
+
+ilstm8c.exe -r output/FirstProject.rom
+
+verlst.exe FirstProject C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools
+
+makehex.exe output/FirstProject.rom FlashSecurity.txt 0x1fff 0x30 output/FirstProject.hex
+
+ 
+FirstProject - 0 error(s) 0 warning(s) 21:57:40
+

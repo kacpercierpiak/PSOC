@@ -1,0 +1,83 @@
+XH
+H 1 areas A global symbols
+M main.c
+S _CapSenseControl_Data Ref0000
+S _LEDControl_ChangeStateSwitch Ref0000
+S __r0 Ref0000
+S __r1 Ref0000
+S _LEDControl_Blink Ref0000
+S _LEDControl_ChangeFrequency Ref0000
+S _LEDControl_INIT Ref0000
+S _CapSenseControl_INIT Ref0000
+S _CapSenseControl_DoScan Ref0000
+A text size D7 flags 0
+dbfile ./main.c
+dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\main.c
+dbstruct 2 CapSenseControl_ScanStruct
+dbfield 0 action c
+dbfield 1 value c
+dbend
+dbfunc e main 0 fV
+dbsym l CSC_SRS 2 S[CapSenseControl_ScanStruct]
+dbsym l blinkLoop 0 I
+dbline FFFFFFFF 0
+dbline B 4
+dbline E 4
+dbline 12 A
+dbline 16 C
+dbline 1A F
+dbline 1C 14
+dbline 20 14
+dbline 25 19
+dbline 28 33
+dbline 30 43
+dbline 33 74
+dbline 34 8F
+dbline 36 91
+dbline 37 AC
+dbline 39 AE
+dbline 3A BE
+dbline 3C C0
+dbline 3D D0
+dbline 3F D0
+dbline 41 D0
+dbline 1B D0
+dbline FFFFFFFE D2
+dbline 0 D5
+S _main Def0000
+T 00 00 10 4F 38 06 56 01 00 56 00 00 71 01 7C
+R 00 00 00 00
+T 00 0D 00 00 7C 00 00 80 BD 77 01 0F 00 00 52 00
+R 00 00 00 00 02 02 00 06 02 05 00 07
+T 00 1B 08 52 01 08 62 D0 00 00 51 00 00 08 7C
+R 00 00 00 00 43 08 00 00 03 0B 00 00
+T 00 26 00 00 62 D0 00 00 51 00 00 54 01 51
+R 00 00 00 00 02 02 00 04 43 06 00 02 03 09 00 03
+T 00 30 00 00 54 00 5A 00 00 06 00 00 02 50 01 08
+R 00 00 00 00 03 02 00 02 03 07 00 03 03 0A 00 03
+T 00 3B 51 00 00 08 7C 00 00 38 FB 52 02 54 05 56
+R 00 00 00 00 03 03 00 03 02 07 00 08
+T 00 48 04 00 3D 04 00 B0 06 3D 05 01 A0 21 3D 04
+R 00 00 00 00
+T 00 56 00 B0 06 3D 05 02 A0 34 3D 04 00 B0 06 3D
+R 00 00 00 00
+T 00 64 05 03 A0 47 3D 04 00 B0 06 3D 05 04 A0 4F
+R 00 00 00 00
+T 00 72 80 5D 50 00 08 62 D0 00 00 52 03 53 00 00
+R 00 00 00 00 43 09 00 02 03 0E 00 03
+T 00 7E 50 00 08 51 00 00 08 62 D0 00 00 51 00 00
+R 00 00 00 00 03 06 00 03 43 0B 00 00 03 0E 00 00
+T 00 89 08 7C 00 00 38 FC 80 40 50 01 08 62 D0
+R 00 00 00 00 02 04 00 05
+T 00 96 00 00 52 03 53 00 00 50 00 08 51 00 00 08
+R 00 00 00 00 43 02 00 02 03 07 00 03 03 0D 00 03
+T 00 A1 62 D0 00 00 51 00 00 08 7C 00 00 38 FC 80
+R 00 00 00 00 43 04 00 00 03 07 00 00 02 0B 00 05
+T 00 AD 23 50 01 08 52 03 08 7C 00 00 38 FE 62 D0
+R 00 00 00 00 02 0A 00 01
+T 00 BB 00 00 53 00 00 80 11 50 00 08 52 03 08 7C
+R 00 00 00 00 43 02 00 00 03 05 00 00
+T 00 C7 00 00 38 FE 62 D0 00 00 53 00 00 8F 43 38
+R 00 00 00 00 02 02 00 01 43 08 00 00 03 0B 00 00
+T 00 D3 FA 20 8F FF
+R 00 00 00 00

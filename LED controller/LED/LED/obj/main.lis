@@ -1,0 +1,133 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfile D:\Studia\PSOC\LED\LED\LED\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;     blinkLoopB -> X+4
+ 0000           ;     blinkLoopG -> X+2
+ 0000           ;     blinkLoopR -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3806              add SP,6
+ 0004                   .dbline 6
+ 0004           ; #include <m8c.h>        
+ 0004           ; #include "PSoCAPI.h"    
+ 0004           ; #include "LEDControl.h" //Biblioteka do obslugi diod LED
+ 0004           ; 
+ 0004           ; void main(void)
+ 0004           ; {     
+ 0004                   .dbline 7
+ 0004           ;   int blinkLoopR=0;    
+ 0004 560100            mov [X+1],0
+ 0007 560000            mov [X+0],0
+ 000A                   .dbline 8
+ 000A           ;   int blinkLoopG=0;   
+ 000A 560300            mov [X+3],0
+ 000D 560200            mov [X+2],0
+ 0010                   .dbline 9
+ 0010           ;   int blinkLoopB=0;           
+ 0010 560500            mov [X+5],0
+ 0013 560400            mov [X+4],0
+ 0016                   .dbline 11
+ 0016           ; 
+ 0016           ;   LEDControl_INIT();
+ 0016 7C0000            xcall _LEDControl_INIT
+ 0019                   .dbline 13
+ 0019           ;       
+ 0019           ;   LEDControl_RT = 500;
+ 0019 62D000            mov REG[0xd0],>_LEDControl_RT
+ 001C 5501F4            mov [_LEDControl_RT+1],-12
+ 001F 550001            mov [_LEDControl_RT],1
+ 0022                   .dbline 14
+ 0022           ;   LEDControl_GT = 1000;
+ 0022 62D000            mov REG[0xd0],>_LEDControl_GT
+ 0025 5501E8            mov [_LEDControl_GT+1],-24
+ 0028 550003            mov [_LEDControl_GT],3
+ 002B                   .dbline 15
+ 002B           ;   LEDControl_BT = 1500;
+ 002B 62D000            mov REG[0xd0],>_LEDControl_BT
+ 002E 5501DC            mov [_LEDControl_BT+1],-36
+ 0031 550005            mov [_LEDControl_BT],5
+ 0034 8059              xjmp L3
+ 0036           L2:
+ 0036                   .dbline 18
+ 0036           ; 
+ 0036           ;   while(1)
+ 0036           ;   {   
+ 0036                   .dbline 19
+ 0036           ;     blinkLoopR++;
+ 0036 7701              inc [X+1]
+ 0038 0F0000            adc [X+0],0
+ 003B                   .dbline 20
+ 003B           ;     blinkLoopR=LEDControl_Blink(3,blinkLoopR);
+ 003B 5200              mov A,[X+0]
+ 003D 08                push A
+ 003E 5201              mov A,[X+1]
+ 0040 08                push A
+ 0041 5003              mov A,3
+ 0043 08                push A
+ 0044 7C0000            xcall _LEDControl_Blink
+ 0047 38FD              add SP,-3
+ 0049 62D000            mov REG[0xd0],>__r0
+ 004C 5100              mov A,[__r1]
+ 004E 5401              mov [X+1],A
+ 0050 5100              mov A,[__r0]
+ 0052 5400              mov [X+0],A
+ 0054                   .dbline 22
+ 0054           ;               
+ 0054           ;     blinkLoopG++;
+ 0054 7703              inc [X+3]
+ 0056 0F0200            adc [X+2],0
+ 0059                   .dbline 23
+ 0059           ;     blinkLoopG=LEDControl_Blink(2,blinkLoopG);
+ 0059 5202              mov A,[X+2]
+ 005B 08                push A
+ 005C 5203              mov A,[X+3]
+ 005E 08                push A
+ 005F 5002              mov A,2
+ 0061 08                push A
+ 0062 7C0000            xcall _LEDControl_Blink
+ 0065 62D000            mov REG[0xd0],>__r0
+ 0068 5100              mov A,[__r1]
+ 006A 5403              mov [X+3],A
+ 006C 5100              mov A,[__r0]
+ 006E 5402              mov [X+2],A
+ 0070                   .dbline 25
+ 0070           ;               
+ 0070           ;     blinkLoopB++;
+ 0070 7705              inc [X+5]
+ 0072 0F0400            adc [X+4],0
+ 0075                   .dbline 26
+ 0075           ;     blinkLoopB=LEDControl_Blink(1,blinkLoopB);
+ 0075 5204              mov A,[X+4]
+ 0077 08                push A
+ 0078 5205              mov A,[X+5]
+ 007A 08                push A
+ 007B 5001              mov A,1
+ 007D 08                push A
+ 007E 7C0000            xcall _LEDControl_Blink
+ 0081 38FA              add SP,-6
+ 0083 62D000            mov REG[0xd0],>__r0
+ 0086 5100              mov A,[__r1]
+ 0088 5405              mov [X+5],A
+ 008A 5100              mov A,[__r0]
+ 008C 5404              mov [X+4],A
+ 008E                   .dbline 27
+ 008E           ;   }
+ 008E           L3:
+ 008E                   .dbline 17
+ 008E 8FA7              xjmp L2
+ 0090           X0:
+ 0090                   .dbline -2
+ 0090           L1:
+ 0090 38FA              add SP,-6
+ 0092 20                pop X
+ 0093                   .dbline 0 ; func end
+ 0093 8FFF              jmp .
+ 0095                   .dbsym l blinkLoopB 4 I
+ 0095                   .dbsym l blinkLoopG 2 I
+ 0095                   .dbsym l blinkLoopR 0 I
+ 0095                   .dbend

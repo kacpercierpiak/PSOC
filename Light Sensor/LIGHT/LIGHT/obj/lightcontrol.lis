@@ -1,0 +1,220 @@
+ 0000                   cpu LMM
+                        .module lightcontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./lightcontrol.c
+ 0000                   .dbfile D:\Studia\PSOC\LIGHT\LIGHT\LIGHT\lightcontrol.c
+ 0000                   .dbfunc e LightControl_INIT _LightControl_INIT fV
+ 0000           _LightControl_INIT::
+ 0000                   .dbline -1
+ 0000                   .dbline 19
+ 0000           ; #include <m8c.h> // Biblioteka zawierająca typy danych, stale etc.         
+ 0000           ; #include "PSoCAPI.h" // Biblioteka zawierająca funkcje PSoC    
+ 0000           ; #include "LightControl.h" // Dodanie naglowka bilbioteki
+ 0000           ; //Deklaracja i zdefiniowanie stalej rozdzielczosci ADC
+ 0000           ; //Uzywany jest przetwornik 10 bitowy stąd liczba 10
+ 0000           ; #define ADC_RESOLUTION 10
+ 0000           ; 
+ 0000           ; /// <summary>
+ 0000           ; /// Funkcja inicjalizująca czujnik światla
+ 0000           ; /// </summary>
+ 0000           ; /// <remarks> 
+ 0000           ; /// <para>ADC10_Start() - inicjalizuje modul z parametrem 
+ 0000           ; /// <c>ADC10_FULLRANGE</c> oznaczający niestandardowy zakres </para>
+ 0000           ; /// <para>ADC10_iCal() - Kalibracja przetwrnika ADC 0x01FF = 1.3V
+ 0000           ; /// sygnal kalibrujacy pochodzi z VBG</para>
+ 0000           ; /// <para>ADC10_StartADC() - uruchomienie ciągle odczytu</para>
+ 0000           ; /// </remarks>
+ 0000           ; void LightControl_INIT(void)
+ 0000           ; {
+ 0000                   .dbline 20
+ 0000           ;   ADC10_Start(ADC10_FULLRANGE);
+ 0000 10                push X
+ 0001 5003              mov A,3
+ 0003 7C0000            xcall _ADC10_Start
+ 0006                   .dbline 21
+ 0006           ;   ADC10_iCal(0x1FF, ADC10_CAL_VBG);           
+ 0006 5003              mov A,3
+ 0008 08                push A
+ 0009 5001              mov A,1
+ 000B 08                push A
+ 000C 50FF              mov A,-1
+ 000E 08                push A
+ 000F 7C0000            xcall _ADC10_iCal
+ 0012 38FD              add SP,-3
+ 0014 62D000            mov REG[0xd0],>__r0
+ 0017                   .dbline 22
+ 0017           ;   ADC10_StartADC(); 
+ 0017 7C0000            xcall _ADC10_StartADC
+ 001A 20                pop X
+ 001B                   .dbline -2
+ 001B           L1:
+ 001B                   .dbline 0 ; func end
+ 001B 7F                ret
+ 001C                   .dbend
+ 001C                   .dbfunc e LightControl_Scan _LightControl_Scan fI
+ 001C           ;      readValue -> X+6
+ 001C           ;         result -> X+4
+ 001C           ;             v1 -> X+0
+ 001C           _LightControl_Scan::
+ 001C                   .dbline -1
+ 001C 10                push X
+ 001D 4F                mov X,SP
+ 001E 380A              add SP,10
+ 0020                   .dbline 29
+ 0020           ; }
+ 0020           ; 
+ 0020           ; /// <summary>
+ 0020           ; /// Funkcja odczytujaca wartosc z czujnika swiatla
+ 0020           ; /// </summary>
+ 0020           ; int LightControl_Scan( void )
+ 0020           ; {
+ 0020                   .dbline 33
+ 0020           ;   //Deklaracja zmiennych tymczasowych
+ 0020           ;   long readValue;
+ 0020           ;   long v1;
+ 0020           ;   int result = 0;
+ 0020 560500            mov [X+5],0
+ 0023 560400            mov [X+4],0
+ 0026           L3:
+ 0026                   .dbline 35
+ 0026           ;   /*Sprawdzenie dostepnosci danych */
+ 0026           ;   while(ADC10_fIsDataAvailable() == 0){};  
+ 0026                   .dbline 35
+ 0026           L4:
+ 0026                   .dbline 35
+ 0026 10                push X
+ 0027 7C0000            xcall _ADC10_fIsDataAvailable
+ 002A 20                pop X
+ 002B 62D000            mov REG[0xd0],>__r0
+ 002E 3900              cmp A,0
+ 0030 AFF5              jz L3
+ 0032                   .dbline 35
+ 0032                   .dbline 36
+ 0032           ;   {
+ 0032                   .dbline 38
+ 0032           ;     /* Pobranie danych */
+ 0032           ;     readValue = ADC10_iGetData();                     
+ 0032 10                push X
+ 0033 7C0000            xcall _ADC10_iGetData
+ 0036 62D000            mov REG[0xd0],>__r0
+ 0039 5A00              mov [__r0],X
+ 003B 20                pop X
+ 003C 5409              mov [X+9],A
+ 003E 5100              mov A,[__r0]
+ 0040 5408              mov [X+8],A
+ 0042 480880            tst [X+8],-128
+ 0045 A009              jz X0
+ 0047 5607FF            mov [X+7],-1
+ 004A 5606FF            mov [X+6],-1
+ 004D 8007              jmp X1
+ 004F           X0:
+ 004F 560700            mov [X+7],0
+ 0052 560600            mov [X+6],0
+ 0055           X1:
+ 0055                   .dbline 39
+ 0055           ;     v1 = (long) readValue * 101;
+ 0055 5206              mov A,[X+6]
+ 0057 08                push A
+ 0058 5207              mov A,[X+7]
+ 005A 08                push A
+ 005B 5208              mov A,[X+8]
+ 005D 08                push A
+ 005E 5209              mov A,[X+9]
+ 0060 08                push A
+ 0061 5000              mov A,0
+ 0063 08                push A
+ 0064 08                push A
+ 0065 08                push A
+ 0066 5065              mov A,101
+ 0068 08                push A
+ 0069 62D000            mov REG[0xd0],>__r0
+ 006C 7C0000            xcall __mul_32X32_32
+ 006F 38FC              add SP,-4
+ 0071 18                pop A
+ 0072 5403              mov [X+3],A
+ 0074 18                pop A
+ 0075 5402              mov [X+2],A
+ 0077 18                pop A
+ 0078 5401              mov [X+1],A
+ 007A 18                pop A
+ 007B 5400              mov [X+0],A
+ 007D                   .dbline 41
+ 007D           ;     /* Przesunniecie bitowe 1 w lewo o 10 */
+ 007D           ;     v1 = v1 / (1 << ADC_RESOLUTION);
+ 007D 5000              mov A,0
+ 007F 08                push A
+ 0080 08                push A
+ 0081 5004              mov A,4
+ 0083 08                push A
+ 0084 5000              mov A,0
+ 0086 08                push A
+ 0087 5200              mov A,[X+0]
+ 0089 08                push A
+ 008A 5201              mov A,[X+1]
+ 008C 08                push A
+ 008D 5202              mov A,[X+2]
+ 008F 08                push A
+ 0090 5203              mov A,[X+3]
+ 0092 08                push A
+ 0093 7C0000            xcall __divmod_32X32_32
+ 0096 18                pop A
+ 0097 5403              mov [X+3],A
+ 0099 18                pop A
+ 009A 5402              mov [X+2],A
+ 009C 18                pop A
+ 009D 5401              mov [X+1],A
+ 009F 18                pop A
+ 00A0 5400              mov [X+0],A
+ 00A2 38FC              add SP,-4
+ 00A4                   .dbline 43
+ 00A4           ;     /* Upewnienie sie ze maksymalna liczba to 100 */
+ 00A4           ;     if (v1 > 100)  v1 = 100;  
+ 00A4 5064              mov A,100
+ 00A6 1303              sub A,[X+3]
+ 00A8 5000              mov A,0
+ 00AA 1B02              sbb A,[X+2]
+ 00AC 5000              mov A,0
+ 00AE 1B01              sbb A,[X+1]
+ 00B0 5200              mov A,[X+0]
+ 00B2 3180              xor A,-128
+ 00B4 5300              mov [__rX],A
+ 00B6 5080              mov A,(0 ^ 0x80)
+ 00B8 1A00              sbb A,[__rX]
+ 00BA D00D              jnc L6
+ 00BC           X2:
+ 00BC                   .dbline 43
+ 00BC 560000            mov [X+0],0
+ 00BF 560100            mov [X+1],0
+ 00C2 560200            mov [X+2],0
+ 00C5 560364            mov [X+3],100
+ 00C8           L6:
+ 00C8                   .dbline 44
+ 00C8           ;       result = (int) v1;                                      
+ 00C8 62D000            mov REG[0xd0],>__r0
+ 00CB 5203              mov A,[X+3]
+ 00CD 5300              mov [__r1],A
+ 00CF 5202              mov A,[X+2]
+ 00D1 5300              mov [__r0],A
+ 00D3 5100              mov A,[__r1]
+ 00D5 5405              mov [X+5],A
+ 00D7 5100              mov A,[__r0]
+ 00D9 5404              mov [X+4],A
+ 00DB                   .dbline 45
+ 00DB           ;   }
+ 00DB                   .dbline 47
+ 00DB           ;   //Zwrocenie wartosci
+ 00DB           ;   return result;
+ 00DB 5205              mov A,[X+5]
+ 00DD 5300              mov [__r1],A
+ 00DF 5204              mov A,[X+4]
+ 00E1 5300              mov [__r0],A
+ 00E3                   .dbline -2
+ 00E3           L2:
+ 00E3 38F6              add SP,-10
+ 00E5 20                pop X
+ 00E6                   .dbline 0 ; func end
+ 00E6 7F                ret
+ 00E7                   .dbsym l readValue 6 L
+ 00E7                   .dbsym l result 4 I
+ 00E7                   .dbsym l v1 0 L
+ 00E7                   .dbend

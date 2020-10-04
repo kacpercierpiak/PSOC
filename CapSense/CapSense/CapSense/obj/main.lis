@@ -1,0 +1,222 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfile D:\Studia\PSOC\CapSense\CapSense\CapSense\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000                   .dbstruct 0 2 CapSenseControl_ScanStruct
+ 0000                   .dbfield 0 action c
+ 0000                   .dbfield 1 value c
+ 0000                   .dbend
+ 0000           ;        CSC_SRS -> X+2
+ 0000           ;      blinkLoop -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3806              add SP,6
+ 0004                   .dbline 11
+ 0004           ; // Biblioteka zawierająca typy danych, stale etc.
+ 0004           ; #include <m8c.h>    
+ 0004           ; // Biblioteka zaweriajace funkcje dla peryferiów    
+ 0004           ; #include "PSoCAPI.h"  
+ 0004           ; // Biblioteka do obsługi diod LED
+ 0004           ; #include "LEDControl.h"
+ 0004           ; // Biblioteka do obsługi paska CapSense
+ 0004           ; #include "CapSenseControl.h"
+ 0004           ; 
+ 0004           ; void main(void)
+ 0004           ; {     
+ 0004                   .dbline 14
+ 0004           ;   //Deklaracja oraz inicjalizacja
+ 0004           ;   //licznika petli
+ 0004           ;   int blinkLoop=0;
+ 0004 560100            mov [X+1],0
+ 0007 560000            mov [X+0],0
+ 000A                   .dbline 18
+ 000A           ;       
+ 000A           ;   // Inicjalizacja przerwań globalnych, 
+ 000A           ;   // konieczne dla ADC
+ 000A           ;   M8C_EnableGInt ; 
+ 000A 7101                      or  F, 01h
+ 000C           
+ 000C                   .dbline 22
+ 000C           ;       
+ 000C           ;   // Inicjalizacja biblioteki do
+ 000C           ;   // obsługi diod Led
+ 000C           ;   LEDControl_INIT();
+ 000C 7C0000            xcall _LEDControl_INIT
+ 000F                   .dbline 26
+ 000F           ;       
+ 000F           ;   // Inicjalizacja biblioteki do
+ 000F           ;   // obsługi czujnika zbliżeniowego 
+ 000F           ;   CapSenseControl_INIT();
+ 000F 7C0000            xcall _CapSenseControl_INIT
+ 0012 80BD              xjmp L3
+ 0014           L2:
+ 0014                   .dbline 28
+ 0014           ;   while(1)
+ 0014           ;   {   
+ 0014                   .dbline 32
+ 0014           ;       // Deklaracja zmiennej
+ 0014           ;     CapSenseControl_ScanStruct CSC_SRS;
+ 0014           ;     // Inkrementacja licznika petli
+ 0014           ;     blinkLoop++;
+ 0014 7701              inc [X+1]
+ 0016 0F0000            adc [X+0],0
+ 0019                   .dbline 37
+ 0019           ;       
+ 0019           ;       // Zmiana stanu aktywnej diody jeśli 
+ 0019           ;       // Wymagana liczba cykli zostala osiagnieta
+ 0019           ;       // Jeśli tak to zmienna blinkLoop jest zerowana
+ 0019           ;     blinkLoop=LEDControl_Blink(CapSenseControl_Data.led,blinkLoop);
+ 0019 5200              mov A,[X+0]
+ 001B 08                push A
+ 001C 5201              mov A,[X+1]
+ 001E 08                push A
+ 001F 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 0022 5100              mov A,[_CapSenseControl_Data]
+ 0024 08                push A
+ 0025 7C0000            xcall _LEDControl_Blink
+ 0028 62D000            mov REG[0xd0],>__r0
+ 002B 5100              mov A,[__r1]
+ 002D 5401              mov [X+1],A
+ 002F 5100              mov A,[__r0]
+ 0031 5400              mov [X+0],A
+ 0033                   .dbline 40
+ 0033           ;       
+ 0033           ;       // Sprawdzenie czy oraz jaki gest zostal wykonany na suwaku     
+ 0033           ;     CSC_SRS = CapSenseControl_DoScan();
+ 0033 5A00              mov [__r1],X
+ 0035 060002            add [__r1],2
+ 0038 5001              mov A,1
+ 003A 08                push A
+ 003B 5100              mov A,[__r1]
+ 003D 08                push A
+ 003E 7C0000            xcall _CapSenseControl_DoScan
+ 0041 38FB              add SP,-5
+ 0043                   .dbline 48
+ 0043           ;       
+ 0043           ;       /* Interpretacja gestu w zaleznosci od wyniku
+ 0043           ;       1 - Ruch w prawo, zmniejszenie czestotliwosc migania
+ 0043           ;       2 - Ruch w lewo, zwiekszenie czestotliwosc migania
+ 0043           ;       3 - Klikniecie lewj czesci, poprzednia dioda
+ 0043           ;       4 - Klikniecie lewj czesci, nastepna dioda
+ 0043           ;       */ 
+ 0043           ;     switch (CSC_SRS.action)
+ 0043 5202              mov A,[X+2]
+ 0045 5405              mov [X+5],A
+ 0047 560400            mov [X+4],0
+ 004A 3D0400            cmp [X+4],0
+ 004D B006              jnz X1
+ 004F 3D0501            cmp [X+5],1
+ 0052 A021              jz L8
+ 0054           X1:
+ 0054 3D0400            cmp [X+4],0
+ 0057 B006              jnz X2
+ 0059 3D0502            cmp [X+5],2
+ 005C A034              jz L10
+ 005E           X2:
+ 005E 3D0400            cmp [X+4],0
+ 0061 B006              jnz X3
+ 0063 3D0503            cmp [X+5],3
+ 0066 A047              jz L12
+ 0068           X3:
+ 0068 3D0400            cmp [X+4],0
+ 006B B006              jnz X4
+ 006D 3D0504            cmp [X+5],4
+ 0070 A04F              jz L14
+ 0072           X4:
+ 0072 805D              xjmp L6
+ 0074           L8:
+ 0074                   .dbline 51
+ 0074           ;     {
+ 0074           ;       case 1:
+ 0074           ;         LEDControl_ChangeFrequency(CapSenseControl_Data.led,CSC_SRS.value,FALSE);     
+ 0074 5000              mov A,0
+ 0076 08                push A
+ 0077 62D000            mov REG[0xd0],>__r0
+ 007A 5203              mov A,[X+3]
+ 007C 5300              mov [__r1],A
+ 007E 5000              mov A,0
+ 0080 08                push A
+ 0081 5100              mov A,[__r1]
+ 0083 08                push A
+ 0084 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 0087 5100              mov A,[_CapSenseControl_Data]
+ 0089 08                push A
+ 008A 7C0000            xcall _LEDControl_ChangeFrequency
+ 008D 38FC              add SP,-4
+ 008F                   .dbline 52
+ 008F           ;         break;
+ 008F 8040              xjmp L6
+ 0091           L10:
+ 0091                   .dbline 54
+ 0091           ;       case 2:
+ 0091           ;         LEDControl_ChangeFrequency(CapSenseControl_Data.led,CSC_SRS.value,TRUE);
+ 0091 5001              mov A,1
+ 0093 08                push A
+ 0094 62D000            mov REG[0xd0],>__r0
+ 0097 5203              mov A,[X+3]
+ 0099 5300              mov [__r1],A
+ 009B 5000              mov A,0
+ 009D 08                push A
+ 009E 5100              mov A,[__r1]
+ 00A0 08                push A
+ 00A1 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 00A4 5100              mov A,[_CapSenseControl_Data]
+ 00A6 08                push A
+ 00A7 7C0000            xcall _LEDControl_ChangeFrequency
+ 00AA 38FC              add SP,-4
+ 00AC                   .dbline 55
+ 00AC           ;         break;
+ 00AC 8023              xjmp L6
+ 00AE           L12:
+ 00AE                   .dbline 57
+ 00AE           ;       case 3:         
+ 00AE           ;         CapSenseControl_Data.led = LEDControl_ChangeStateSwitch(CSC_SRS.value,TRUE);
+ 00AE 5001              mov A,1
+ 00B0 08                push A
+ 00B1 5203              mov A,[X+3]
+ 00B3 08                push A
+ 00B4 7C0000            xcall _LEDControl_ChangeStateSwitch
+ 00B7 38FE              add SP,-2
+ 00B9 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 00BC 5300              mov [_CapSenseControl_Data],A
+ 00BE                   .dbline 58
+ 00BE           ;         break;
+ 00BE 8011              xjmp L6
+ 00C0           L14:
+ 00C0                   .dbline 60
+ 00C0           ;       case 4:         
+ 00C0           ;         CapSenseControl_Data.led = LEDControl_ChangeStateSwitch(CSC_SRS.value,FALSE);
+ 00C0 5000              mov A,0
+ 00C2 08                push A
+ 00C3 5203              mov A,[X+3]
+ 00C5 08                push A
+ 00C6 7C0000            xcall _LEDControl_ChangeStateSwitch
+ 00C9 38FE              add SP,-2
+ 00CB 62D000            mov REG[0xd0],>_CapSenseControl_Data
+ 00CE 5300              mov [_CapSenseControl_Data],A
+ 00D0                   .dbline 61
+ 00D0           ;         break;
+ 00D0                   .dbline 63
+ 00D0           ;       default:
+ 00D0           ;         break; 
+ 00D0           L6:
+ 00D0                   .dbline 65
+ 00D0           ;     } 
+ 00D0           ;   }
+ 00D0           L3:
+ 00D0                   .dbline 27
+ 00D0 8F43              xjmp L2
+ 00D2           X0:
+ 00D2                   .dbline -2
+ 00D2           L1:
+ 00D2 38FA              add SP,-6
+ 00D4 20                pop X
+ 00D5                   .dbline 0 ; func end
+ 00D5 8FFF              jmp .
+ 00D7                   .dbsym l CSC_SRS 2 S[CapSenseControl_ScanStruct]
+ 00D7                   .dbsym l blinkLoop 0 I
+ 00D7                   .dbend

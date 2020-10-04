@@ -1,0 +1,82 @@
+XH
+H 4 areas D global symbols
+M cyfisnpint.asm
+A text size 0 flags 0
+dbfile lib/cyfisnpint.asm
+dbfunc 0 ? 0 I
+dbfile CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile ./lib/PSoCGPIOInt.inc
+dbfunc 0 ? 0 I
+dbfile CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc
+dbfunc 0 ? 0 I
+dbfile ./lib/CYFISNP.inc
+dbfunc 0 ? 0 I
+dbfile lib/cyfisnpint.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/psocgpioint.inc
+dbfunc 0 ? 0 I
+dbfile lib/cyfisnpint.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/cyfisnpint.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc
+dbfunc 0 ? 0 I
+A InterruptRAM size 2 flags 20
+S _SleepTimer_TickCount Def0000
+S SleepTimer_TickCount Def0000
+A UserModules size 1F flags 0
+dbfile lib/cyfisnpint.asm
+dbfunc 0 ? 0 I
+dbline 2 0
+dbline 27 2
+dbline 28 4
+dbline 29 6
+dbline 2A 8
+dbline 2 A
+dbline 2D C
+dbline 32 D
+dbline 33 F
+dbline 34 11
+dbline 36 13
+dbline 3E 14
+dbline 49 15
+dbline 4A 17
+dbline 4B 18
+dbline 4C 19
+dbline 4D 1A
+dbline 4E 1B
+dbline 4F 1C
+dbline 51 1E
+S _CYFISNP_Delay100uS Def0015
+S CYFISNP_SleepTimer_Set64Hz Def0000
+S _CYFISNP_IRQ_Pin_Hidden_INT Def0014
+S $sb$CYFISNP_SleepTimer_Set64Hz Def0000
+S $se$CYFISNP_SleepTimer_Set64Hz Def000D
+S _CYFISNP__IRQ_INT Def0014
+S _CYFISNP_SleepTimer_Set64Hz Def0000
+S _CYFISNP_SLEEP_ISR Def000D
+S CYFISNP_Delay100uS Def0015
+S _CYFISNP_ISR Def0014
+A ReservedFlashBlock size 4000 flags C
+S _CYFISNP_EEP_PHY_ADR Def3FC0
+T 00 00 71 10 5D E0 21 E7 29 08 60 E0 70 EF 7F 76
+R 00 00 00 02
+T 00 0E 00 01 D0 03 76 00 00 7E 7E 57 30 79 40 40
+R 00 00 00 02 01 02 00 01 01 07 00 01
+T 00 1A 40 40 BF FA 7F
+R 00 00 00 02
+T 3F C0 00 00 00 00 00 00 00 00 30 30 30 30 30 30
+R 00 00 00 03
+T 3F CE 30 30 30 30 30 30 30 30 30 30 30 30 30 30
+R 00 00 00 03
+T 3F DC 30 30 30 30 30 30 30 30 30 30 30 30 30 30
+R 00 00 00 03
+T 3F EA 30 30 30 30 30 30 30 30 30 30 30 30 30 30
+R 00 00 00 03
+T 3F F8 30 30 30 30 30 30 30 30
+R 00 00 00 03

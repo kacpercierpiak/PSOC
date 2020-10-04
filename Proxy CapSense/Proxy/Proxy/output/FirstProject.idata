@@ -1,0 +1,10 @@
+flash 1606 SRAM   9E:
+ 00 5 bytes
+flash 160A SRAM   A3:
+ <size at next line>  32
+  [size:] 1 bytes
+flash 160E SRAM   A4:
+ 00 5 bytes
+flash 1612 SRAM   A9:
+ <size at next line>  32  0 32  0
+  [size:] 4 bytes

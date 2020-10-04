@@ -1,0 +1,52 @@
+XH
+H 1 areas 6 global symbols
+M main.c
+S _TempControl_GetValue Ref0000
+S __r0 Ref0000
+S __r1 Ref0000
+S _LEDControl_INIT Ref0000
+S _LEDControl_ChangeState Ref0000
+A text size 80 flags 0
+dbfile ./main.c
+dbfile D:\Studia\PSOC\TEMP\TEMP\main.c
+dbfunc e main 0 fV
+dbline FFFFFFFF 0
+dbline 7 4
+dbline A 4
+dbline B 6
+dbline E B
+dbline F B
+dbline 12 43
+dbline 13 4D
+dbline 15 4F
+dbline 16 5B
+dbline 18 5D
+dbline 19 6B
+dbline 1B 6D
+dbline 1C 79
+dbline 1E 79
+dbline 20 79
+dbline D 79
+dbline FFFFFFFE 7B
+dbline 0 7E
+S _main Def0000
+T 00 00 10 4F 38 02 71 01 7C 00 00 80 6F 7C 00 00
+R 00 00 00 00 02 09 00 03 02 0E 00 00
+T 00 0E 62 D0 00 00 51 00 00 54 01 51 00 00 54 00
+R 00 00 00 00 43 04 00 01 03 07 00 02 03 0C 00 01
+T 00 19 3D 00 00 B0 06 3D 01 00 A0 21 3D 00 00 B0
+R 00 00 00 00
+T 00 27 06 3D 01 01 A0 23 3D 00 00 B0 06 3D 01 02
+R 00 00 00 00
+T 00 35 A0 27 3D 00 00 B0 06 3D 01 03 A0 2D 80 37
+R 00 00 00 00
+T 00 43 50 00 08 08 08 7C 00 00 38 FD 80 2B 50 01
+R 00 00 00 00 02 08 00 04
+T 00 51 08 50 00 08 08 7C 00 00 38 FD 80 1D 50 00
+R 00 00 00 00 02 08 00 04
+T 00 5F 08 50 01 08 50 00 08 7C 00 00 38 FD 80 0D
+R 00 00 00 00 02 0A 00 04
+T 00 6D 50 00 08 08 50 01 08 7C 00 00 38 FD 8F 91
+R 00 00 00 00 02 0A 00 04
+T 00 7B 38 FE 20 8F FF
+R 00 00 00 00

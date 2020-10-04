@@ -1,0 +1,177 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfile D:\Studia\PSOC\LIGHT\LIGHT\LIGHT\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;         result -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3804              add SP,4
+ 0004                   .dbline 13
+ 0004           ; #include <m8c.h> // Biblioteka zawierająca typy danych, stale etc.        
+ 0004           ; #include "PSoCAPI.h" // Biblioteka zawierająca funkcje PSoC    
+ 0004           ; #include "LEDControl.h" // Biblioteka diod LED
+ 0004           ; #include "lightcontrol.h" // Biblioteka czujnika światla
+ 0004           ; 
+ 0004           ; struct I2C_Regs 
+ 0004           ; { 
+ 0004           ; BYTE led;
+ 0004           ; BYTE light;
+ 0004           ; } Data_Regs;
+ 0004           ; 
+ 0004           ; void main(void)
+ 0004           ; {
+ 0004                   .dbline 14
+ 0004           ;   EzI2Cs_SetRamBuffer(sizeof(Data_Regs), 2, (BYTE *) &Data_Regs);   /* Setting RAM Buffer */
+ 0004 10                push X
+ 0005 5000              mov A,>_Data_Regs
+ 0007 08                push A
+ 0008 5000              mov A,<_Data_Regs
+ 000A 08                push A
+ 000B 5002              mov A,2
+ 000D 08                push A
+ 000E 08                push A
+ 000F 7C0000            xcall _EzI2Cs_SetRamBuffer
+ 0012 38FC              add SP,-4
+ 0014 20                pop X
+ 0015                   .dbline 17
+ 0015           ;   //Inicjalizacja przerwań globalnych, 
+ 0015           ;   //konieczne dla ADC
+ 0015           ;   M8C_EnableGInt; 
+ 0015 7101                      or  F, 01h
+ 0017           
+ 0017                   .dbline 20
+ 0017           ;   //Inicjalizacja bilbioteki do
+ 0017           ;   //obslugi diod led
+ 0017           ;   LEDControl_INIT();
+ 0017 7C0000            xcall _LEDControl_INIT
+ 001A                   .dbline 23
+ 001A           ;   //Inicjalizacja bilbioteki do
+ 001A           ;   //obslugi czujnika swiatla
+ 001A           ;   LightControl_INIT();
+ 001A 7C0000            xcall _LightControl_INIT
+ 001D                   .dbline 24
+ 001D           ;   EzI2Cs_Start();
+ 001D 10                push X
+ 001E 7C0000            xcall _EzI2Cs_Start
+ 0021 20                pop X
+ 0022 808A              xjmp L3
+ 0024           L2:
+ 0024                   .dbline 27
+ 0024           ;       
+ 0024           ;   while(1)        
+ 0024           ;   {
+ 0024                   .dbline 29
+ 0024           ;       //Pobranie wartosci natezenie swiatla 0-100
+ 0024           ;     int result = LightControl_Scan();
+ 0024 7C0000            xcall _LightControl_Scan
+ 0027 62D000            mov REG[0xd0],>__r0
+ 002A 5100              mov A,[__r1]
+ 002C 5401              mov [X+1],A
+ 002E 5100              mov A,[__r0]
+ 0030 5400              mov [X+0],A
+ 0032                   .dbline 30
+ 0032           ;       Data_Regs.light = result;
+ 0032 5201              mov A,[X+1]
+ 0034 62D000            mov REG[0xd0],>_Data_Regs
+ 0037 5301              mov [_Data_Regs+1],A
+ 0039                   .dbline 31
+ 0039           ;       Data_Regs.led = result>0x00 ? 1 : 0;
+ 0039 5000              mov A,0
+ 003B 1301              sub A,[X+1]
+ 003D 5200              mov A,[X+0]
+ 003F 3180              xor A,-128
+ 0041 62D000            mov REG[0xd0],>__r0
+ 0044 5300              mov [__rX],A
+ 0046 5080              mov A,(0 ^ 0x80)
+ 0048 1A00              sbb A,[__rX]
+ 004A D009              jnc L7
+ 004C           X1:
+ 004C 560301            mov [X+3],1
+ 004F 560200            mov [X+2],0
+ 0052 8007              xjmp L8
+ 0054           L7:
+ 0054 560300            mov [X+3],0
+ 0057 560200            mov [X+2],0
+ 005A           L8:
+ 005A 5203              mov A,[X+3]
+ 005C 62D000            mov REG[0xd0],>_Data_Regs
+ 005F 5300              mov [_Data_Regs],A
+ 0061                   .dbline 35
+ 0061           ;       //Jesli natezenie > 40 wlacz wszystkie diody
+ 0061           ;     //Jesli natezenie > 25 wlacz diode czerwona i zielona
+ 0061           ;       //W przeciwnym wypadku wlacz diode czerwona
+ 0061           ;       result > 40 ? LEDControl_ChangeState(TRUE,TRUE,TRUE) : 
+ 0061 5028              mov A,40
+ 0063 1301              sub A,[X+1]
+ 0065 5200              mov A,[X+0]
+ 0067 3180              xor A,-128
+ 0069 62D000            mov REG[0xd0],>__r0
+ 006C 5300              mov [__rX],A
+ 006E 5080              mov A,(0 ^ 0x80)
+ 0070 1A00              sbb A,[__rX]
+ 0072 D00D              jnc L9
+ 0074           X2:
+ 0074 5001              mov A,1
+ 0076 08                push A
+ 0077 08                push A
+ 0078 08                push A
+ 0079 7C0000            xcall _LEDControl_ChangeState
+ 007C 38FD              add SP,-3
+ 007E 802E              xjmp L10
+ 0080           L9:
+ 0080 5019              mov A,25
+ 0082 1301              sub A,[X+1]
+ 0084 5200              mov A,[X+0]
+ 0086 3180              xor A,-128
+ 0088 62D000            mov REG[0xd0],>__r0
+ 008B 5300              mov [__rX],A
+ 008D 5080              mov A,(0 ^ 0x80)
+ 008F 1A00              sbb A,[__rX]
+ 0091 D00F              jnc L11
+ 0093           X3:
+ 0093 5000              mov A,0
+ 0095 08                push A
+ 0096 5001              mov A,1
+ 0098 08                push A
+ 0099 08                push A
+ 009A 7C0000            xcall _LEDControl_ChangeState
+ 009D 38FD              add SP,-3
+ 009F 800D              xjmp L10
+ 00A1           L11:
+ 00A1 5000              mov A,0
+ 00A3 08                push A
+ 00A4 08                push A
+ 00A5 5001              mov A,1
+ 00A7 08                push A
+ 00A8 7C0000            xcall _LEDControl_ChangeState
+ 00AB 38FD              add SP,-3
+ 00AD           L10:
+ 00AD                   .dbline 38
+ 00AD           ;       result > 25 ? LEDControl_ChangeState(TRUE,TRUE,FALSE) : 
+ 00AD           ;       LEDControl_ChangeState(TRUE,FALSE,FALSE);   
+ 00AD           ;   }
+ 00AD           L3:
+ 00AD                   .dbline 26
+ 00AD 8F76              xjmp L2
+ 00AF           X0:
+ 00AF                   .dbline -2
+ 00AF           L1:
+ 00AF 38FC              add SP,-4
+ 00B1 20                pop X
+ 00B2                   .dbline 0 ; func end
+ 00B2 8FFF              jmp .
+ 00B4                   .dbsym l result 0 I
+ 00B4                   .dbend
+                        .area data(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\LIGHT\LIGHT\LIGHT\main.c
+ 0000           _Data_Regs::
+ 0000 0000              .byte 0,0
+ 0002                   .dbstruct 0 2 I2C_Regs
+ 0002                   .dbfield 0 led c
+ 0002                   .dbfield 1 light c
+ 0002                   .dbend
+ 0002                   .dbsym e Data_Regs _Data_Regs S[I2C_Regs]

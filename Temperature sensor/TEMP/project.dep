@@ -1,0 +1,60 @@
+# DO NOT DELETE
+./obj/boot.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8ssc.inc\
+   D:\Studia\PSOC\TEMP\TEMP\lib\GlobalParams.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./obj/ledcontrol.o :  ./lib/ADC10.h ./lib/EzI2Cs.h ./lib/LED_BLUE.h\
+   ./lib/LED_GREEN.h ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   ./lib/PWM8.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8C.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/_const.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/limits.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/stdlib.h\
+   D:\Studia\PSOC\TEMP\TEMP\LEDControl.h
+./obj/main.o :  ./lib/ADC10.h ./lib/EzI2Cs.h ./lib/LED_BLUE.h\
+   ./lib/LED_GREEN.h ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   ./lib/PWM8.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8C.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   D:\Studia\PSOC\TEMP\TEMP\LEDControl.h\
+   D:\Studia\PSOC\TEMP\TEMP\TempControl.h
+./obj/tempcontrol.o :  ./lib/ADC10.h ./lib/EzI2Cs.h ./lib/LED_BLUE.h\
+   ./lib/LED_GREEN.h ./lib/LED_RED.h ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h\
+   ./lib/PWM8.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8C.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.h\
+   D:\Studia\PSOC\TEMP\TEMP\TempControl.h
+./lib/obj/adc10.o :  ./lib/ADC10.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/adc10int.o :  ./lib/ADC10.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/ezi2cs.o :  ./lib/EzI2Cs.inc ./lib/PSoCGPIOINT.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/ezi2csint.o :  ./lib/EzI2Cs.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/led_blue.o :  ./lib/LED_BLUE.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/led_green.o :  ./lib/LED_GREEN.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/led_red.o :  ./lib/LED_RED.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/psocconfig.o :  ./lib/GlobalParams.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/psocconfigtbl.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+./lib/obj/pwm8.o :  ./lib/PWM8.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc
+./lib/obj/pwm8int.o :  ./lib/PWM8.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc\
+   D:\Studia\PSOC\TEMP\TEMP\memory.inc

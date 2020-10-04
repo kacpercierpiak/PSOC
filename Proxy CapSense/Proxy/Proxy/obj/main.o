@@ -1,0 +1,38 @@
+XH
+H 1 areas 6 global symbols
+M main.c
+S _LEDControl_ChangeStateSwitch Ref0000
+S __r0 Ref0000
+S _LEDControl_INIT Ref0000
+S _ProxyControl_Proxy Ref0000
+S _ProxyControl_INIT Ref0000
+A text size 43 flags 0
+dbfile ./main.c
+dbfile D:\Studia\PSOC\Proxy\Proxy\Proxy\main.c
+dbfunc e main 0 fV
+dbsym l blinkLoop 0 I
+dbline FFFFFFFF 0
+dbline 7 4
+dbline 8 4
+dbline B A
+dbline F C
+dbline 13 F
+dbline 16 14
+dbline 19 14
+dbline 1B 3C
+dbline 15 3C
+dbline FFFFFFFE 3E
+dbline 0 41
+S _main Def0000
+T 00 00 10 4F 38 02 56 01 00 56 00 00 71 01 7C
+R 00 00 00 00
+T 00 0D 00 00 7C 00 00 80 29 7C 00 00 62 D0
+R 00 00 00 00 02 02 00 02 02 05 00 04 02 0A 00 03
+T 00 19 00 00 39 00 A0 13 50 01 08 50 02 08 7C
+R 00 00 00 00 43 02 00 01
+T 00 25 00 00 38 FE 62 D0 00 00 53 00 00 80 0D 50
+R 00 00 00 00 02 02 00 00 43 08 00 01 03 0B 00 01
+T 00 31 01 08 08 7C 00 00 38 FE 62 D0 00 00 8F D7
+R 00 00 00 00 02 06 00 00 43 0C 00 01
+T 00 3E 38 FE 20 8F FF
+R 00 00 00 00

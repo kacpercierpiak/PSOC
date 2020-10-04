@@ -1,0 +1,122 @@
+Starting MAKE...
+psocmakemake.exe CapSense -oproject.mk
+
+creating project.mk 
+
+mkdepend.exe -f project.dep -p./obj/ -o.o -- -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3  -- capsensecontrol.c ledcontrol.c main.c  boot.asm
+
+mkdepend.exe @mkdep
+
+mkdepend.exe @mkdep
+
+if exist output\CapSense.rom del /F /Q  output\CapSense.rom
+
+if exist output\CapSense.hex del /F /Q  output\CapSense.hex
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csd.o lib/csd.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdhl.o lib/csdhl.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdint.o lib/csdint.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdtable.o lib/csdtable.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_blue.o lib/led_blue.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_green.o lib/led_green.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_red.o lib/led_red.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfig.o lib/psocconfig.asm
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfigtbl.o lib/psocconfigtbl.asm
+
+ilibw.exe -a lib/libpsoc.a lib/obj/csd.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/csdhl.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/csdint.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/csdtable.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/led_blue.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/led_green.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/led_red.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/psocconfig.o  
+
+ilibw.exe -a lib/libpsoc.a lib/obj/psocconfigtbl.o
+
+iccm8c.exe -g -e -c -Wf-nomac -Wf-Osize -Wf-LMM2 -D_LMM  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -o obj/capsensecontrol.o ./capsensecontrol.c
+
+iccm8c.exe -g -e -c -Wf-nomac -Wf-Osize -Wf-LMM2 -D_LMM  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -o obj/ledcontrol.o ./ledcontrol.c
+
+iccm8c.exe -g -e -c -Wf-nomac -Wf-Osize -Wf-LMM2 -D_LMM  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -o obj/main.o ./main.c
+
+iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+Linking with linkfile 
+
+-F0x30 -g -blit:0x170.0x1fff 
+
+ -bdata:0.0x100 -rwh:SSCParmBlk:0x00F7.0x00FF -BIlib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+nterruptRAM:0 -Bvirtual_registers  
+
+ -Bcapsense_RAM 
+
+ -o"output/CapSense" 
+
+obj/capsensecontrol.o obj/ledcontrol.o obj/main.o 	
+
+ ./lib/libPSoc.a -LC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/LMM/eightpages C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/CY8C21030/cms.a C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/LMM/UASW/NoMAC/arith.a  
+
+ilinkm8c.exe -u ./obj/boot.o @linkfile
+
+LMM info: area 'InterruptRAM' uses 56 bytes in SRAM bank 0
+
+LMM info: area 'ram2' item of 33 bytes allocated in SRAM page 0
+
+LMM info: area 'ram1' item of 32 bytes allocated in SRAM page 0
+
+LMM info: area 'bss' item of 16 bytes allocated in SRAM page 0
+
+LMM info: area 'virtual_registers' uses 7 bytes in SRAM page 0
+
+LMM info: area 'bss' item of 6 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+LMM info: area 'data' item of 1 bytes allocated in SRAM page 0
+
+idata dump at output/CapSense.idata
+
+  ROM 61% full. 4927 out of 8192 bytes used (does not include absolute areas).
+
+  RAM 65% full. 165 bytes used (does not include stack usage).
+
+Built with ICCM8C STD V7.05.00
+
+ilstm8c.exe -r output/CapSense.rom
+
+verlst.exe CapSense C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools
+
+makehex.exe output/CapSense.rom FlashSecurity.txt 0x1fff 0x30 output/CapSense.hex
+
+ 
+CapSense - 0 error(s) 0 warning(s) 15:33:53
+

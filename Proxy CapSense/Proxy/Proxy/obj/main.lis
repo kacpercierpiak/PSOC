@@ -1,0 +1,88 @@
+ 0000                   cpu LMM
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000                   .dbfile D:\Studia\PSOC\Proxy\Proxy\Proxy\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000           ;      blinkLoop -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3802              add SP,2
+ 0004                   .dbline 7
+ 0004           ; #include <m8c.h> // Biblioteka zawierająca typy danych, stałe etc.        
+ 0004           ; #include "PSoCAPI.h" // Biblioteka zawierające funkcje PSoC    
+ 0004           ; #include "LEDControl.h" // Biblioteka do obsługi diod LED
+ 0004           ; #include "ProxyControl.h" // Biblioteka obsługujaca czujni zbliżeniowy
+ 0004           ; 
+ 0004           ; void main(void)
+ 0004           ; {     
+ 0004                   .dbline 8
+ 0004           ;   int blinkLoop=0;
+ 0004 560100            mov [X+1],0
+ 0007 560000            mov [X+0],0
+ 000A                   .dbline 11
+ 000A           ;   // Inicjalizacja przerwań globalnych, 
+ 000A           ;   // konieczne dla ADC
+ 000A           ;   M8C_EnableGInt ; 
+ 000A 7101                      or  F, 01h
+ 000C           
+ 000C                   .dbline 15
+ 000C           ;       
+ 000C           ;   // Inicjalizacja biblioteki do
+ 000C           ;   // obsługi diod Led
+ 000C           ;   LEDControl_INIT();
+ 000C 7C0000            xcall _LEDControl_INIT
+ 000F                   .dbline 19
+ 000F           ;       
+ 000F           ;   // Inicjalizacja biblioteki do
+ 000F           ;   // obsługi diod czujnika zbliżeniowego    
+ 000F           ;   ProxyControl_INIT();
+ 000F 7C0000            xcall _ProxyControl_INIT
+ 0012 8029              xjmp L3
+ 0014           L2:
+ 0014                   .dbline 22
+ 0014           ;       
+ 0014           ;   while(1) 
+ 0014           ;   {   
+ 0014                   .dbline 25
+ 0014           ;       // Jeśli wykryto obiekt wlaczona dioda niebieskie 
+ 0014           ;       // w przeciwnym wypadku czerwona 
+ 0014           ;       ProxyControl_Proxy()? LEDControl_ChangeStateSwitch(2,TRUE): 
+ 0014 7C0000            xcall _ProxyControl_Proxy
+ 0017 62D000            mov REG[0xd0],>__r0
+ 001A 3900              cmp A,0
+ 001C A013              jz L6
+ 001E 5001              mov A,1
+ 0020 08                push A
+ 0021 5002              mov A,2
+ 0023 08                push A
+ 0024 7C0000            xcall _LEDControl_ChangeStateSwitch
+ 0027 38FE              add SP,-2
+ 0029 62D000            mov REG[0xd0],>__r0
+ 002C 5300              mov [__r0],A
+ 002E 800D              xjmp L7
+ 0030           L6:
+ 0030 5001              mov A,1
+ 0032 08                push A
+ 0033 08                push A
+ 0034 7C0000            xcall _LEDControl_ChangeStateSwitch
+ 0037 38FE              add SP,-2
+ 0039 62D000            mov REG[0xd0],>__r0
+ 003C           L7:
+ 003C                   .dbline 27
+ 003C           ;       LEDControl_ChangeStateSwitch(1,TRUE);
+ 003C           ;   }
+ 003C           L3:
+ 003C                   .dbline 21
+ 003C 8FD7              xjmp L2
+ 003E           X0:
+ 003E                   .dbline -2
+ 003E           L1:
+ 003E 38FE              add SP,-2
+ 0040 20                pop X
+ 0041                   .dbline 0 ; func end
+ 0041 8FFF              jmp .
+ 0043                   .dbsym l blinkLoop 0 I
+ 0043                   .dbend

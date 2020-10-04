@@ -1,0 +1,1368 @@
+                        .module main.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./main.c
+                        .area data(ram, con, rel)
+ 0000                   .dbfile ./main.c
+ 0000           _ledHeartbeatSec::
+ 0000                   .blkb 2
+                        .area idata(rom,lit)
+ 0000 0005              .word 5
+                        .area data(ram, con, rel)
+ 0002                   .dbfile ./main.c
+ 0002                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0002                   .dbsym e ledHeartbeatSec _ledHeartbeatSec i
+ 0002           _reportTimeSec::
+ 0002                   .blkb 2
+                        .area idata(rom,lit)
+ 0002 0005              .word 5
+                        .area data(ram, con, rel)
+ 0004                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0004                   .dbsym e reportTimeSec _reportTimeSec i
+ 0004           _reportTimerSec::
+ 0004                   .blkb 2
+                        .area idata(rom,lit)
+ 0004 0005              .word 5
+                        .area data(ram, con, rel)
+ 0006                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0006                   .dbsym e reportTimerSec _reportTimerSec i
+ 0006           _sleepTicksPerSec::
+ 0006                   .blkb 2
+                        .area idata(rom,lit)
+ 0006 0040              .word 64
+                        .area data(ram, con, rel)
+ 0008                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0008                   .dbsym e sleepTicksPerSec _sleepTicksPerSec i
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0000                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.c
+ 0000                   .dbfunc e main _main fV
+ 0000                   .dbstruct 0 18 .2
+ 0000                   .dbfield 0 length c
+ 0000                   .dbfield 1 rssi c
+ 0000                   .dbfield 2 type c
+ 0000                   .dbfield 3 devId c
+ 0000                   .dbfield 4 payload A[14:14]c
+ 0000                   .dbend
+ 0000           ;      pRxApiPkt -> X+1
+ 0000           ;  eProtStateOld -> X+0
+ 0000           _main::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3803              add SP,3
+ 0004                   .dbline 60
+ 0004           ; //----------------------------------------------------------------------------
+ 0004           ; //
+ 0004           ; // Main.c - FirstTouch I2C Bridge
+ 0004           ; //
+ 0004           ; //--------------------------------------------------------------------------
+ 0004           ; //
+ 0004           ; //--------------------------------------------------------------------------
+ 0004           ; //
+ 0004           ; // Copyright 2008, Cypress Semiconductor Corporation.
+ 0004           ; //
+ 0004           ; // This software is owned by Cypress Semiconductor Corporation (Cypress)
+ 0004           ; // and is protected by and subject to worldwide patent protection (United
+ 0004           ; // States and foreign), United States copyright laws and international
+ 0004           ; // treaty provisions. Cypress hereby grants to licensee a personal,
+ 0004           ; // non-exclusive, non-transferable license to copy, use, modify, create
+ 0004           ; // derivative works of, and compile the Cypress Source Code and derivative
+ 0004           ; // works for the sole purpose of creating custom software in support of
+ 0004           ; // licensee product to be used only in conjunction with a Cypress integrated
+ 0004           ; // circuit as specified in the applicable agreement. Any reproduction,
+ 0004           ; // modification, translation, compilation, or representation of this
+ 0004           ; // software except as specified above is prohibited without the express
+ 0004           ; // written permission of Cypress.
+ 0004           ; //
+ 0004           ; // Disclaimer: CYPRESS MAKES NO WARRANTY OF ANY KIND,EXPRESS OR IMPLIED,
+ 0004           ; // WITH REGARD TO THIS MATERIAL, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ 0004           ; // WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+ 0004           ; // Cypress reserves the right to make changes without further notice to the
+ 0004           ; // materials described herein. Cypress does not assume any liability arising
+ 0004           ; // out of the application or use of any product or circuit described herein.
+ 0004           ; // Cypress does not authorize its products for use as critical components in
+ 0004           ; // life-support systems where a malfunction or failure may reasonably be
+ 0004           ; // expected to result in significant injury to the user. The inclusion of
+ 0004           ; // Cypress' product in a life-support systems application implies that the
+ 0004           ; // manufacturer assumes all risk of such use and in doing so indemnifies
+ 0004           ; // Cypress against all charges.
+ 0004           ; //
+ 0004           ; // Use may be limited by and subject to the applicable Cypress software
+ 0004           ; // license agreement.
+ 0004           ; //
+ 0004           ; //--------------------------------------------------------------------------
+ 0004           ; 
+ 0004           ; 
+ 0004           ; #include "main.h"
+ 0004           ; 
+ 0004           ; static void sendNewTxMsg    (void);
+ 0004           ; static void loadTxData      (void);
+ 0004           ; static void GetI2CData      (void);
+ 0004           ; static BOOL CheckBindButton (void);
+ 0004           ; static BOOL CheckWakeButton (void);
+ 0004           ; static void Calibrate_ILO   (void);
+ 0004           ; static void blinkRedLed     (WORD delayCount);
+ 0004           ; 
+ 0004           ; 
+ 0004           ; // ---------------------------------------------------------------------------
+ 0004           ; //
+ 0004           ; // main() - Powerup entry
+ 0004           ; //
+ 0004           ; // ---------------------------------------------------------------------------
+ 0004           ; void main(void)
+ 0004           ; {
+ 0004                   .dbline 63
+ 0004           ;     CYFISNP_PROT_STATE eProtStateOld;
+ 0004           ; 
+ 0004           ;     LED_RED_OFF;
+ 0004 4104FB            and REG[0x4],-5
+ 0007                   .dbline 64
+ 0007           ;     LED_GRN_ON;
+ 0007 430408            or REG[0x4],8
+ 000A                   .dbline 66
+ 000A           ; 
+ 000A           ;     M8C_EnableGInt;
+ 000A 7101                      or  F, 01h
+ 000C           
+ 000C                   .dbline 72
+ 000C           ; 
+ 000C           ; #if (defined DEBUG) || (defined CYFISNP_DEBUG)
+ 000C           ;     TX8_Start(TX8_PARITY_NONE);
+ 000C           ; #endif
+ 000C           ; 
+ 000C           ;     CYFISNP_Start();
+ 000C 10                push X
+ 000D 7C0000            xcall _CYFISNP_Start
+ 0010                   .dbline 76
+ 0010           ;     // --------------------------------------------------------
+ 0010           ;     // Disable SNP_Radio Power Management Unit (saves about 32uA)
+ 0010           ;     // --------------------------------------------------------
+ 0010           ;     CYFISNP_Write(CYFISNP_PWR_CTRL_ADR,
+ 0010 500B              mov A,11
+ 0012 7C0000            xcall _CYFISNP_Read
+ 0015 20                pop X
+ 0016 217F              and A,127
+ 0018 2920              or A,32
+ 001A 10                push X
+ 001B 08                push A
+ 001C 500B              mov A,11
+ 001E 20                pop X
+ 001F 7C0000            xcall _CYFISNP_Write
+ 0022 20                pop X
+ 0023                   .dbline 79
+ 0023           ;                   (CYFISNP_Read(CYFISNP_PWR_CTRL_ADR) & ~CYFISNP_PMU_EN) | CYFISNP_PMU_MODE_FORCE);
+ 0023           ; 
+ 0023           ;     LED_GRN_OFF;
+ 0023 4104F7            and REG[0x4],-9
+ 0026                   .dbline 81
+ 0026           ; 
+ 0026           ;     CYFISNP_TimeSet(&oneSecTimer, sleepTicksPerSec);
+ 0026 5106              mov A,[_sleepTicksPerSec]
+ 0028 08                push A
+ 0029 5107              mov A,[_sleepTicksPerSec+1]
+ 002B 08                push A
+ 002C 5008              mov A,>_oneSecTimer
+ 002E 08                push A
+ 002F 5008              mov A,<_oneSecTimer
+ 0031 08                push A
+ 0032 7C0000            xcall _CYFISNP_TimeSet
+ 0035 38FC              add SP,-4
+ 0037                   .dbline 83
+ 0037           ; 
+ 0037           ;     I2C_Start();
+ 0037 10                push X
+ 0038 7C0000            xcall _I2C_Start
+ 003B                   .dbline 84
+ 003B           ;     I2C_EnableMstr();
+ 003B 7C0000            xcall _I2C_EnableMstr
+ 003E                   .dbline 85
+ 003E           ;     I2C_EnableInt();
+ 003E 7C0000            xcall _I2C_EnableInt
+ 0041 20                pop X
+ 0042                   .dbline 90
+ 0042           ; 
+ 0042           ;     // -----------------------------------------------------------------------
+ 0042           ;     // POLLING LOOP
+ 0042           ;     // -----------------------------------------------------------------------
+ 0042           ;     for (;;)
+ 0042           L5:
+ 0042                   .dbline 91
+ 0042           ;     {
+ 0042                   .dbline 95
+ 0042           ;         // -------------------------------------------------------------------
+ 0042           ;         // Watch Start Binding Button activity
+ 0042           ;         // -------------------------------------------------------------------
+ 0042           ;         if (CheckBindButton())
+ 0042 9212              xcall _CheckBindButton
+ 0044 3900              cmp A,0
+ 0046 A00C              jz L9
+ 0048                   .dbline 97
+ 0048           ;         {
+ 0048           ;             CYFISNP_BindStart(ON_THE_FLY_DEV_ID);
+ 0048                   .dbline 97
+ 0048 5000              mov A,0
+ 004A 08                push A
+ 004B 7C0000            xcall _CYFISNP_BindStart
+ 004E 38FF              add SP,-1
+ 0050                   .dbline 98
+ 0050           ;             LED_GRN_ON;
+ 0050 430408            or REG[0x4],8
+ 0053                   .dbline 99
+ 0053           ;         }
+ 0053           L9:
+ 0053                   .dbline 104
+ 0053           ; 
+ 0053           ;         // -------------------------------------------------------------------
+ 0053           ;         // Watch "Force New Report" button
+ 0053           ;         // -------------------------------------------------------------------
+ 0053           ;         if (CheckWakeButton())
+ 0053 92E2              xcall _CheckWakeButton
+ 0055 3900              cmp A,0
+ 0057 A003              jz L11
+ 0059                   .dbline 106
+ 0059           ;         {
+ 0059           ;             sendNewTxMsg();
+ 0059                   .dbline 106
+ 0059 90FF              xcall _sendNewTxMsg
+ 005B                   .dbline 107
+ 005B           ;         }
+ 005B           L11:
+ 005B                   .dbline 112
+ 005B           ; 
+ 005B           ;         // -------------------------------------------------------------------
+ 005B           ;         // Run SNP less frequently to save energy
+ 005B           ;         // -------------------------------------------------------------------
+ 005B           ;         if (--snpRunScaler == 0)
+ 005B 161C01            sub [_snpRunScaler],1
+ 005E 3C1C00            cmp [_snpRunScaler],0
+ 0061 B007              jnz L13
+ 0063                   .dbline 114
+ 0063           ;         {
+ 0063           ;             snpRunScaler = SNP_RUN_SCALER;
+ 0063                   .dbline 114
+ 0063 551C02            mov [_snpRunScaler],2
+ 0066                   .dbline 115
+ 0066           ;             CYFISNP_Run();          // Poll SNP machine
+ 0066 7C0000            xcall _CYFISNP_Run
+ 0069                   .dbline 116
+ 0069           ;         }
+ 0069           L13:
+ 0069                   .dbline 122
+ 0069           ; 
+ 0069           ;         // -------------------------------------------------------------------
+ 0069           ;         // Process received SNP data packets
+ 0069           ;         //  (only supports update report rate for now)
+ 0069           ;         // -------------------------------------------------------------------
+ 0069           ;         if (CYFISNP_RxDataPend() == TRUE)
+ 0069 7C0000            xcall _CYFISNP_RxDataPend
+ 006C 3901              cmp A,1
+ 006E B01C              jnz L15
+ 0070                   .dbline 124
+ 0070           ;         {
+ 0070           ;             CYFISNP_API_PKT *pRxApiPkt;
+ 0070                   .dbline 125
+ 0070           ;             pRxApiPkt = CYFISNP_RxDataGet();
+ 0070 7C0000            xcall _CYFISNP_RxDataGet
+ 0073 5100              mov A,[__r1]
+ 0075 5402              mov [X+2],A
+ 0077 5100              mov A,[__r0]
+ 0079 5401              mov [X+1],A
+ 007B                   .dbline 126
+ 007B           ;             reportTimeSec = pRxApiPkt->payload[0];    // Update report rate
+ 007B 5202              mov A,[X+2]
+ 007D 0104              add A,4
+ 007F 5300              mov [__r1],A
+ 0081 3E00              mvi A,[__r1]
+ 0083 5303              mov [_reportTimeSec+1],A
+ 0085 550200            mov [_reportTimeSec],0
+ 0088                   .dbline 127
+ 0088           ;             CYFISNP_RxDataRelease();
+ 0088 7C0000            xcall _CYFISNP_RxDataRelease
+ 008B                   .dbline 128
+ 008B           ;         }
+ 008B           L15:
+ 008B                   .dbline 133
+ 008B           ; 
+ 008B           ;         // -------------------------------------------------------------------
+ 008B           ;         // Periodic 1 sec events
+ 008B           ;         // -------------------------------------------------------------------
+ 008B           ;         if (CYFISNP_TimeExpired(&oneSecTimer) == TRUE)
+ 008B 5008              mov A,>_oneSecTimer
+ 008D 08                push A
+ 008E 5008              mov A,<_oneSecTimer
+ 0090 08                push A
+ 0091 7C0000            xcall _CYFISNP_TimeExpired
+ 0094 38FE              add SP,-2
+ 0096 3901              cmp A,1
+ 0098 B066              jnz L17
+ 009A                   .dbline 135
+ 009A           ;         {
+ 009A           ;             CYFISNP_TimeSet(&oneSecTimer, sleepTicksPerSec);
+ 009A                   .dbline 135
+ 009A 5106              mov A,[_sleepTicksPerSec]
+ 009C 08                push A
+ 009D 5107              mov A,[_sleepTicksPerSec+1]
+ 009F 08                push A
+ 00A0 5008              mov A,>_oneSecTimer
+ 00A2 08                push A
+ 00A3 5008              mov A,<_oneSecTimer
+ 00A5 08                push A
+ 00A6 7C0000            xcall _CYFISNP_TimeSet
+ 00A9 38FC              add SP,-4
+ 00AB                   .dbline 140
+ 00AB           ; 
+ 00AB           ;             // ---------------------------------------------------------------
+ 00AB           ;             // Blink Heartbeat LED
+ 00AB           ;             // ---------------------------------------------------------------
+ 00AB           ;             if (--ledHeartbeatSec == 0)
+ 00AB 5101              mov A,[_ledHeartbeatSec+1]
+ 00AD 1101              sub A,1
+ 00AF 5300              mov [__r1],A
+ 00B1 5100              mov A,[_ledHeartbeatSec]
+ 00B3 1900              sbb A,0
+ 00B5 5F0100            mov [_ledHeartbeatSec+1],[__r1]
+ 00B8 5300              mov [_ledHeartbeatSec],A
+ 00BA 3C0000            cmp [_ledHeartbeatSec],0
+ 00BD B018              jnz L19
+ 00BF 3C0000            cmp [__r1],0
+ 00C2 B013              jnz L19
+ 00C4           X1:
+ 00C4                   .dbline 142
+ 00C4           ;             {
+ 00C4           ;                 ledHeartbeatSec = LED_HEARTBEAT_SEC;
+ 00C4                   .dbline 142
+ 00C4 550105            mov [_ledHeartbeatSec+1],5
+ 00C7 550000            mov [_ledHeartbeatSec],0
+ 00CA                   .dbline 143
+ 00CA           ;                 blinkRedLed(50);           // *100 uS ON
+ 00CA 5000              mov A,0
+ 00CC 08                push A
+ 00CD 5032              mov A,50
+ 00CF 08                push A
+ 00D0 9042              xcall _blinkRedLed
+ 00D2 38FE              add SP,-2
+ 00D4                   .dbline 144
+ 00D4           ;                 Calibrate_ILO();        // Calibrate ILO against IMO
+ 00D4 9101              xcall _Calibrate_ILO
+ 00D6                   .dbline 145
+ 00D6           ;             }
+ 00D6           L19:
+ 00D6                   .dbline 151
+ 00D6           ; 
+ 00D6           ;             // ---------------------------------------------------------------
+ 00D6           ;             // If SNP reconnect timeout, then try to reconnect.
+ 00D6           ;             //    (If very power sensitive, may want to defer for 5 minutes)
+ 00D6           ;             // ---------------------------------------------------------------
+ 00D6           ;             if (CYFISNP_eProtState == CYFISNP_CON_MODE_TIMEOUT)
+ 00D6 3C0021            cmp [_CYFISNP_eProtState],33
+ 00D9 B004              jnz L21
+ 00DB                   .dbline 153
+ 00DB           ;             {
+ 00DB           ;                 CYFISNP_Jog();
+ 00DB                   .dbline 153
+ 00DB 7C0000            xcall _CYFISNP_Jog
+ 00DE                   .dbline 154
+ 00DE           ;             }
+ 00DE           L21:
+ 00DE                   .dbline 159
+ 00DE           ; 
+ 00DE           ;             // ---------------------------------------------------------------
+ 00DE           ;             // Periodic weather station report
+ 00DE           ;             // ---------------------------------------------------------------
+ 00DE           ;             if (--reportTimerSec == 0)
+ 00DE 5105              mov A,[_reportTimerSec+1]
+ 00E0 1101              sub A,1
+ 00E2 5300              mov [__r1],A
+ 00E4 5104              mov A,[_reportTimerSec]
+ 00E6 1900              sbb A,0
+ 00E8 5F0500            mov [_reportTimerSec+1],[__r1]
+ 00EB 5304              mov [_reportTimerSec],A
+ 00ED 3C0400            cmp [_reportTimerSec],0
+ 00F0 B00E              jnz L23
+ 00F2 3C0000            cmp [__r1],0
+ 00F5 B009              jnz L23
+ 00F7           X2:
+ 00F7                   .dbline 161
+ 00F7           ;             {
+ 00F7           ;                 reportTimerSec = reportTimeSec;
+ 00F7                   .dbline 161
+ 00F7 5F0503            mov [_reportTimerSec+1],[_reportTimeSec+1]
+ 00FA 5F0402            mov [_reportTimerSec],[_reportTimeSec]
+ 00FD                   .dbline 162
+ 00FD           ;                 sendNewTxMsg();
+ 00FD 905B              xcall _sendNewTxMsg
+ 00FF                   .dbline 163
+ 00FF           ;             }
+ 00FF           L23:
+ 00FF                   .dbline 164
+ 00FF           ;         }
+ 00FF           L17:
+ 00FF                   .dbline 170
+ 00FF           ; 
+ 00FF           ;         // -------------------------------------------------------------------
+ 00FF           ;         // Sleep PSoC until next Sleep Timer interrupt to conserve energy
+ 00FF           ;         // -------------------------------------------------------------------
+ 00FF           ; #if LOW_POWER_TEST
+ 00FF           ;         M8C_Sleep;
+ 00FF 43FF08            or REG[0xff],8
+ 0102                   .dbline 176
+ 0102           ; #endif
+ 0102           ; 
+ 0102           ;         // -------------------------------------------------------------------
+ 0102           ;         // Turn OFF Green LED when not in Bind Mode
+ 0102           ;         // -------------------------------------------------------------------
+ 0102           ;         if (CYFISNP_eProtState != CYFISNP_BIND_MODE)
+ 0102 3C0010            cmp [_CYFISNP_eProtState],16
+ 0105 A004              jz L25
+ 0107                   .dbline 178
+ 0107           ;         {
+ 0107           ;             LED_GRN_OFF;
+ 0107                   .dbline 178
+ 0107 4104F7            and REG[0x4],-9
+ 010A                   .dbline 179
+ 010A           ;         }
+ 010A           L25:
+ 010A                   .dbline 180
+ 010A           ;         LED_RED_OFF;        // RED LED always goes OFF
+ 010A 4104FB            and REG[0x4],-5
+ 010D                   .dbline 181
+ 010D           ;     }
+ 010D                   .dbline 90
+ 010D                   .dbline 90
+ 010D 8F34              xjmp L5
+ 010F           X0:
+ 010F                   .dbline -2
+ 010F           L4:
+ 010F 38FD              add SP,-3
+ 0111 20                pop X
+ 0112                   .dbline 0 ; func end
+ 0112 8FFF              jmp .
+ 0114                   .dbsym l pRxApiPkt 1 pS[.2]
+ 0114                   .dbsym l eProtStateOld 0 c
+ 0114                   .dbend
+ 0114                   .dbfunc s blinkRedLed _blinkRedLed fV
+ 0114           ;     delayCount -> X-5
+ 0114           _blinkRedLed:
+ 0114                   .dbline -1
+ 0114 10                push X
+ 0115 4F                mov X,SP
+ 0116                   .dbline 185
+ 0116           ; }
+ 0116           ; 
+ 0116           ; static void blinkRedLed(WORD delayCount)
+ 0116           ; {
+ 0116                   .dbline 186
+ 0116           ;     LED_RED_ON;
+ 0116 430404            or REG[0x4],4
+ 0119 800B              xjmp L29
+ 011B           L28:
+ 011B                   .dbline 188
+ 011B           ;     while (delayCount != 0)
+ 011B           ;     {
+ 011B                   .dbline 189
+ 011B           ;         CYFISNP_Delay100uS();       // Get good short delays
+ 011B 10                push X
+ 011C 7C0000            xcall _CYFISNP_Delay100uS
+ 011F 20                pop X
+ 0120                   .dbline 190
+ 0120           ;         --delayCount;
+ 0120 7BFC              dec [X-4]
+ 0122 1FFB00            sbb [X-5],0
+ 0125                   .dbline 191
+ 0125           ;     }
+ 0125           L29:
+ 0125                   .dbline 187
+ 0125 3DFB00            cmp [X-5],0
+ 0128 BFF2              jnz L28
+ 012A 3DFC00            cmp [X-4],0
+ 012D BFED              jnz L28
+ 012F           X3:
+ 012F                   .dbline 192
+ 012F           ;     LED_RED_OFF;
+ 012F 4104FB            and REG[0x4],-5
+ 0132                   .dbline -2
+ 0132           L27:
+ 0132 20                pop X
+ 0133                   .dbline 0 ; func end
+ 0133 7F                ret
+ 0134                   .dbsym l delayCount -5 i
+ 0134                   .dbend
+ 0134                   .dbfunc s loadTxData _loadTxData fV
+ 0134           ;           ivar -> X+0
+ 0134           _loadTxData:
+ 0134                   .dbline -1
+ 0134 10                push X
+ 0135 4F                mov X,SP
+ 0136 10                push X
+ 0137                   .dbline 202
+ 0137           ; }
+ 0137           ; 
+ 0137           ; 
+ 0137           ; // ---------------------------------------------------------------------------
+ 0137           ; //
+ 0137           ; // loadTxData()
+ 0137           ; //
+ 0137           ; // ---------------------------------------------------------------------------
+ 0137           ; static void loadTxData(void)
+ 0137           ; {
+ 0137                   .dbline 205
+ 0137           ;     char ivar;
+ 0137           ; 
+ 0137           ;     for (ivar=0; ivar < I2C_PAYLOAD_MAX; ++ivar)
+ 0137 560000            mov [X+0],0
+ 013A 8017              xjmp L35
+ 013C           L32:
+ 013C                   .dbline 206
+ 013C           ;     {
+ 013C                   .dbline 207
+ 013C           ;         txApiPkt.payload[ivar] = rxBuffer[ivar];
+ 013C 5200              mov A,[X+0]
+ 013E 0100              add A,<_rxBuffer
+ 0140 5300              mov [__r1],A
+ 0142 3E00              mvi A,[__r1]
+ 0144 5300              mov [__r0],A
+ 0146 5200              mov A,[X+0]
+ 0148 010E              add A,<_txApiPkt+4
+ 014A 5300              mov [__r3],A
+ 014C 5100              mov A,[__r0]
+ 014E 3F00              mvi [__r3],A
+ 0150                   .dbline 208
+ 0150           ;     }
+ 0150           L33:
+ 0150                   .dbline 205
+ 0150 7700              inc [X+0]
+ 0152           L35:
+ 0152                   .dbline 205
+ 0152 3D0008            cmp [X+0],8
+ 0155 CFE6              jc L32
+ 0157           X4:
+ 0157                   .dbline -2
+ 0157           L31:
+ 0157 20                pop X
+ 0158 20                pop X
+ 0159                   .dbline 0 ; func end
+ 0159 7F                ret
+ 015A                   .dbsym l ivar 0 c
+ 015A                   .dbend
+ 015A                   .dbfunc s sendNewTxMsg _sendNewTxMsg fV
+ 015A           _sendNewTxMsg:
+ 015A                   .dbline -1
+ 015A                   .dbline 219
+ 015A           ; }
+ 015A           ; 
+ 015A           ; // ---------------------------------------------------------------------------
+ 015A           ; //
+ 015A           ; // sendNewTxMsg() - Send a weather station report to the HUB
+ 015A           ; //
+ 015A           ; // ---------------------------------------------------------------------------
+ 015A           ; #define TX_PACKET_LENGTH    8
+ 015A           ; #define TX_PACKET_TYPE      CYFISNP_API_TYPE_CONF
+ 015A           ; static void sendNewTxMsg(void)
+ 015A           ; {
+ 015A                   .dbline 220
+ 015A           ;     if (CYFISNP_eProtState == CYFISNP_DATA_MODE
+ 015A 3C0040            cmp [_CYFISNP_eProtState],64
+ 015D B020              jnz L38
+ 015F 7C0000            xcall _CYFISNP_TxDataPend
+ 0162 3900              cmp A,0
+ 0164 B019              jnz L38
+ 0166                   .dbline 223
+ 0166           ;         && CYFISNP_TxDataPend() == FALSE)
+ 0166           ;     {
+ 0166           ;         GetI2CData();
+ 0166                   .dbline 223
+ 0166 9017              xcall _GetI2CData
+ 0168                   .dbline 225
+ 0168           ; 
+ 0168           ;         loadTxData();
+ 0168 9FCA              xcall _loadTxData
+ 016A                   .dbline 226
+ 016A           ;         txApiPkt.length = TX_PACKET_LENGTH;
+ 016A 550A08            mov [_txApiPkt],8
+ 016D                   .dbline 227
+ 016D           ;         txApiPkt.type   = TX_PACKET_TYPE;
+ 016D 550C10            mov [_txApiPkt+2],16
+ 0170                   .dbline 228
+ 0170           ;         CYFISNP_TxDataPut(&txApiPkt);
+ 0170 500A              mov A,>_txApiPkt
+ 0172 08                push A
+ 0173 500A              mov A,<_txApiPkt
+ 0175 08                push A
+ 0176 7C0000            xcall _CYFISNP_TxDataPut
+ 0179 38FE              add SP,-2
+ 017B                   .dbline 229
+ 017B           ;         LED_GRN_ON;
+ 017B 430408            or REG[0x4],8
+ 017E                   .dbline 230
+ 017E           ;     }
+ 017E           L38:
+ 017E                   .dbline -2
+ 017E           L37:
+ 017E                   .dbline 0 ; func end
+ 017E 7F                ret
+ 017F                   .dbend
+ 017F                   .dbfunc s GetI2CData _GetI2CData fV
+ 017F           ;      dataDelay -> X+0
+ 017F           _GetI2CData:
+ 017F                   .dbline -1
+ 017F 10                push X
+ 0180 4F                mov X,SP
+ 0181 3802              add SP,2
+ 0183                   .dbline 241
+ 0183           ; }
+ 0183           ; 
+ 0183           ; 
+ 0183           ; 
+ 0183           ; // ---------------------------------------------------------------------------
+ 0183           ; //
+ 0183           ; // GetI2CData() - Get data from I2C device on P1 (weather station board)
+ 0183           ; //
+ 0183           ; // ---------------------------------------------------------------------------
+ 0183           ; static void GetI2CData(void)
+ 0183           ; {
+ 0183                   .dbline 245
+ 0183           ;     WORD dataDelay;
+ 0183           ; 
+ 0183           ;     // Delay (with timeout), for weather station to be ready.
+ 0183           ;     ChipSelect_ON;
+ 0183 430004            or REG[0],4
+ 0186                   .dbline 246
+ 0186           ;     CYFISNP_TimeSet(&dataDelay, DATA_READY_TIME);
+ 0186 5000              mov A,0
+ 0188 08                push A
+ 0189 5012              mov A,18
+ 018B 08                push A
+ 018C 5100              mov A,[__r0]
+ 018E 08                push A
+ 018F 10                push X
+ 0190 7C0000            xcall _CYFISNP_TimeSet
+ 0193 38FC              add SP,-4
+ 0195           L42:
+ 0195                   .dbline 247
+ 0195           ;     while (!CYFISNP_TimeExpired(&dataDelay) && !IS_DataReady_ON);
+ 0195           L43:
+ 0195                   .dbline 247
+ 0195 5100              mov A,[__r0]
+ 0197 08                push A
+ 0198 10                push X
+ 0199 7C0000            xcall _CYFISNP_TimeExpired
+ 019C 38FE              add SP,-2
+ 019E 5300              mov [__r0],A
+ 01A0 3900              cmp A,0
+ 01A2 B006              jnz L45
+ 01A4 490008            tst REG[0],8
+ 01A7 AFED              jz L42
+ 01A9           L45:
+ 01A9                   .dbline 250
+ 01A9           ; 
+ 01A9           ;     // Start the I2C read
+ 01A9           ;     I2C_fReadBytes(SLAVE_ADDRESS, rxBuffer, 8, I2C_CompleteXfer);
+ 01A9 10                push X
+ 01AA 5000              mov A,0
+ 01AC 08                push A
+ 01AD 5008              mov A,8
+ 01AF 08                push A
+ 01B0 5000              mov A,>_rxBuffer
+ 01B2 08                push A
+ 01B3 5000              mov A,<_rxBuffer
+ 01B5 08                push A
+ 01B6 5005              mov A,5
+ 01B8 08                push A
+ 01B9 7C0000            xcall _I2C_fReadBytes
+ 01BC 38FB              add SP,-5
+ 01BE 20                pop X
+ 01BF           L46:
+ 01BF                   .dbline 254
+ 01BF           ; 
+ 01BF           ;     // Wait for I2C to complete
+ 01BF           ;     while ((I2C_bReadI2CStatus()&I2CHW_RD_COMPLETE) == FALSE)
+ 01BF           ;         ;
+ 01BF           L47:
+ 01BF                   .dbline 253
+ 01BF 10                push X
+ 01C0 7C0000            xcall _I2C_bReadI2CStatus
+ 01C3 20                pop X
+ 01C4 5300              mov [__r0],A
+ 01C6 470004            tst [__r0],4
+ 01C9 AFF5              jz L46
+ 01CB                   .dbline 256
+ 01CB           ; 
+ 01CB           ;     I2C_ClrRdStatus();
+ 01CB 10                push X
+ 01CC 7C0000            xcall _I2C_ClrRdStatus
+ 01CF 20                pop X
+ 01D0                   .dbline 258
+ 01D0           ; 
+ 01D0           ;     ChipSelect_OFF;
+ 01D0 4100FB            and REG[0],-5
+ 01D3                   .dbline -2
+ 01D3           L41:
+ 01D3 38FE              add SP,-2
+ 01D5 20                pop X
+ 01D6                   .dbline 0 ; func end
+ 01D6 7F                ret
+ 01D7                   .dbsym l dataDelay 0 i
+ 01D7                   .dbend
+ 01D7                   .dbfunc s Calibrate_ILO _Calibrate_ILO fV
+ 01D7           ;         bCount -> X+0
+ 01D7           _Calibrate_ILO:
+ 01D7                   .dbline -1
+ 01D7 10                push X
+ 01D8 4F                mov X,SP
+ 01D9 3802              add SP,2
+ 01DB                   .dbline 268
+ 01DB           ; }
+ 01DB           ; 
+ 01DB           ; 
+ 01DB           ; // ---------------------------------------------------------------------------
+ 01DB           ; //
+ 01DB           ; // Calibrate_ILO() - Calibrate Int Low Freq Osc against the Int Main Osc
+ 01DB           ; //
+ 01DB           ; // ---------------------------------------------------------------------------
+ 01DB           ; static void Calibrate_ILO(void)
+ 01DB           ; {
+ 01DB                   .dbline 274
+ 01DB           ;     WORD bCount;
+ 01DB           ; 
+ 01DB           ;     // -----------------------------------------------------------------------
+ 01DB           ;     // Get number of ILO ticks in 1 mS (as measured by IMO)
+ 01DB           ;     // -----------------------------------------------------------------------
+ 01DB           ;     Timer8_WritePeriod(255);
+ 01DB 10                push X
+ 01DC 50FF              mov A,-1
+ 01DE 7C0000            xcall _Timer8_WritePeriod
+ 01E1 20                pop X
+ 01E2                   .dbline 275
+ 01E2           ;     M8C_DisableGInt;
+ 01E2 70FE                      and F, FEh
+ 01E4           
+ 01E4                   .dbline 276
+ 01E4           ;     Timer8_Start();
+ 01E4 10                push X
+ 01E5 7C0000            xcall _Timer8_Start
+ 01E8 20                pop X
+ 01E9                   .dbline 277
+ 01E9           ;     for (bCount=0; bCount != 10; ++bCount)
+ 01E9 560100            mov [X+1],0
+ 01EC 560000            mov [X+0],0
+ 01EF 800B              xjmp L53
+ 01F1           L50:
+ 01F1                   .dbline 278
+ 01F1           ;     {
+ 01F1                   .dbline 279
+ 01F1           ;         CYFISNP_Delay100uS();
+ 01F1 10                push X
+ 01F2 7C0000            xcall _CYFISNP_Delay100uS
+ 01F5 20                pop X
+ 01F6                   .dbline 280
+ 01F6           ;     }
+ 01F6           L51:
+ 01F6                   .dbline 277
+ 01F6 7701              inc [X+1]
+ 01F8 0F0000            adc [X+0],0
+ 01FB           L53:
+ 01FB                   .dbline 277
+ 01FB 3D0000            cmp [X+0],0
+ 01FE BFF2              jnz L50
+ 0200 3D010A            cmp [X+1],10
+ 0203 BFED              jnz L50
+ 0205           X5:
+ 0205                   .dbline 281
+ 0205           ;     bCount = Timer8_bReadTimer();
+ 0205 10                push X
+ 0206 7C0000            xcall _Timer8_bReadTimer
+ 0209 20                pop X
+ 020A 5401              mov [X+1],A
+ 020C 560000            mov [X+0],0
+ 020F                   .dbline 282
+ 020F           ;     bCount = 255 - bCount;
+ 020F 50FF              mov A,-1
+ 0211 1301              sub A,[X+1]
+ 0213 5401              mov [X+1],A
+ 0215 5000              mov A,0
+ 0217 1B00              sbb A,[X+0]
+ 0219 5400              mov [X+0],A
+ 021B                   .dbline 283
+ 021B           ;     Timer8_Stop();
+ 021B 10                push X
+ 021C 7C0000            xcall _Timer8_Stop
+ 021F 20                pop X
+ 0220                   .dbline 284
+ 0220           ;     M8C_EnableGInt;
+ 0220 7101                      or  F, 01h
+ 0222           
+ 0222                   .dbline 286
+ 0222           ; 
+ 0222           ;     sleepTicksPerSec = bCount<<1;   // Start by assuming ILO(wake) = ILO(sleep)
+ 0222 5201              mov A,[X+1]
+ 0224 5300              mov [__r1],A
+ 0226 5200              mov A,[X+0]
+ 0228 5300              mov [__r0],A
+ 022A 6500              asl [__r1]
+ 022C 6B00              rlc [__r0]
+ 022E 5F0700            mov [_sleepTicksPerSec+1],[__r1]
+ 0231 5F0600            mov [_sleepTicksPerSec],[__r0]
+ 0234                   .dbline 293
+ 0234           ; 
+ 0234           ;     // -----------------------------------------------------------------------
+ 0234           ;     // Without ILO in HighBias mode (See ILO_TR register in TRM), the ILO
+ 0234           ;     //  operates FASTER awake than asleep.
+ 0234           ;     // Therefore approximate ILO(sleep) as 25% lower than ILO(wake).
+ 0234           ;     // -----------------------------------------------------------------------
+ 0234           ;     sleepTicksPerSec -= bCount>>1;  // Decrease by 25% to estimate ILO(sleep)
+ 0234 5201              mov A,[X+1]
+ 0236 5300              mov [__r1],A
+ 0238 5200              mov A,[X+0]
+ 023A 5300              mov [__r0],A
+ 023C 70FB              and F,-5
+ 023E 6E00              rrc [__r0]
+ 0240 6E00              rrc [__r1]
+ 0242 5100              mov A,[__r1]
+ 0244 1407              sub [_sleepTicksPerSec+1],A
+ 0246 5100              mov A,[__r0]
+ 0248 1C06              sbb [_sleepTicksPerSec],A
+ 024A                   .dbline -2
+ 024A           L49:
+ 024A 38FE              add SP,-2
+ 024C 20                pop X
+ 024D                   .dbline 0 ; func end
+ 024D 7F                ret
+ 024E                   .dbsym l bCount 0 i
+ 024E                   .dbend
+ 024E                   .dbfunc s bindButtonIsOn _bindButtonIsOn fc
+ 024E           _bindButtonIsOn:
+ 024E                   .dbline -1
+ 024E                   .dbline 304
+ 024E           ; }
+ 024E           ; 
+ 024E           ; 
+ 024E           ; 
+ 024E           ; // ---------------------------------------------------------------------------
+ 024E           ; //
+ 024E           ; // bindButtonIsOn()
+ 024E           ; //
+ 024E           ; // ---------------------------------------------------------------------------
+ 024E           ; static BOOL bindButtonIsOn(void)
+ 024E           ; {
+ 024E                   .dbline 305
+ 024E           ;     SW1_Data_ADDR &= ~SW1_MASK;                  // Ensure GPIO pulldown active
+ 024E 4104BF            and REG[0x4],-65
+ 0251                   .dbline 306
+ 0251           ;     return(SW1_Data_ADDR & SW1_MASK);
+ 0251 5D04              mov A,REG[0x4]
+ 0253 2140              and A,64
+ 0255                   .dbline -2
+ 0255           L54:
+ 0255                   .dbline 0 ; func end
+ 0255 7F                ret
+ 0256                   .dbend
+ 0256                   .dbfunc s CheckBindButton _CheckBindButton fc
+ 0256           ;        lvDelay -> X+0
+ 0256           _CheckBindButton:
+ 0256                   .dbline -1
+ 0256 10                push X
+ 0257 4F                mov X,SP
+ 0258 3802              add SP,2
+ 025A                   .dbline 315
+ 025A           ; }
+ 025A           ; 
+ 025A           ; // ---------------------------------------------------------------------------
+ 025A           ; //
+ 025A           ; // CheckBindButton()
+ 025A           ; //
+ 025A           ; // ---------------------------------------------------------------------------
+ 025A           ; static BOOL CheckBindButton(void)
+ 025A           ; {
+ 025A                   .dbline 317
+ 025A           ;     WORD lvDelay;
+ 025A           ;     if (bindButtonIsOn())
+ 025A 9FF2              xcall _bindButtonIsOn
+ 025C 5300              mov [__r0],A
+ 025E 3900              cmp A,0
+ 0260 A037              jz L56
+ 0262                   .dbline 319
+ 0262           ;     {
+ 0262           ;         CYFISNP_TimeSet(&lvDelay, DEBOUNCE_TIME);       // Debouncing, delay
+ 0262                   .dbline 319
+ 0262 5000              mov A,0
+ 0264 08                push A
+ 0265 5002              mov A,2
+ 0267 08                push A
+ 0268 5100              mov A,[__r0]
+ 026A 08                push A
+ 026B 10                push X
+ 026C 7C0000            xcall _CYFISNP_TimeSet
+ 026F 38FC              add SP,-4
+ 0271           L58:
+ 0271                   .dbline 320
+ 0271           ;         while (CYFISNP_TimeExpired(&lvDelay) == 0) ;    // WAIT
+ 0271           L59:
+ 0271                   .dbline 320
+ 0271 5100              mov A,[__r0]
+ 0273 08                push A
+ 0274 10                push X
+ 0275 7C0000            xcall _CYFISNP_TimeExpired
+ 0278 38FE              add SP,-2
+ 027A 3900              cmp A,0
+ 027C AFF4              jz L58
+ 027E                   .dbline 321
+ 027E           ;         if (bindButtonIsOn())           // If button still ON
+ 027E 9FCE              xcall _bindButtonIsOn
+ 0280 5300              mov [__r0],A
+ 0282 3900              cmp A,0
+ 0284 A013              jz L61
+ 0286                   .dbline 323
+ 0286           ;         {
+ 0286           ;             while (bindButtonIsOn())    // Wait for button release
+ 0286 8007              xjmp L64
+ 0288           L63:
+ 0288                   .dbline 324
+ 0288           ;             {
+ 0288                   .dbline 325
+ 0288           ;                 M8C_ClearWDTAndSleep;
+ 0288 62E338            mov REG[0xe3],56
+ 028B                   .dbline 327
+ 028B           ; #if LOW_POWER_TEST
+ 028B           ;                 M8C_Sleep;
+ 028B 43FF08            or REG[0xff],8
+ 028E                   .dbline 329
+ 028E           ; #endif
+ 028E           ;             }
+ 028E           L64:
+ 028E                   .dbline 323
+ 028E 9FBE              xcall _bindButtonIsOn
+ 0290 3900              cmp A,0
+ 0292 BFF5              jnz L63
+ 0294                   .dbline 330
+ 0294           ;             return(TRUE);
+ 0294 5001              mov A,1
+ 0296 8003              xjmp L55
+ 0298           L61:
+ 0298                   .dbline 332
+ 0298           ;         }
+ 0298           ;     }
+ 0298           L56:
+ 0298                   .dbline 333
+ 0298           ;     return(FALSE);
+ 0298 5000              mov A,0
+ 029A                   .dbline -2
+ 029A           L55:
+ 029A 38FE              add SP,-2
+ 029C 20                pop X
+ 029D                   .dbline 0 ; func end
+ 029D 7F                ret
+ 029E                   .dbsym l lvDelay 0 i
+ 029E                   .dbend
+                        .area lit(rom, con, rel, lit)
+ 0000           _reportTimes:
+ 0000 0001              .word 1
+ 0002 0005              .word 5
+ 0004 001E              .word 30
+ 0006 003C              .word 60
+ 0008 012C              .word 300
+ 000A                   .dbsym s reportTimes _reportTimes A[10:5]ki
+                        .area data(ram, con, rel)
+ 0008                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.c
+ 0008           _reportTimesIdx:
+ 0008                   .blkb 1
+                        .area idata(rom,lit)
+ 0008 01                .byte 1
+                        .area data(ram, con, rel)
+ 0009                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.c
+ 0009                   .dbsym s reportTimesIdx _reportTimesIdx c
+                        .area text(rom, con, rel)
+ 029E                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.c
+ 029E                   .dbfunc s buttonIncReportTime _buttonIncReportTime fV
+ 029E           _buttonIncReportTime:
+ 029E                   .dbline -1
+ 029E                   .dbline 347
+ 029E           ; }
+ 029E           ; 
+ 029E           ; 
+ 029E           ; // ---------------------------------------------------------------------------
+ 029E           ; //
+ 029E           ; // buttonIncReportTime() - Manually step report interval
+ 029E           ; //
+ 029E           ; // ---------------------------------------------------------------------------
+ 029E           ; static const WORD reportTimes[] = {1, 5, 30, 60, 300};  // in Seconds
+ 029E           ; static char       reportTimesIdx = 1;                   // Start at 5 sec
+ 029E           ; #define REPORT_TIMES_MAX   (sizeof(reportTimes)/2)      // # entries
+ 029E           ; 
+ 029E           ; static void buttonIncReportTime(void)
+ 029E           ; {
+ 029E                   .dbline 348
+ 029E           ;     if (++reportTimesIdx >= REPORT_TIMES_MAX)
+ 029E 060801            add [_reportTimesIdx],1
+ 02A1 3C0805            cmp [_reportTimesIdx],5
+ 02A4 C004              jc L67
+ 02A6           X6:
+ 02A6                   .dbline 350
+ 02A6           ;     {
+ 02A6           ;         reportTimesIdx = 0;
+ 02A6                   .dbline 350
+ 02A6 550800            mov [_reportTimesIdx],0
+ 02A9                   .dbline 351
+ 02A9           ;     }
+ 02A9           L67:
+ 02A9                   .dbline 352
+ 02A9           ;     reportTimeSec = reportTimes[reportTimesIdx];
+ 02A9 5F0008            mov [__r1],[_reportTimesIdx]
+ 02AC 550000            mov [__r0],0
+ 02AF 6500              asl [__r1]
+ 02B1 6B00              rlc [__r0]
+ 02B3 060000            add [__r1],<_reportTimes
+ 02B6 0E0000            adc [__r0],>_reportTimes
+ 02B9 5100              mov A,[__r0]
+ 02BB 10                push X
+ 02BC 5800              mov X,[__r1]
+ 02BE 7C0000            xcall __lpmw
+ 02C1 5303              mov [_reportTimeSec+1],A
+ 02C3 5F0200            mov [_reportTimeSec],[__rX]
+ 02C6 20                pop X
+ 02C7                   .dbline 353
+ 02C7           ;     reportTimerSec = reportTimeSec;
+ 02C7 5F0503            mov [_reportTimerSec+1],[_reportTimeSec+1]
+ 02CA 5F0402            mov [_reportTimerSec],[_reportTimeSec]
+ 02CD                   .dbline -2
+ 02CD           L66:
+ 02CD                   .dbline 0 ; func end
+ 02CD 7F                ret
+ 02CE                   .dbend
+ 02CE                   .dbfunc s showReportDelay _showReportDelay fV
+ 02CE           ;        pulseCt -> X+1
+ 02CE           ;           wait -> X+0
+ 02CE           _showReportDelay:
+ 02CE                   .dbline -1
+ 02CE 10                push X
+ 02CF 4F                mov X,SP
+ 02D0 3802              add SP,2
+ 02D2                   .dbline 362
+ 02D2           ; }
+ 02D2           ; 
+ 02D2           ; // ---------------------------------------------------------------------------
+ 02D2           ; //
+ 02D2           ; //  showReportDelay() - Pulse LED to show INDEX of new report delay
+ 02D2           ; //
+ 02D2           ; // ---------------------------------------------------------------------------
+ 02D2           ; static void showReportDelay(void)
+ 02D2           ; {
+ 02D2                   .dbline 364
+ 02D2           ; #define HI_LO_PULSE   10    // Hi or Lo pulse width (in Sleep intervals)
+ 02D2           ;     char pulseCt = reportTimesIdx + 1;  // 1st entry [0] gives 1 pulse
+ 02D2 5108              mov A,[_reportTimesIdx]
+ 02D4 0101              add A,1
+ 02D6 5401              mov [X+1],A
+ 02D8                   .dbline 367
+ 02D8           ;     char wait;
+ 02D8           ; 
+ 02D8           ;     LED_RED_OFF;
+ 02D8 4104FB            and REG[0x4],-5
+ 02DB                   .dbline 368
+ 02DB           ;     for (wait=HI_LO_PULSE; wait != 0; --wait)
+ 02DB 56000A            mov [X+0],10
+ 02DE 8006              xjmp L73
+ 02E0           L70:
+ 02E0                   .dbline 369
+ 02E0           ;     {
+ 02E0                   .dbline 371
+ 02E0           ; #if LOW_POWER_TEST
+ 02E0           ;         M8C_Sleep;
+ 02E0 43FF08            or REG[0xff],8
+ 02E3                   .dbline 373
+ 02E3           ; #endif
+ 02E3           ;     }
+ 02E3           L71:
+ 02E3                   .dbline 368
+ 02E3 7B00              dec [X+0]
+ 02E5           L73:
+ 02E5                   .dbline 368
+ 02E5 3D0000            cmp [X+0],0
+ 02E8 BFF7              jnz L70
+ 02EA 8025              xjmp L75
+ 02EC           L74:
+ 02EC                   .dbline 376
+ 02EC           ; 
+ 02EC           ;     while (pulseCt-- != 0)
+ 02EC           ;     {
+ 02EC                   .dbline 377
+ 02EC           ;         LED_RED_ON;
+ 02EC 430404            or REG[0x4],4
+ 02EF                   .dbline 378
+ 02EF           ;         for (wait=HI_LO_PULSE; wait != 0; --wait)
+ 02EF 56000A            mov [X+0],10
+ 02F2 8006              xjmp L80
+ 02F4           L77:
+ 02F4                   .dbline 379
+ 02F4           ;         {
+ 02F4                   .dbline 381
+ 02F4           ; #if LOW_POWER_TEST
+ 02F4           ;             M8C_Sleep;
+ 02F4 43FF08            or REG[0xff],8
+ 02F7                   .dbline 383
+ 02F7           ; #endif
+ 02F7           ;         }
+ 02F7           L78:
+ 02F7                   .dbline 378
+ 02F7 7B00              dec [X+0]
+ 02F9           L80:
+ 02F9                   .dbline 378
+ 02F9 3D0000            cmp [X+0],0
+ 02FC BFF7              jnz L77
+ 02FE                   .dbline 384
+ 02FE           ;         LED_RED_OFF;
+ 02FE 4104FB            and REG[0x4],-5
+ 0301                   .dbline 385
+ 0301           ;         for (wait=HI_LO_PULSE; wait != 0; --wait)
+ 0301 56000A            mov [X+0],10
+ 0304 8006              xjmp L84
+ 0306           L81:
+ 0306                   .dbline 386
+ 0306           ;         {
+ 0306                   .dbline 388
+ 0306           ; #if LOW_POWER_TEST
+ 0306           ;             M8C_Sleep;
+ 0306 43FF08            or REG[0xff],8
+ 0309                   .dbline 390
+ 0309           ; #endif
+ 0309           ;         }
+ 0309           L82:
+ 0309                   .dbline 385
+ 0309 7B00              dec [X+0]
+ 030B           L84:
+ 030B                   .dbline 385
+ 030B 3D0000            cmp [X+0],0
+ 030E BFF7              jnz L81
+ 0310                   .dbline 391
+ 0310           ;     }
+ 0310           L75:
+ 0310                   .dbline 375
+ 0310 5201              mov A,[X+1]
+ 0312 5300              mov [__r1],A
+ 0314 550000            mov [__r0],0
+ 0317 1101              sub A,1
+ 0319 5401              mov [X+1],A
+ 031B 3C0000            cmp [__r0],0
+ 031E BFCD              jnz L74
+ 0320 3C0000            cmp [__r1],0
+ 0323 BFC8              jnz L74
+ 0325           X7:
+ 0325                   .dbline 392
+ 0325           ;     ledHeartbeatSec = LED_HEARTBEAT_SEC;    // Suppress next heartbeat pulse
+ 0325 550105            mov [_ledHeartbeatSec+1],5
+ 0328 550000            mov [_ledHeartbeatSec],0
+ 032B                   .dbline -2
+ 032B           L69:
+ 032B 38FE              add SP,-2
+ 032D 20                pop X
+ 032E                   .dbline 0 ; func end
+ 032E 7F                ret
+ 032F                   .dbsym l pulseCt 1 c
+ 032F                   .dbsym l wait 0 c
+ 032F                   .dbend
+ 032F                   .dbfunc s wakeButtonIsOn _wakeButtonIsOn fc
+ 032F           _wakeButtonIsOn:
+ 032F                   .dbline -1
+ 032F                   .dbline 402
+ 032F           ; }
+ 032F           ; 
+ 032F           ; 
+ 032F           ; // ---------------------------------------------------------------------------
+ 032F           ; //
+ 032F           ; // wakeButtonIsOn()
+ 032F           ; //
+ 032F           ; // ---------------------------------------------------------------------------
+ 032F           ; static BOOL wakeButtonIsOn(void)
+ 032F           ; {
+ 032F                   .dbline 403
+ 032F           ;     SW2_Data_ADDR &= ~SW2_MASK;              // Ensure GPIO pulldown active
+ 032F 4104EF            and REG[0x4],-17
+ 0332                   .dbline 404
+ 0332           ;     return(SW2_Data_ADDR & SW2_MASK);
+ 0332 5D04              mov A,REG[0x4]
+ 0334 2110              and A,16
+ 0336                   .dbline -2
+ 0336           L85:
+ 0336                   .dbline 0 ; func end
+ 0336 7F                ret
+ 0337                   .dbend
+ 0337                   .dbfunc s CheckWakeButton _CheckWakeButton fc
+ 0337           ;      reportDly -> X+3
+ 0337           ;   reportDlySet -> X+2
+ 0337           ;        lvDelay -> X+0
+ 0337           _CheckWakeButton:
+ 0337                   .dbline -1
+ 0337 10                push X
+ 0338 4F                mov X,SP
+ 0339 3805              add SP,5
+ 033B                   .dbline 415
+ 033B           ; }
+ 033B           ; // ---------------------------------------------------------------------------
+ 033B           ; //
+ 033B           ; // CheckWakeButton() - Also cyclic steps report rate if is button held.
+ 033B           ; //
+ 033B           ; // ---------------------------------------------------------------------------
+ 033B           ; 
+ 033B           ; #define BUTTON_HOLD_TIME_TO_INC_REPORT_DELAY   (1500/CYFISNP_TIMER_UNITS)
+ 033B           ; 
+ 033B           ; static BOOL CheckWakeButton(void)
+ 033B           ; {
+ 033B                   .dbline 421
+ 033B           ;     WORD lvDelay;
+ 033B           ;     WORD reportDly;
+ 033B           ; 
+ 033B           ;     BOOL reportDlySet;
+ 033B           ; 
+ 033B           ;     if (wakeButtonIsOn())
+ 033B 9FF2              xcall _wakeButtonIsOn
+ 033D 5300              mov [__r0],A
+ 033F 3900              cmp A,0
+ 0341 A078              jz L87
+ 0343                   .dbline 423
+ 0343           ;     {
+ 0343           ;         CYFISNP_TimeSet(&lvDelay, DEBOUNCE_TIME);       // Debouncing, delay
+ 0343                   .dbline 423
+ 0343 5000              mov A,0
+ 0345 08                push A
+ 0346 5002              mov A,2
+ 0348 08                push A
+ 0349 5100              mov A,[__r0]
+ 034B 08                push A
+ 034C 10                push X
+ 034D 7C0000            xcall _CYFISNP_TimeSet
+ 0350 38FC              add SP,-4
+ 0352           L89:
+ 0352                   .dbline 424
+ 0352           ;         while (CYFISNP_TimeExpired(&lvDelay) == 0) ;    // WAIT
+ 0352           L90:
+ 0352                   .dbline 424
+ 0352 5100              mov A,[__r0]
+ 0354 08                push A
+ 0355 10                push X
+ 0356 7C0000            xcall _CYFISNP_TimeExpired
+ 0359 38FE              add SP,-2
+ 035B 3900              cmp A,0
+ 035D AFF4              jz L89
+ 035F                   .dbline 425
+ 035F           ;         if (wakeButtonIsOn())           // If button still ON
+ 035F 9FCE              xcall _wakeButtonIsOn
+ 0361 5300              mov [__r0],A
+ 0363 3900              cmp A,0
+ 0365 A054              jz L92
+ 0367                   .dbline 427
+ 0367           ;         {
+ 0367           ;             CYFISNP_TimeSet(&reportDly, BUTTON_HOLD_TIME_TO_INC_REPORT_DELAY);
+ 0367                   .dbline 427
+ 0367 5000              mov A,0
+ 0369 08                push A
+ 036A 505D              mov A,93
+ 036C 08                push A
+ 036D 5A00              mov [__r1],X
+ 036F 060003            add [__r1],3
+ 0372 5100              mov A,[__r0]
+ 0374 08                push A
+ 0375 5100              mov A,[__r1]
+ 0377 08                push A
+ 0378 7C0000            xcall _CYFISNP_TimeSet
+ 037B 38FC              add SP,-4
+ 037D                   .dbline 428
+ 037D           ;             reportDlySet = TRUE;
+ 037D 560201            mov [X+2],1
+ 0380 8028              xjmp L95
+ 0382           L94:
+ 0382                   .dbline 430
+ 0382           ;             while (wakeButtonIsOn())    // Wait for button release
+ 0382           ;             {
+ 0382                   .dbline 431
+ 0382           ;                 if (CYFISNP_TimeExpired(&reportDly) == TRUE
+ 0382 5A00              mov [__r1],X
+ 0384 060003            add [__r1],3
+ 0387 5100              mov A,[__r0]
+ 0389 08                push A
+ 038A 5100              mov A,[__r1]
+ 038C 08                push A
+ 038D 7C0000            xcall _CYFISNP_TimeExpired
+ 0390 38FE              add SP,-2
+ 0392 3901              cmp A,1
+ 0394 B00E              jnz L97
+ 0396 3D0201            cmp [X+2],1
+ 0399 B009              jnz L97
+ 039B                   .dbline 434
+ 039B           ;                     && reportDlySet == TRUE)
+ 039B           ;                 {
+ 039B           ;                     reportDlySet = FALSE;
+ 039B                   .dbline 434
+ 039B 560200            mov [X+2],0
+ 039E                   .dbline 435
+ 039E           ;                     buttonIncReportTime();
+ 039E 9EFE              xcall _buttonIncReportTime
+ 03A0                   .dbline 436
+ 03A0           ;                     LED_RED_ON;             // Keep LED ON while switch held
+ 03A0 430404            or REG[0x4],4
+ 03A3                   .dbline 437
+ 03A3           ;                 }
+ 03A3           L97:
+ 03A3                   .dbline 438
+ 03A3           ;                 M8C_ClearWDTAndSleep;
+ 03A3 62E338            mov REG[0xe3],56
+ 03A6                   .dbline 440
+ 03A6           ; #if LOW_POWER_TEST
+ 03A6           ;                 M8C_Sleep;
+ 03A6 43FF08            or REG[0xff],8
+ 03A9                   .dbline 443
+ 03A9           ; #endif
+ 03A9           ; 
+ 03A9           ;             }
+ 03A9           L95:
+ 03A9                   .dbline 429
+ 03A9 9F84              xcall _wakeButtonIsOn
+ 03AB 3900              cmp A,0
+ 03AD BFD4              jnz L94
+ 03AF                   .dbline 444
+ 03AF           ;             if (reportDlySet == FALSE)
+ 03AF 3D0200            cmp [X+2],0
+ 03B2 B003              jnz L99
+ 03B4                   .dbline 446
+ 03B4           ;             {
+ 03B4           ;                 showReportDelay();
+ 03B4                   .dbline 446
+ 03B4 9F18              xcall _showReportDelay
+ 03B6                   .dbline 447
+ 03B6           ;             }
+ 03B6           L99:
+ 03B6                   .dbline 448
+ 03B6           ;             return(TRUE);
+ 03B6 5001              mov A,1
+ 03B8 8003              xjmp L86
+ 03BA           L92:
+ 03BA                   .dbline 450
+ 03BA           ;         }
+ 03BA           ;     }
+ 03BA           L87:
+ 03BA                   .dbline 451
+ 03BA           ;     return(FALSE);
+ 03BA 5000              mov A,0
+ 03BC                   .dbline -2
+ 03BC           L86:
+ 03BC 38FB              add SP,-5
+ 03BE 20                pop X
+ 03BF                   .dbline 0 ; func end
+ 03BF 7F                ret
+ 03C0                   .dbsym l reportDly 3 i
+ 03C0                   .dbsym l reportDlySet 2 c
+ 03C0                   .dbsym l lvDelay 0 i
+ 03C0                   .dbend
+                        .area bss(ram, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.c
+ 0000           _rxBuffer::
+ 0000                   .blkb 8
+ 0008                   .dbfile D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+ 0008                   .dbsym e rxBuffer _rxBuffer A[8:8]c
+ 0008           _oneSecTimer::
+ 0008                   .blkb 2
+ 000A                   .dbsym e oneSecTimer _oneSecTimer i
+ 000A           _txApiPkt:
+ 000A                   .blkb 18
+ 001C                   .dbsym s txApiPkt _txApiPkt S[.2]
+ 001C           _snpRunScaler:
+ 001C                   .blkb 1
+ 001D                   .dbsym s snpRunScaler _snpRunScaler c

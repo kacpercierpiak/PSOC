@@ -1,0 +1,1249 @@
+ 0000                   cpu LMM
+                        .module tempcontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./tempcontrol.c
+                        .area lit(rom, con, rel, lit)
+ 0000           _arTherm::
+ 0000 08FD              .word 2301
+ 0002 09C9              .word 2505
+ 0004 0AA5              .word 2725
+ 0006 0B90              .word 2960
+ 0008 0C8B              .word 3211
+ 000A 0D95              .word 3477
+ 000C 0EAD              .word 3757
+ 000E 0FD3              .word 4051
+ 0010 1106              .word 4358
+ 0012 1243              .word 4675
+ 0014 1388              .word 5000
+ 0016 14D3              .word 5331
+ 0018 1620              .word 5664
+ 001A 176E              .word 5998
+ 001C 18B8              .word 6328
+ 001E 19FC              .word 6652
+ 0020 1B37              .word 6967
+ 0022 1C65              .word 7269
+ 0024 1D85              .word 7557
+ 0026 1E95              .word 7829
+ 0028 1F93              .word 8083
+ 002A 207D              .word 8317
+ 002C 210E              .word 8462
+ 002E 157C              .word 5500
+ 0030 1450              .word 5200
+ 0032 1324              .word 4900
+ 0034 11F8              .word 4600
+ 0036 10CC              .word 4300
+ 0038 0FA0              .word 4000
+ 003A 0E74              .word 3700
+ 003C 0D48              .word 3400
+ 003E 0C1C              .word 3100
+ 0040 0AF0              .word 2800
+ 0042 09C4              .word 2500
+ 0044 0898              .word 2200
+ 0046 076C              .word 1900
+ 0048 0640              .word 1600
+ 004A 0514              .word 1300
+ 004C 03E8              .word 1000
+ 004E 02BC              .word 700
+ 0050 0190              .word 400
+ 0052 0064              .word 100
+ 0054 FF38              .word -200
+ 0056 FE0C              .word -500
+ 0058 FCE0              .word -800
+ 005A FC18              .word -1000
+ 005C                   .dbfile D:\Studia\PSOC\TEMP\TEMP\tempcontrol.c
+ 005C                   .dbsym e arTherm _arTherm A[92:2:23]kI
+                        .area text(rom, con, rel)
+ 0000                   .dbfile D:\Studia\PSOC\TEMP\TEMP\tempcontrol.c
+ 0000                   .dbfunc e CalculateTemperature _CalculateTemperature fI
+ 0000                   .dbstruct 0 8 ThermistorValue
+ 0000                   .dbfield 0 lVtherm L
+ 0000                   .dbfield 4 ivalue1 L
+ 0000                   .dbend
+ 0000           ;         itemp1 -> X+13
+ 0000           ;         itemp2 -> X+9
+ 0000           ;        ivalue1 -> X+5
+ 0000           ;        ivalue2 -> X+1
+ 0000           ;    bPointIndex -> X+0
+ 0000           ; thermistorValue -> X-5
+ 0000           _CalculateTemperature::
+ 0000                   .dbline -1
+ 0000 10                push X
+ 0001 4F                mov X,SP
+ 0002 3815              add SP,21
+ 0004                   .dbline 29
+ 0004           ; 
+ 0004           ; #include <m8c.h>        /* part specific constants and macros */
+ 0004           ; #include "PSoCAPI.h"
+ 0004           ; #include "TempControl.h"
+ 0004           ; 
+ 0004           ; 
+ 0004           ; #define       MIN             -101
+ 0004           ; #define       MAX             551     
+ 0004           ; #define COUNT_VALUES    23
+ 0004           ; #define REF_RESISTOR  10000
+ 0004           ; #define REF_VOLTAGE           0x2FB
+ 0004           ; //Defines for enabling Temperature Input
+ 0004           ; #define ReadVTEMPInput      (ABF_CR0 = 0x00)
+ 0004           ; #define ReadVTEMP_EXCInput  (ABF_CR0 = 0x80)
+ 0004           ; 
+ 0004           ; const int arTherm[2][COUNT_VALUES] = 
+ 0004           ; {   
+ 0004           ;    {2301, 2505, 2725, 2960, 3211, 3477, 3757, 4051, 4358, 4675, 5000, 5331, 5664, 5998, 6328, 6652, 6967, 7269, 7557, 7829, 8083, 8317,  8462},
+ 0004           ;    {5500, 5200, 4900, 4600, 4300, 4000, 3700, 3400, 3100, 2800, 2500, 2200, 1900, 1600, 1300, 1000,  700,  400,  100, -200, -500, -800, -1000}   // array of temperature values (in hundredths of a deg C)
+ 0004           ; //     1           3           5           7           9          11          13          15          17          19          21           23
+ 0004           ; };
+ 0004           ; typedef struct ThermistorValue
+ 0004           ; {
+ 0004           ;       long lVtherm;
+ 0004           ;       long ivalue1;
+ 0004           ; }ThermistorValue;
+ 0004           ; 
+ 0004           ; int CalculateTemperature(ThermistorValue thermistorValue)
+ 0004           ; {
+ 0004                   .dbline 32
+ 0004           ;       BYTE bPointIndex;
+ 0004           ;       long ivalue1,ivalue2,itemp1,itemp2;
+ 0004           ;       thermistorValue.lVtherm *= REF_RESISTOR;        // Calculate the thermistor voltage value
+ 0004 62D000            mov REG[0xd0],>__r0
+ 0007 52FC              mov A,[X-4]
+ 0009 5300              mov [__r1],A
+ 000B 52FB              mov A,[X-5]
+ 000D 60D4              mov REG[0xd4],A
+ 000F 3E00              mvi A,[__r1]
+ 0011 5300              mov [__r4],A
+ 0013 3E00              mvi A,[__r1]
+ 0015 5300              mov [__r5],A
+ 0017 3E00              mvi A,[__r1]
+ 0019 5300              mov [__r6],A
+ 001B 3E00              mvi A,[__r1]
+ 001D 5300              mov [__r7],A
+ 001F 5100              mov A,[__r4]
+ 0021 08                push A
+ 0022 5100              mov A,[__r5]
+ 0024 08                push A
+ 0025 5100              mov A,[__r6]
+ 0027 08                push A
+ 0028 5100              mov A,[__r7]
+ 002A 08                push A
+ 002B 5000              mov A,0
+ 002D 08                push A
+ 002E 08                push A
+ 002F 5027              mov A,39
+ 0031 08                push A
+ 0032 5010              mov A,16
+ 0034 08                push A
+ 0035 7C0000            xcall __mul_32X32_32
+ 0038 38FC              add SP,-4
+ 003A 18                pop A
+ 003B 5300              mov [__r3],A
+ 003D 18                pop A
+ 003E 5300              mov [__r2],A
+ 0040 18                pop A
+ 0041 5300              mov [__r1],A
+ 0043 18                pop A
+ 0044 5300              mov [__r0],A
+ 0046 52FC              mov A,[X-4]
+ 0048 5300              mov [__r5],A
+ 004A 52FB              mov A,[X-5]
+ 004C 60D5              mov REG[0xd5],A
+ 004E 5100              mov A,[__r0]
+ 0050 3F00              mvi [__r5],A
+ 0052 5100              mov A,[__r1]
+ 0054 3F00              mvi [__r5],A
+ 0056 5100              mov A,[__r2]
+ 0058 3F00              mvi [__r5],A
+ 005A 5100              mov A,[__r3]
+ 005C 3F00              mvi [__r5],A
+ 005E                   .dbline 33
+ 005E           ;       thermistorValue.lVtherm /= thermistorValue.ivalue1;                     // get voltage ratio of thermistor voltage and excitation voltage
+ 005E 52FC              mov A,[X-4]
+ 0060 0104              add A,4
+ 0062 5300              mov [__r1],A
+ 0064 52FB              mov A,[X-5]
+ 0066 0900              adc A,0
+ 0068 60D4              mov REG[0xd4],A
+ 006A 3E00              mvi A,[__r1]
+ 006C 5300              mov [__r4],A
+ 006E 3E00              mvi A,[__r1]
+ 0070 5300              mov [__r5],A
+ 0072 3E00              mvi A,[__r1]
+ 0074 5300              mov [__r6],A
+ 0076 3E00              mvi A,[__r1]
+ 0078 5300              mov [__r7],A
+ 007A 52FC              mov A,[X-4]
+ 007C 5300              mov [__r1],A
+ 007E 52FB              mov A,[X-5]
+ 0080 60D4              mov REG[0xd4],A
+ 0082 3E00              mvi A,[__r1]
+ 0084 5300              mov [__r8],A
+ 0086 3E00              mvi A,[__r1]
+ 0088 5300              mov [__r9],A
+ 008A 3E00              mvi A,[__r1]
+ 008C 5300              mov [__r10],A
+ 008E 3E00              mvi A,[__r1]
+ 0090 5300              mov [__r11],A
+ 0092 5100              mov A,[__r4]
+ 0094 08                push A
+ 0095 5100              mov A,[__r5]
+ 0097 08                push A
+ 0098 5100              mov A,[__r6]
+ 009A 08                push A
+ 009B 5100              mov A,[__r7]
+ 009D 08                push A
+ 009E 5100              mov A,[__r8]
+ 00A0 08                push A
+ 00A1 5100              mov A,[__r9]
+ 00A3 08                push A
+ 00A4 5100              mov A,[__r10]
+ 00A6 08                push A
+ 00A7 5100              mov A,[__r11]
+ 00A9 08                push A
+ 00AA 7C0000            xcall __divmod_32X32_32
+ 00AD 18                pop A
+ 00AE 5300              mov [__r3],A
+ 00B0 18                pop A
+ 00B1 5300              mov [__r2],A
+ 00B3 18                pop A
+ 00B4 5300              mov [__r1],A
+ 00B6 18                pop A
+ 00B7 5300              mov [__r0],A
+ 00B9 38FC              add SP,-4
+ 00BB 52FC              mov A,[X-4]
+ 00BD 5300              mov [__r5],A
+ 00BF 52FB              mov A,[X-5]
+ 00C1 60D5              mov REG[0xd5],A
+ 00C3 5100              mov A,[__r0]
+ 00C5 3F00              mvi [__r5],A
+ 00C7 5100              mov A,[__r1]
+ 00C9 3F00              mvi [__r5],A
+ 00CB 5100              mov A,[__r2]
+ 00CD 3F00              mvi [__r5],A
+ 00CF 5100              mov A,[__r3]
+ 00D1 3F00              mvi [__r5],A
+ 00D3                   .dbline 35
+ 00D3           ; 
+ 00D3           ;       if ((int)thermistorValue.lVtherm < arTherm[0][0])
+ 00D3 5000              mov A,>_arTherm
+ 00D5 10                push X
+ 00D6 5700              mov X,<_arTherm
+ 00D8 7C0000            xcall __lpmw
+ 00DB 5300              mov [__r1],A
+ 00DD 5100              mov A,[__rX]
+ 00DF 5300              mov [__r0],A
+ 00E1 20                pop X
+ 00E2 52FC              mov A,[X-4]
+ 00E4 5300              mov [__r3],A
+ 00E6 52FB              mov A,[X-5]
+ 00E8 60D4              mov REG[0xd4],A
+ 00EA 3E00              mvi A,[__r3]
+ 00EC 3E00              mvi A,[__r3]
+ 00EE 3E00              mvi A,[__r3]
+ 00F0 5300              mov [__r6],A
+ 00F2 3E00              mvi A,[__r3]
+ 00F4 5300              mov [__r3],A
+ 00F6 5100              mov A,[__r6]
+ 00F8 5300              mov [__r2],A
+ 00FA 5100              mov A,[__r3]
+ 00FC 1200              sub A,[__r1]
+ 00FE 5100              mov A,[__r0]
+ 0100 3180              xor A,-128
+ 0102 5300              mov [__rX],A
+ 0104 5100              mov A,[__r2]
+ 0106 3180              xor A,-128
+ 0108 1A00              sbb A,[__rX]
+ 010A D01C              jnc L2
+ 010C           X0:
+ 010C                   .dbline 38
+ 010C           ;       {
+ 010C           ;               // The voltage ratio is too low, so the temperature is greater than what can be measured                
+ 010C           ;               thermistorValue.lVtherm = MAX;
+ 010C                   .dbline 38
+ 010C 62D000            mov REG[0xd0],>__r0
+ 010F 52FC              mov A,[X-4]
+ 0111 5300              mov [__r1],A
+ 0113 52FB              mov A,[X-5]
+ 0115 60D5              mov REG[0xd5],A
+ 0117 5000              mov A,0
+ 0119 3F00              mvi [__r1],A
+ 011B 3F00              mvi [__r1],A
+ 011D 5002              mov A,2
+ 011F 3F00              mvi [__r1],A
+ 0121 5027              mov A,39
+ 0123 3F00              mvi [__r1],A
+ 0125                   .dbline 39
+ 0125           ;       }
+ 0125 83BD              xjmp L3
+ 0127           L2:
+ 0127                   .dbline 40
+ 0127           ;       else if((int)thermistorValue.lVtherm > arTherm[0][COUNT_VALUES-1])
+ 0127 62D000            mov REG[0xd0],>__r0
+ 012A 502C              mov A,>_arTherm+44
+ 012C 10                push X
+ 012D 572C              mov X,<_arTherm+44
+ 012F 7C0000            xcall __lpmw
+ 0132 5300              mov [__r1],A
+ 0134 5100              mov A,[__rX]
+ 0136 5300              mov [__r0],A
+ 0138 20                pop X
+ 0139 52FC              mov A,[X-4]
+ 013B 5300              mov [__r3],A
+ 013D 52FB              mov A,[X-5]
+ 013F 60D4              mov REG[0xd4],A
+ 0141 3E00              mvi A,[__r3]
+ 0143 3E00              mvi A,[__r3]
+ 0145 3E00              mvi A,[__r3]
+ 0147 5300              mov [__r6],A
+ 0149 3E00              mvi A,[__r3]
+ 014B 5300              mov [__r3],A
+ 014D 5100              mov A,[__r6]
+ 014F 5300              mov [__r2],A
+ 0151 5100              mov A,[__r1]
+ 0153 1200              sub A,[__r3]
+ 0155 5100              mov A,[__r2]
+ 0157 3180              xor A,-128
+ 0159 5300              mov [__rX],A
+ 015B 5100              mov A,[__r0]
+ 015D 3180              xor A,-128
+ 015F 1A00              sbb A,[__rX]
+ 0161 D01A              jnc L4
+ 0163           X1:
+ 0163                   .dbline 43
+ 0163           ;       {
+ 0163           ;               // The voltage ratio is too high, so the temperature is less than what can be measured.
+ 0163           ;               thermistorValue.lVtherm = MIN; 
+ 0163                   .dbline 43
+ 0163 62D000            mov REG[0xd0],>__r0
+ 0166 52FC              mov A,[X-4]
+ 0168 5300              mov [__r1],A
+ 016A 52FB              mov A,[X-5]
+ 016C 60D5              mov REG[0xd5],A
+ 016E 50FF              mov A,-1
+ 0170 3F00              mvi [__r1],A
+ 0172 3F00              mvi [__r1],A
+ 0174 3F00              mvi [__r1],A
+ 0176 509B              mov A,-101
+ 0178 3F00              mvi [__r1],A
+ 017A                   .dbline 44
+ 017A           ;       }
+ 017A 8368              xjmp L5
+ 017C           L4:
+ 017C                   .dbline 46
+ 017C           ;       else 
+ 017C           ;       {  
+ 017C                   .dbline 49
+ 017C           ;               // Scan through the voltage ratio values in the piecewise linear curve fit data to find
+ 017C           ;         // the appropriate line to interpolate                
+ 017C           ;               for(bPointIndex = 0; bPointIndex < (COUNT_VALUES-2); bPointIndex++) 
+ 017C 560000            mov [X+0],0
+ 017F 807D              xjmp L10
+ 0181           L7:
+ 0181                   .dbline 50
+ 0181           ;               {                                                                                                                                                       
+ 0181                   .dbline 51
+ 0181           ;                       if (thermistorValue.lVtherm < arTherm[0][bPointIndex+1])  break;
+ 0181 62D000            mov REG[0xd0],>__r0
+ 0184 5200              mov A,[X+0]
+ 0186 5300              mov [__r1],A
+ 0188 550000            mov [__r0],0
+ 018B 060001            add [__r1],1
+ 018E 0E0000            adc [__r0],0
+ 0191 6500              asl [__r1]
+ 0193 6B00              rlc [__r0]
+ 0195 060000            add [__r1],<_arTherm
+ 0198 0E0000            adc [__r0],>_arTherm
+ 019B 5100              mov A,[__r0]
+ 019D 10                push X
+ 019E 5800              mov X,[__r1]
+ 01A0 7C0000            xcall __lpmw
+ 01A3 5300              mov [__r1],A
+ 01A5 5100              mov A,[__rX]
+ 01A7 5300              mov [__r0],A
+ 01A9 20                pop X
+ 01AA 5100              mov A,[__r1]
+ 01AC 5300              mov [__r3],A
+ 01AE 5100              mov A,[__r0]
+ 01B0 5300              mov [__r2],A
+ 01B2 470080            tst [__r2],-128
+ 01B5 A009              jz X2
+ 01B7 5500FF            mov [__r1],-1
+ 01BA 5500FF            mov [__r0],-1
+ 01BD 800A              jmp X3
+ 01BF           X2:
+ 01BF 62D000            mov REG[0xd0],>__r0
+ 01C2 550000            mov [__r1],0
+ 01C5 550000            mov [__r0],0
+ 01C8           X3:
+ 01C8 62D000            mov REG[0xd0],>__r0
+ 01CB 52FC              mov A,[X-4]
+ 01CD 5300              mov [__r5],A
+ 01CF 52FB              mov A,[X-5]
+ 01D1 60D4              mov REG[0xd4],A
+ 01D3 3E00              mvi A,[__r5]
+ 01D5 5300              mov [__r8],A
+ 01D7 3E00              mvi A,[__r5]
+ 01D9 5300              mov [__r9],A
+ 01DB 3E00              mvi A,[__r5]
+ 01DD 5300              mov [__r10],A
+ 01DF 3E00              mvi A,[__r5]
+ 01E1 1200              sub A,[__r3]
+ 01E3 5100              mov A,[__r10]
+ 01E5 1A00              sbb A,[__r2]
+ 01E7 5100              mov A,[__r9]
+ 01E9 1A00              sbb A,[__r1]
+ 01EB 5100              mov A,[__r0]
+ 01ED 3180              xor A,-128
+ 01EF 5300              mov [__rX],A
+ 01F1 5100              mov A,[__r8]
+ 01F3 3180              xor A,-128
+ 01F5 1A00              sbb A,[__rX]
+ 01F7 D003              jnc L11
+ 01F9           X4:
+ 01F9                   .dbline 51
+ 01F9 8008              xjmp L9
+ 01FB           L11:
+ 01FB                   .dbline 52
+ 01FB           ;               }
+ 01FB           L8:
+ 01FB                   .dbline 49
+ 01FB 7700              inc [X+0]
+ 01FD           L10:
+ 01FD                   .dbline 49
+ 01FD 3D0015            cmp [X+0],21
+ 0200 CF80              jc L7
+ 0202           X5:
+ 0202           L9:
+ 0202                   .dbline 55
+ 0202           ;       
+ 0202           ;               // Retrieve the voltage ratios for interpolation
+ 0202           ;               ivalue1 = arTherm[0][bPointIndex];
+ 0202 62D000            mov REG[0xd0],>__r0
+ 0205 5200              mov A,[X+0]
+ 0207 5300              mov [__r1],A
+ 0209 550000            mov [__r0],0
+ 020C 6500              asl [__r1]
+ 020E 6B00              rlc [__r0]
+ 0210 060000            add [__r1],<_arTherm
+ 0213 0E0000            adc [__r0],>_arTherm
+ 0216 5100              mov A,[__r0]
+ 0218 10                push X
+ 0219 5800              mov X,[__r1]
+ 021B 7C0000            xcall __lpmw
+ 021E 5300              mov [__r1],A
+ 0220 5100              mov A,[__rX]
+ 0222 5300              mov [__r0],A
+ 0224 20                pop X
+ 0225 5100              mov A,[__r1]
+ 0227 5408              mov [X+8],A
+ 0229 5100              mov A,[__r0]
+ 022B 5407              mov [X+7],A
+ 022D 480780            tst [X+7],-128
+ 0230 A009              jz X6
+ 0232 5606FF            mov [X+6],-1
+ 0235 5605FF            mov [X+5],-1
+ 0238 8007              jmp X7
+ 023A           X6:
+ 023A 560600            mov [X+6],0
+ 023D 560500            mov [X+5],0
+ 0240           X7:
+ 0240                   .dbline 56
+ 0240           ;               ivalue2 = arTherm[0][bPointIndex + 1];
+ 0240 62D000            mov REG[0xd0],>__r0
+ 0243 5200              mov A,[X+0]
+ 0245 5300              mov [__r1],A
+ 0247 550000            mov [__r0],0
+ 024A 060001            add [__r1],1
+ 024D 0E0000            adc [__r0],0
+ 0250 6500              asl [__r1]
+ 0252 6B00              rlc [__r0]
+ 0254 060000            add [__r1],<_arTherm
+ 0257 0E0000            adc [__r0],>_arTherm
+ 025A 5100              mov A,[__r0]
+ 025C 10                push X
+ 025D 5800              mov X,[__r1]
+ 025F 7C0000            xcall __lpmw
+ 0262 5300              mov [__r1],A
+ 0264 5100              mov A,[__rX]
+ 0266 5300              mov [__r0],A
+ 0268 20                pop X
+ 0269 5100              mov A,[__r1]
+ 026B 5404              mov [X+4],A
+ 026D 5100              mov A,[__r0]
+ 026F 5403              mov [X+3],A
+ 0271 480380            tst [X+3],-128
+ 0274 A009              jz X8
+ 0276 5602FF            mov [X+2],-1
+ 0279 5601FF            mov [X+1],-1
+ 027C 8007              jmp X9
+ 027E           X8:
+ 027E 560200            mov [X+2],0
+ 0281 560100            mov [X+1],0
+ 0284           X9:
+ 0284                   .dbline 59
+ 0284           ; 
+ 0284           ;         // Retrieve the temperatures for interpolation
+ 0284           ;               itemp1 = arTherm[1][bPointIndex];
+ 0284 62D000            mov REG[0xd0],>__r0
+ 0287 5200              mov A,[X+0]
+ 0289 5300              mov [__r1],A
+ 028B 550000            mov [__r0],0
+ 028E 6500              asl [__r1]
+ 0290 6B00              rlc [__r0]
+ 0292 06002E            add [__r1],<_arTherm+46
+ 0295 0E002E            adc [__r0],>_arTherm+46
+ 0298 5100              mov A,[__r0]
+ 029A 10                push X
+ 029B 5800              mov X,[__r1]
+ 029D 7C0000            xcall __lpmw
+ 02A0 5300              mov [__r1],A
+ 02A2 5100              mov A,[__rX]
+ 02A4 5300              mov [__r0],A
+ 02A6 20                pop X
+ 02A7 5100              mov A,[__r1]
+ 02A9 5410              mov [X+16],A
+ 02AB 5100              mov A,[__r0]
+ 02AD 540F              mov [X+15],A
+ 02AF 480F80            tst [X+15],-128
+ 02B2 A009              jz X10
+ 02B4 560EFF            mov [X+14],-1
+ 02B7 560DFF            mov [X+13],-1
+ 02BA 8007              jmp X11
+ 02BC           X10:
+ 02BC 560E00            mov [X+14],0
+ 02BF 560D00            mov [X+13],0
+ 02C2           X11:
+ 02C2                   .dbline 60
+ 02C2           ;               itemp2 = arTherm[1][bPointIndex + 1];
+ 02C2 62D000            mov REG[0xd0],>__r0
+ 02C5 5200              mov A,[X+0]
+ 02C7 5300              mov [__r1],A
+ 02C9 550000            mov [__r0],0
+ 02CC 060001            add [__r1],1
+ 02CF 0E0000            adc [__r0],0
+ 02D2 6500              asl [__r1]
+ 02D4 6B00              rlc [__r0]
+ 02D6 06002E            add [__r1],<_arTherm+46
+ 02D9 0E002E            adc [__r0],>_arTherm+46
+ 02DC 5100              mov A,[__r0]
+ 02DE 10                push X
+ 02DF 5800              mov X,[__r1]
+ 02E1 7C0000            xcall __lpmw
+ 02E4 5300              mov [__r1],A
+ 02E6 5100              mov A,[__rX]
+ 02E8 5300              mov [__r0],A
+ 02EA 20                pop X
+ 02EB 5100              mov A,[__r1]
+ 02ED 540C              mov [X+12],A
+ 02EF 5100              mov A,[__r0]
+ 02F1 540B              mov [X+11],A
+ 02F3 480B80            tst [X+11],-128
+ 02F6 A009              jz X12
+ 02F8 560AFF            mov [X+10],-1
+ 02FB 5609FF            mov [X+9],-1
+ 02FE 8007              jmp X13
+ 0300           X12:
+ 0300 560A00            mov [X+10],0
+ 0303 560900            mov [X+9],0
+ 0306           X13:
+ 0306                   .dbline 63
+ 0306           ; 
+ 0306           ;               // Interpolate to find the temperature in hundredths of a deg C
+ 0306           ;               thermistorValue.lVtherm = (((long) ivalue2 - thermistorValue.lVtherm) * (itemp1 - itemp2)) / (ivalue2 - ivalue1) + itemp2;
+ 0306 62D000            mov REG[0xd0],>__r0
+ 0309 5204              mov A,[X+4]
+ 030B 1308              sub A,[X+8]
+ 030D 5300              mov [__r3],A
+ 030F 5203              mov A,[X+3]
+ 0311 1B07              sbb A,[X+7]
+ 0313 5300              mov [__r2],A
+ 0315 5202              mov A,[X+2]
+ 0317 1B06              sbb A,[X+6]
+ 0319 5300              mov [__r1],A
+ 031B 5201              mov A,[X+1]
+ 031D 1B05              sbb A,[X+5]
+ 031F 5411              mov [X+17],A
+ 0321 5100              mov A,[__r1]
+ 0323 5412              mov [X+18],A
+ 0325 5100              mov A,[__r2]
+ 0327 5413              mov [X+19],A
+ 0329 5100              mov A,[__r3]
+ 032B 5414              mov [X+20],A
+ 032D 5210              mov A,[X+16]
+ 032F 130C              sub A,[X+12]
+ 0331 5300              mov [__r7],A
+ 0333 520F              mov A,[X+15]
+ 0335 1B0B              sbb A,[X+11]
+ 0337 5300              mov [__r6],A
+ 0339 520E              mov A,[X+14]
+ 033B 1B0A              sbb A,[X+10]
+ 033D 5300              mov [__r5],A
+ 033F 520D              mov A,[X+13]
+ 0341 1B09              sbb A,[X+9]
+ 0343 5300              mov [__r4],A
+ 0345 52FC              mov A,[X-4]
+ 0347 5300              mov [__r9],A
+ 0349 52FB              mov A,[X-5]
+ 034B 60D4              mov REG[0xd4],A
+ 034D 3E00              mvi A,[__r9]
+ 034F 5300              mov [__r0],A
+ 0351 3E00              mvi A,[__r9]
+ 0353 5300              mov [__r1],A
+ 0355 3E00              mvi A,[__r9]
+ 0357 5300              mov [__r2],A
+ 0359 3E00              mvi A,[__r9]
+ 035B 5300              mov [__r3],A
+ 035D 5204              mov A,[X+4]
+ 035F 1200              sub A,[__r3]
+ 0361 5300              mov [__r3],A
+ 0363 5203              mov A,[X+3]
+ 0365 1A00              sbb A,[__r2]
+ 0367 5300              mov [__r2],A
+ 0369 5202              mov A,[X+2]
+ 036B 1A00              sbb A,[__r1]
+ 036D 5300              mov [__r1],A
+ 036F 5201              mov A,[X+1]
+ 0371 1A00              sbb A,[__r0]
+ 0373 5300              mov [__r0],A
+ 0375 5100              mov A,[__r4]
+ 0377 08                push A
+ 0378 5100              mov A,[__r5]
+ 037A 08                push A
+ 037B 5100              mov A,[__r6]
+ 037D 08                push A
+ 037E 5100              mov A,[__r7]
+ 0380 08                push A
+ 0381 5100              mov A,[__r0]
+ 0383 08                push A
+ 0384 5100              mov A,[__r1]
+ 0386 08                push A
+ 0387 5100              mov A,[__r2]
+ 0389 08                push A
+ 038A 5100              mov A,[__r3]
+ 038C 08                push A
+ 038D 7C0000            xcall __mul_32X32_32
+ 0390 38FC              add SP,-4
+ 0392 18                pop A
+ 0393 5300              mov [__r3],A
+ 0395 18                pop A
+ 0396 5300              mov [__r2],A
+ 0398 18                pop A
+ 0399 5300              mov [__r1],A
+ 039B 18                pop A
+ 039C 5300              mov [__r0],A
+ 039E 5211              mov A,[X+17]
+ 03A0 08                push A
+ 03A1 5212              mov A,[X+18]
+ 03A3 08                push A
+ 03A4 5213              mov A,[X+19]
+ 03A6 08                push A
+ 03A7 5214              mov A,[X+20]
+ 03A9 08                push A
+ 03AA 5100              mov A,[__r0]
+ 03AC 08                push A
+ 03AD 5100              mov A,[__r1]
+ 03AF 08                push A
+ 03B0 5100              mov A,[__r2]
+ 03B2 08                push A
+ 03B3 5100              mov A,[__r3]
+ 03B5 08                push A
+ 03B6 7C0000            xcall __divmod_32X32_32
+ 03B9 18                pop A
+ 03BA 5300              mov [__r3],A
+ 03BC 18                pop A
+ 03BD 5300              mov [__r2],A
+ 03BF 18                pop A
+ 03C0 5300              mov [__r1],A
+ 03C2 18                pop A
+ 03C3 5300              mov [__r0],A
+ 03C5 38FC              add SP,-4
+ 03C7 520C              mov A,[X+12]
+ 03C9 0400              add [__r3],A
+ 03CB 520B              mov A,[X+11]
+ 03CD 0C00              adc [__r2],A
+ 03CF 520A              mov A,[X+10]
+ 03D1 0C00              adc [__r1],A
+ 03D3 5209              mov A,[X+9]
+ 03D5 0C00              adc [__r0],A
+ 03D7 52FC              mov A,[X-4]
+ 03D9 5300              mov [__r5],A
+ 03DB 52FB              mov A,[X-5]
+ 03DD 60D5              mov REG[0xd5],A
+ 03DF 5100              mov A,[__r0]
+ 03E1 3F00              mvi [__r5],A
+ 03E3 5100              mov A,[__r1]
+ 03E5 3F00              mvi [__r5],A
+ 03E7 5100              mov A,[__r2]
+ 03E9 3F00              mvi [__r5],A
+ 03EB 5100              mov A,[__r3]
+ 03ED 3F00              mvi [__r5],A
+ 03EF                   .dbline 69
+ 03EF           ; 
+ 03EF           ;         // Divide the result by 10 in order to get the temperature in tenths of a deg C.                     
+ 03EF           ;         // Round to the nearest tenth rather than truncating
+ 03EF           ;      
+ 03EF           ;         // First, get the temperature value as an integer
+ 03EF           ;         ivalue1 = thermistorValue.lVtherm;
+ 03EF 52FC              mov A,[X-4]
+ 03F1 5300              mov [__r1],A
+ 03F3 52FB              mov A,[X-5]
+ 03F5 60D4              mov REG[0xd4],A
+ 03F7 3E00              mvi A,[__r1]
+ 03F9 5405              mov [X+5],A
+ 03FB 3E00              mvi A,[__r1]
+ 03FD 5406              mov [X+6],A
+ 03FF 3E00              mvi A,[__r1]
+ 0401 5407              mov [X+7],A
+ 0403 3E00              mvi A,[__r1]
+ 0405 5408              mov [X+8],A
+ 0407                   .dbline 72
+ 0407           ;      
+ 0407           ;         // Next, get the sign and absolute value of the temperature
+ 0407           ;         if (ivalue1 < 0)
+ 0407 480580            tst [X+5],-128
+ 040A A01E              jz L15
+ 040C                   .dbline 74
+ 040C           ;         {               
+ 040C           ;             bPointIndex = 1; 
+ 040C                   .dbline 74
+ 040C 560001            mov [X+0],1
+ 040F                   .dbline 75
+ 040F           ;             ivalue1 = 0 - ivalue1;
+ 040F 5000              mov A,0
+ 0411 1308              sub A,[X+8]
+ 0413 5408              mov [X+8],A
+ 0415 5000              mov A,0
+ 0417 1B07              sbb A,[X+7]
+ 0419 5407              mov [X+7],A
+ 041B 5000              mov A,0
+ 041D 1B06              sbb A,[X+6]
+ 041F 5406              mov [X+6],A
+ 0421 5000              mov A,0
+ 0423 1B05              sbb A,[X+5]
+ 0425 5405              mov [X+5],A
+ 0427                   .dbline 76
+ 0427           ;         }
+ 0427 8004              xjmp L16
+ 0429           L15:
+ 0429                   .dbline 78
+ 0429           ;         else
+ 0429           ;         {
+ 0429                   .dbline 79
+ 0429           ;             bPointIndex = 0;
+ 0429 560000            mov [X+0],0
+ 042C                   .dbline 80
+ 042C           ;         }
+ 042C           L16:
+ 042C                   .dbline 83
+ 042C           ; 
+ 042C           ;               // Calculate the truncated form
+ 042C           ;         ivalue2 = ivalue1 / 10;  
+ 042C 5000              mov A,0
+ 042E 08                push A
+ 042F 08                push A
+ 0430 08                push A
+ 0431 500A              mov A,10
+ 0433 08                push A
+ 0434 5205              mov A,[X+5]
+ 0436 08                push A
+ 0437 5206              mov A,[X+6]
+ 0439 08                push A
+ 043A 5207              mov A,[X+7]
+ 043C 08                push A
+ 043D 5208              mov A,[X+8]
+ 043F 08                push A
+ 0440 62D000            mov REG[0xd0],>__r0
+ 0443 7C0000            xcall __divmod_32X32_32
+ 0446 18                pop A
+ 0447 5404              mov [X+4],A
+ 0449 18                pop A
+ 044A 5403              mov [X+3],A
+ 044C 18                pop A
+ 044D 5402              mov [X+2],A
+ 044F 18                pop A
+ 0450 5401              mov [X+1],A
+ 0452 38FC              add SP,-4
+ 0454                   .dbline 88
+ 0454           ; 
+ 0454           ;         // Multiply the truncated form by 10 and add 5
+ 0454           ;         // If the result is less than or equal to the original undivided number, then the 
+ 0454           ;         // Truncated value must be incremented by 1.
+ 0454           ;         if ((ivalue2 * 10 + 5) <= ivalue1)
+ 0454 5201              mov A,[X+1]
+ 0456 08                push A
+ 0457 5202              mov A,[X+2]
+ 0459 08                push A
+ 045A 5203              mov A,[X+3]
+ 045C 08                push A
+ 045D 5204              mov A,[X+4]
+ 045F 08                push A
+ 0460 5000              mov A,0
+ 0462 08                push A
+ 0463 08                push A
+ 0464 08                push A
+ 0465 500A              mov A,10
+ 0467 08                push A
+ 0468 7C0000            xcall __mul_32X32_32
+ 046B 38FC              add SP,-4
+ 046D 18                pop A
+ 046E 5300              mov [__r3],A
+ 0470 18                pop A
+ 0471 5300              mov [__r2],A
+ 0473 18                pop A
+ 0474 5300              mov [__r1],A
+ 0476 18                pop A
+ 0477 5300              mov [__r0],A
+ 0479 060005            add [__r3],5
+ 047C 0E0000            adc [__r2],0
+ 047F 0E0000            adc [__r1],0
+ 0482 0E0000            adc [__r0],0
+ 0485 5208              mov A,[X+8]
+ 0487 1200              sub A,[__r3]
+ 0489 5207              mov A,[X+7]
+ 048B 1A00              sbb A,[__r2]
+ 048D 5206              mov A,[X+6]
+ 048F 1A00              sbb A,[__r1]
+ 0491 5100              mov A,[__r0]
+ 0493 3180              xor A,-128
+ 0495 5300              mov [__rX],A
+ 0497 5205              mov A,[X+5]
+ 0499 3180              xor A,-128
+ 049B 1A00              sbb A,[__rX]
+ 049D C00D              jc L17
+ 049F           X14:
+ 049F                   .dbline 90
+ 049F           ;         {
+ 049F           ;             ivalue2++;
+ 049F                   .dbline 90
+ 049F 070401            add [X+4],1
+ 04A2 0F0300            adc [X+3],0
+ 04A5 0F0200            adc [X+2],0
+ 04A8 0F0100            adc [X+1],0
+ 04AB                   .dbline 91
+ 04AB           ;         }
+ 04AB           L17:
+ 04AB                   .dbline 94
+ 04AB           ;              
+ 04AB           ;         // Change the sign to negative if necessary               
+ 04AB           ;         if (bPointIndex)
+ 04AB 3D0000            cmp [X+0],0
+ 04AE A019              jz L19
+ 04B0                   .dbline 96
+ 04B0           ;         {
+ 04B0           ;             ivalue2 = 0 - ivalue2;
+ 04B0                   .dbline 96
+ 04B0 5000              mov A,0
+ 04B2 1304              sub A,[X+4]
+ 04B4 5404              mov [X+4],A
+ 04B6 5000              mov A,0
+ 04B8 1B03              sbb A,[X+3]
+ 04BA 5403              mov [X+3],A
+ 04BC 5000              mov A,0
+ 04BE 1B02              sbb A,[X+2]
+ 04C0 5402              mov [X+2],A
+ 04C2 5000              mov A,0
+ 04C4 1B01              sbb A,[X+1]
+ 04C6 5401              mov [X+1],A
+ 04C8                   .dbline 97
+ 04C8           ;         }
+ 04C8           L19:
+ 04C8                   .dbline 100
+ 04C8           ;   
+ 04C8           ;         // Store the temperature value
+ 04C8           ;         thermistorValue.lVtherm = ivalue2;
+ 04C8 62D000            mov REG[0xd0],>__r0
+ 04CB 52FC              mov A,[X-4]
+ 04CD 5300              mov [__r1],A
+ 04CF 52FB              mov A,[X-5]
+ 04D1 60D5              mov REG[0xd5],A
+ 04D3 5201              mov A,[X+1]
+ 04D5 3F00              mvi [__r1],A
+ 04D7 5202              mov A,[X+2]
+ 04D9 3F00              mvi [__r1],A
+ 04DB 5203              mov A,[X+3]
+ 04DD 3F00              mvi [__r1],A
+ 04DF 5204              mov A,[X+4]
+ 04E1 3F00              mvi [__r1],A
+ 04E3                   .dbline 101
+ 04E3           ;       }
+ 04E3           L5:
+ 04E3           L3:
+ 04E3                   .dbline 102
+ 04E3           ;               return thermistorValue.lVtherm;
+ 04E3 62D000            mov REG[0xd0],>__r0
+ 04E6 52FC              mov A,[X-4]
+ 04E8 5300              mov [__r1],A
+ 04EA 52FB              mov A,[X-5]
+ 04EC 60D4              mov REG[0xd4],A
+ 04EE 3E00              mvi A,[__r1]
+ 04F0 3E00              mvi A,[__r1]
+ 04F2 3E00              mvi A,[__r1]
+ 04F4 5300              mov [__r6],A
+ 04F6 3E00              mvi A,[__r1]
+ 04F8 5300              mov [__r1],A
+ 04FA 5100              mov A,[__r6]
+ 04FC 5300              mov [__r0],A
+ 04FE                   .dbline -2
+ 04FE           L1:
+ 04FE 38EB              add SP,-21
+ 0500 20                pop X
+ 0501                   .dbline 0 ; func end
+ 0501 7F                ret
+ 0502                   .dbsym l itemp1 13 L
+ 0502                   .dbsym l itemp2 9 L
+ 0502                   .dbsym l ivalue1 5 L
+ 0502                   .dbsym l ivalue2 1 L
+ 0502                   .dbsym l bPointIndex 0 c
+ 0502                   .dbsym l thermistorValue -5 pS[ThermistorValue]
+ 0502                   .dbend
+ 0502                   .dbfunc e GetValueFromThermistor _GetValueFromThermistor fS[ThermistorValue]
+ 0502           ; thermistorValue -> X+2
+ 0502           ;              i -> X+0
+ 0502           _GetValueFromThermistor::
+ 0502                   .dbline -1
+ 0502 10                push X
+ 0503 4F                mov X,SP
+ 0504 380A              add SP,10
+ 0506                   .dbline 106
+ 0506           ; }
+ 0506           ; 
+ 0506           ; ThermistorValue GetValueFromThermistor(void)
+ 0506           ; {
+ 0506                   .dbline 109
+ 0506           ;       int i;
+ 0506           ;       ThermistorValue thermistorValue;
+ 0506           ;       thermistorValue.ivalue1=0;
+ 0506 560600            mov [X+6],0
+ 0509 560700            mov [X+7],0
+ 050C 560800            mov [X+8],0
+ 050F 560900            mov [X+9],0
+ 0512                   .dbline 110
+ 0512           ;       thermistorValue.lVtherm=0;
+ 0512 560200            mov [X+2],0
+ 0515 560300            mov [X+3],0
+ 0518 560400            mov [X+4],0
+ 051B 560500            mov [X+5],0
+ 051E                   .dbline 111
+ 051E           ;       ADC10_Start(ADC10_FULLRANGE);     // Start the User Module  
+ 051E 10                push X
+ 051F 5003              mov A,3
+ 0521 7C0000            xcall _ADC10_Start
+ 0524                   .dbline 112
+ 0524           ;       ADC10_iCal(0x1FF, ADC10_CAL_VBG);  // Calibrate the ADC so 1.3V = 0x01FF  
+ 0524 5003              mov A,3
+ 0526 08                push A
+ 0527 5001              mov A,1
+ 0529 08                push A
+ 052A 50FF              mov A,-1
+ 052C 08                push A
+ 052D 7C0000            xcall _ADC10_iCal
+ 0530 38FD              add SP,-3
+ 0532 62D000            mov REG[0xd0],>__r0
+ 0535                   .dbline 113
+ 0535           ;       ADC10_StartADC();       
+ 0535 7C0000            xcall _ADC10_StartADC
+ 0538 20                pop X
+ 0539                   .dbline 114
+ 0539           ;       ReadVTEMPInput;        // Enable the Analog Column Input Mux to
+ 0539 7110              or F,0x10  ; iopage = 1
+ 053B 626200            mov REG[0x62],0
+ 053E 70CF              and F,0xCF      ; iopage = 0
+ 0540           L24:
+ 0540                   .dbline 116
+ 0540           ;       
+ 0540           ;       while(ADC10_fIsDataAvailable() == 0){};  /*checking for the availability of data */
+ 0540                   .dbline 116
+ 0540           L25:
+ 0540                   .dbline 116
+ 0540 10                push X
+ 0541 7C0000            xcall _ADC10_fIsDataAvailable
+ 0544 20                pop X
+ 0545 62D000            mov REG[0xd0],>__r0
+ 0548 3900              cmp A,0
+ 054A AFF5              jz L24
+ 054C                   .dbline 116
+ 054C                   .dbline 117
+ 054C           ;       thermistorValue.lVtherm = ADC10_iGetDataClearFlag();   /* Get the data and clear the flag */
+ 054C 10                push X
+ 054D 7C0000            xcall _ADC10_iGetDataClearFlag
+ 0550 62D000            mov REG[0xd0],>__r0
+ 0553 5A00              mov [__r0],X
+ 0555 20                pop X
+ 0556 5405              mov [X+5],A
+ 0558 5100              mov A,[__r0]
+ 055A 5404              mov [X+4],A
+ 055C 480480            tst [X+4],-128
+ 055F A009              jz X15
+ 0561 5603FF            mov [X+3],-1
+ 0564 5602FF            mov [X+2],-1
+ 0567 8007              jmp X16
+ 0569           X15:
+ 0569 560300            mov [X+3],0
+ 056C 560200            mov [X+2],0
+ 056F           X16:
+ 056F                   .dbline 119
+ 056F           ;               
+ 056F           ;     ReadVTEMP_EXCInput;    // Enable the Analog Column Input Mux to
+ 056F 7110              or F,0x10  ; iopage = 1
+ 0571 626280            mov REG[0x62],-128
+ 0574                   .dbline 122
+ 0574           ;                            // read Port0.7/VTemp_exc input
+ 0574           ; 
+ 0574           ;       for(i=0; i<20000; i++){;}       // Give a delay before changing Analog input source
+ 0574 560100            mov [X+1],0
+ 0577 560000            mov [X+0],0
+ 057A 70CF              and F,0xCF      ; iopage = 0
+ 057C           L27:
+ 057C                   .dbline 122
+ 057C                   .dbline 122
+ 057C                   .dbline 122
+ 057C           L28:
+ 057C                   .dbline 122
+ 057C 7701              inc [X+1]
+ 057E 0F0000            adc [X+0],0
+ 0581                   .dbline 122
+ 0581 5201              mov A,[X+1]
+ 0583 1120              sub A,32
+ 0585 5200              mov A,[X+0]
+ 0587 3180              xor A,-128
+ 0589 19CE              sbb A,(78 ^ 0x80)
+ 058B CFF0              jc L27
+ 058D           X17:
+ 058D           L31:
+ 058D                   .dbline 123
+ 058D           ;       while(ADC10_fIsDataAvailable() == 0){};  /*checking for the availability of data */
+ 058D                   .dbline 123
+ 058D           L32:
+ 058D                   .dbline 123
+ 058D 10                push X
+ 058E 7C0000            xcall _ADC10_fIsDataAvailable
+ 0591 20                pop X
+ 0592 62D000            mov REG[0xd0],>__r0
+ 0595 3900              cmp A,0
+ 0597 AFF5              jz L31
+ 0599                   .dbline 123
+ 0599                   .dbline 124
+ 0599           ;       thermistorValue.ivalue1 = ADC10_iGetDataClearFlag();   /* Get the data and clear the flag */
+ 0599 10                push X
+ 059A 7C0000            xcall _ADC10_iGetDataClearFlag
+ 059D 62D000            mov REG[0xd0],>__r0
+ 05A0 5A00              mov [__r0],X
+ 05A2 20                pop X
+ 05A3 5409              mov [X+9],A
+ 05A5 5100              mov A,[__r0]
+ 05A7 5408              mov [X+8],A
+ 05A9 480880            tst [X+8],-128
+ 05AC A009              jz X18
+ 05AE 5607FF            mov [X+7],-1
+ 05B1 5606FF            mov [X+6],-1
+ 05B4 8007              jmp X19
+ 05B6           X18:
+ 05B6 560700            mov [X+7],0
+ 05B9 560600            mov [X+6],0
+ 05BC           X19:
+ 05BC                   .dbline 126
+ 05BC           ;               
+ 05BC           ;       ADC10_Stop();
+ 05BC 10                push X
+ 05BD 7C0000            xcall _ADC10_Stop
+ 05C0                   .dbline 127
+ 05C0           ;       ADC10_StopADC();
+ 05C0 7C0000            xcall _ADC10_StopADC
+ 05C3 20                pop X
+ 05C4                   .dbline 128
+ 05C4           ;       return thermistorValue;
+ 05C4 62D000            mov REG[0xd0],>__r0
+ 05C7 5A00              mov [__r1],X
+ 05C9 060002            add [__r1],2
+ 05CC 52FC              mov A,[X-4]
+ 05CE 5300              mov [__r3],A
+ 05D0 52FB              mov A,[X-5]
+ 05D2 62D401            mov REG[0xd4],1
+ 05D5 60D5              mov REG[0xd5],A
+ 05D7 10                push X
+ 05D8 5708              mov X,8
+ 05DA           X20:
+ 05DA 62D000            mov REG[0xd0],>__r0
+ 05DD 3E00              mvi A,[__r1]
+ 05DF 3F00              mvi [__r3],A
+ 05E1 79                dec X
+ 05E2 BFF7              jnz X20
+ 05E4 20                pop X
+ 05E5                   .dbline -2
+ 05E5           L21:
+ 05E5 38F6              add SP,-10
+ 05E7 20                pop X
+ 05E8                   .dbline 0 ; func end
+ 05E8 7F                ret
+ 05E9                   .dbsym l thermistorValue 2 S[ThermistorValue]
+ 05E9                   .dbsym l i 0 I
+ 05E9                   .dbend
+ 05E9                   .dbfunc e GetTemperature _GetTemperature fI
+ 05E9           ; thermistorValue -> X+0
+ 05E9           _GetTemperature::
+ 05E9                   .dbline -1
+ 05E9 10                push X
+ 05EA 4F                mov X,SP
+ 05EB 3810              add SP,16
+ 05ED                   .dbline 132
+ 05ED           ; }
+ 05ED           ;       
+ 05ED           ; int GetTemperature(void)
+ 05ED           ; {
+ 05ED                   .dbline 134
+ 05ED           ;       ThermistorValue thermistorValue;
+ 05ED           ;       thermistorValue = GetValueFromThermistor();
+ 05ED 62D000            mov REG[0xd0],>__r0
+ 05F0 5001              mov A,1
+ 05F2 08                push A
+ 05F3 10                push X
+ 05F4 9F0C              xcall _GetValueFromThermistor
+ 05F6 38FE              add SP,-2
+ 05F8                   .dbline 135
+ 05F8           ;       return CalculateTemperature(thermistorValue);   
+ 05F8 62D000            mov REG[0xd0],>__r0
+ 05FB 5A00              mov [__r1],X
+ 05FD 060008            add [__r1],8
+ 0600 5A00              mov [__r3],X
+ 0602 62D401            mov REG[0xd4],1
+ 0605 62D501            mov REG[0xd5],1
+ 0608 10                push X
+ 0609 5708              mov X,8
+ 060B           X21:
+ 060B 62D000            mov REG[0xd0],>__r0
+ 060E 3E00              mvi A,[__r3]
+ 0610 3F00              mvi [__r1],A
+ 0612 79                dec X
+ 0613 BFF7              jnz X21
+ 0615 20                pop X
+ 0616 5A00              mov [__r1],X
+ 0618 060008            add [__r1],8
+ 061B 5001              mov A,1
+ 061D 08                push A
+ 061E 5100              mov A,[__r1]
+ 0620 08                push A
+ 0621 99DD              xcall _CalculateTemperature
+ 0623 38FE              add SP,-2
+ 0625                   .dbline -2
+ 0625           L35:
+ 0625 38F0              add SP,-16
+ 0627 20                pop X
+ 0628                   .dbline 0 ; func end
+ 0628 7F                ret
+ 0629                   .dbsym l thermistorValue 0 S[ThermistorValue]
+ 0629                   .dbend
+ 0629                   .dbfunc e TempControl_GetValue _TempControl_GetValue fI
+ 0629           ;        lVtherm -> X+0
+ 0629           _TempControl_GetValue::
+ 0629                   .dbline -1
+ 0629 10                push X
+ 062A 4F                mov X,SP
+ 062B 3802              add SP,2
+ 062D                   .dbline 140
+ 062D           ;               
+ 062D           ; }
+ 062D           ; 
+ 062D           ; int TempControl_GetValue(void)
+ 062D           ; {
+ 062D                   .dbline 143
+ 062D           ;       
+ 062D           ;       int lVtherm;
+ 062D           ;       lVtherm = GetTemperature();     
+ 062D 9FBA              xcall _GetTemperature
+ 062F 62D000            mov REG[0xd0],>__r0
+ 0632 5100              mov A,[__r1]
+ 0634 5401              mov [X+1],A
+ 0636 5100              mov A,[__r0]
+ 0638 5400              mov [X+0],A
+ 063A                   .dbline 144
+ 063A           ;       if ((lVtherm >= -100) && (lVtherm < 240)) // TRUE if temp is between -10 and 24
+ 063A 5201              mov A,[X+1]
+ 063C 119C              sub A,-100
+ 063E 5200              mov A,[X+0]
+ 0640 3180              xor A,-128
+ 0642 197F              sbb A,(-1 ^ 0x80)
+ 0644 C018              jc L37
+ 0646           X22:
+ 0646 5201              mov A,[X+1]
+ 0648 11F0              sub A,-16
+ 064A 5200              mov A,[X+0]
+ 064C 3180              xor A,-128
+ 064E 1980              sbb A,(0 ^ 0x80)
+ 0650 D00C              jnc L37
+ 0652           X23:
+ 0652                   .dbline 146
+ 0652           ;       {
+ 0652           ;               return 1;
+ 0652                   .dbline 146
+ 0652 62D000            mov REG[0xd0],>__r0
+ 0655 550001            mov [__r1],1
+ 0658 550000            mov [__r0],0
+ 065B 8050              xjmp L36
+ 065D           L37:
+ 065D                   .dbline 148
+ 065D           ;       }
+ 065D           ;       else if ((lVtherm >= 240) && (lVtherm < 280)) // TRUE if temp is between 24 and 28
+ 065D 5201              mov A,[X+1]
+ 065F 11F0              sub A,-16
+ 0661 5200              mov A,[X+0]
+ 0663 3180              xor A,-128
+ 0665 1980              sbb A,(0 ^ 0x80)
+ 0667 C018              jc L39
+ 0669           X24:
+ 0669 5201              mov A,[X+1]
+ 066B 1118              sub A,24
+ 066D 5200              mov A,[X+0]
+ 066F 3180              xor A,-128
+ 0671 1981              sbb A,(1 ^ 0x80)
+ 0673 D00C              jnc L39
+ 0675           X25:
+ 0675                   .dbline 150
+ 0675           ;       {
+ 0675           ;               return 2;               
+ 0675                   .dbline 150
+ 0675 62D000            mov REG[0xd0],>__r0
+ 0678 550002            mov [__r1],2
+ 067B 550000            mov [__r0],0
+ 067E 802D              xjmp L36
+ 0680           L39:
+ 0680                   .dbline 152
+ 0680           ;       }
+ 0680           ;       else if ((lVtherm >= 280) && (lVtherm < 550)) // TRUE if temp is between 23 and 55
+ 0680 5201              mov A,[X+1]
+ 0682 1118              sub A,24
+ 0684 5200              mov A,[X+0]
+ 0686 3180              xor A,-128
+ 0688 1981              sbb A,(1 ^ 0x80)
+ 068A C018              jc L41
+ 068C           X26:
+ 068C 5201              mov A,[X+1]
+ 068E 1126              sub A,38
+ 0690 5200              mov A,[X+0]
+ 0692 3180              xor A,-128
+ 0694 1982              sbb A,(2 ^ 0x80)
+ 0696 D00C              jnc L41
+ 0698           X27:
+ 0698                   .dbline 154
+ 0698           ;       {
+ 0698           ;               return 3;       
+ 0698                   .dbline 154
+ 0698 62D000            mov REG[0xd0],>__r0
+ 069B 550003            mov [__r1],3
+ 069E 550000            mov [__r0],0
+ 06A1 800A              xjmp L36
+ 06A3           L41:
+ 06A3                   .dbline 157
+ 06A3           ;       }
+ 06A3           ;       else
+ 06A3           ;       {
+ 06A3                   .dbline 158
+ 06A3           ;               return 0;
+ 06A3 62D000            mov REG[0xd0],>__r0
+ 06A6 550000            mov [__r1],0
+ 06A9 550000            mov [__r0],0
+ 06AC                   .dbline -2
+ 06AC           L36:
+ 06AC 38FE              add SP,-2
+ 06AE 20                pop X
+ 06AF                   .dbline 0 ; func end
+ 06AF 7F                ret
+ 06B0                   .dbsym l lVtherm 0 I
+ 06B0                   .dbend

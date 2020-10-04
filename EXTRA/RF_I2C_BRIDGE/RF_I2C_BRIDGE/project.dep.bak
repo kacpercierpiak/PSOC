@@ -1,0 +1,63 @@
+# DO NOT DELETE
+./obj/boot.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8ssc.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\lib\GlobalParams.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./obj/main.o :  ./lib/CYFISNP.h ./lib/CYFISNP_Config.h\
+   ./lib/CYFISNP_Eeprom.h ./lib/CYFISNP_Private.h ./lib/CYFISNP_Protocol.h\
+   ./lib/CYFISNP_Time.h ./lib/I2CCommon.h ./lib/I2CMstr.h\
+   ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h ./lib/Timer8.h\
+   ./lib/psocGpioInt.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.h\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\main.h
+./lib/obj/cyfisnp.o :  ./lib/CYFISNP.inc ./lib/PSoCGPIOInt.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/cyfisnp_debug.o :  ./lib/CYFISNP.h ./lib/CYFISNP_Config.h\
+   ./lib/CYFISNP_Eeprom.h ./lib/CYFISNP_Private.h ./lib/CYFISNP_Protocol.h\
+   ./lib/CYFISNP_Time.h ./lib/I2CCommon.h ./lib/I2CMstr.h\
+   ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h ./lib/Timer8.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/M8C.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.h
+./lib/obj/cyfisnp_protocol.o :  ./lib/CYFISNP.h ./lib/CYFISNP_Config.h\
+   ./lib/CYFISNP_Eeprom.h ./lib/CYFISNP_Private.h ./lib/CYFISNP_Protocol.h\
+   ./lib/CYFISNP_Time.h ./lib/I2CCommon.h ./lib/I2CMstr.h\
+   ./lib/PSoCAPI.h ./lib/PSoCGPIOINT.h ./lib/Timer8.h\
+   ./lib/psocGpioInt.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/FLASHB~1.H\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.h
+./lib/obj/cyfisnp_psoc_spim.o :  ./lib/CYFISNP.inc ./lib/PSoCGPIOInt.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\Memory.inc
+./lib/obj/cyfisnp_time.o :  ./lib/CYFISNP_Config.h ./lib/CYFISNP_Time.h\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.h
+./lib/obj/cyfisnpint.o :  ./lib/CYFISNP.inc ./lib/PSoCGPIOInt.inc\
+   ./lib/psocgpioint.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/i2ccommon.o :  ./lib/I2CCommon.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/i2cint.o :  ./lib/I2CCommon.inc ./lib/I2CMstr.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/i2cmstr.o :  ./lib/I2CCommon.inc ./lib/I2CMstr.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/i2crsrcinits.o :  ./lib/CYFISNP.inc ./lib/I2CCommon.inc\
+   ./lib/I2CMstr.inc ./lib/PSoCAPI.inc ./lib/PSoCGPIOINT.inc\
+   ./lib/PSoCGPIOInt.inc ./lib/Timer8.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/psocconfig.o :  ./lib/GlobalParams.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/psocconfigtbl.o : \
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc
+./lib/obj/timer8.o :  ./lib/Timer8.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc
+./lib/obj/timer8int.o :  ./lib/Timer8.inc\
+   C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1/m8c.inc\
+   D:\Studia\PSOC\RF_I2C_BRIDGE\RF_I2C_BRIDGE\memory.inc

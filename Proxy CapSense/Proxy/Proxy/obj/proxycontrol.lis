@@ -1,0 +1,58 @@
+ 0000                   cpu LMM
+                        .module proxycontrol.c
+                        .area text(rom, con, rel)
+ 0000                   .dbfile ./proxycontrol.c
+ 0000                   .dbfile D:\Studia\PSOC\Proxy\Proxy\Proxy\proxycontrol.c
+ 0000                   .dbfunc e ProxyControl_INIT _ProxyControl_INIT fV
+ 0000           _ProxyControl_INIT::
+ 0000                   .dbline -1
+ 0000                   .dbline 6
+ 0000           ; #include "ProxyControl.h" // Dodanie naglowka bilbioteki
+ 0000           ; #include <m8c.h> // Biblioteka zawierająca typy danych, stale etc.
+ 0000           ; #include "PSoCAPI.h" // Biblioteka zaweriajace funkcje dla peryferiów    
+ 0000           ; 
+ 0000           ; void ProxyControl_INIT(void)
+ 0000           ; {
+ 0000                   .dbline 7
+ 0000           ;   CSD_Start();   
+ 0000 10                push X
+ 0001 7C0000            xcall _CSD_Start
+ 0004                   .dbline 8
+ 0004           ;   CSD_ScanAllSensors();   
+ 0004 7C0000            xcall _CSD_ScanAllSensors
+ 0007                   .dbline 9
+ 0007           ;   CSD_InitializeBaselines();   
+ 0007 7C0000            xcall _CSD_InitializeBaselines
+ 000A                   .dbline 10
+ 000A           ;   CSD_SetDefaultFingerThresholds();
+ 000A 7C0000            xcall _CSD_SetDefaultFingerThresholds
+ 000D 20                pop X
+ 000E                   .dbline -2
+ 000E           L1:
+ 000E                   .dbline 0 ; func end
+ 000E 7F                ret
+ 000F                   .dbend
+ 000F                   .dbfunc e ProxyControl_Proxy _ProxyControl_Proxy fc
+ 000F           _ProxyControl_Proxy::
+ 000F                   .dbline -1
+ 000F                   .dbline 13
+ 000F           ; }
+ 000F           ; BOOL ProxyControl_Proxy(void)
+ 000F           ; {
+ 000F                   .dbline 14
+ 000F           ;   CSD_ScanAllSensors();
+ 000F 10                push X
+ 0010 7C0000            xcall _CSD_ScanAllSensors
+ 0013                   .dbline 15
+ 0013           ;   CSD_UpdateAllBaselines();
+ 0013 7C0000            xcall _CSD_UpdateAllBaselines
+ 0016                   .dbline 16
+ 0016           ;   return CSD_bIsAnySensorActive();
+ 0016 7C0000            xcall _CSD_bIsAnySensorActive
+ 0019 20                pop X
+ 001A 62D000            mov REG[0xd0],>__r0
+ 001D                   .dbline -2
+ 001D           L2:
+ 001D                   .dbline 0 ; func end
+ 001D 7F                ret
+ 001E                   .dbend

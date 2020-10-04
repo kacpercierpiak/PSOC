@@ -1,0 +1,120 @@
+Starting MAKE...
+psocmakemake.exe MF_CS_SLIDE -oproject.mk
+
+creating project.mk 
+
+mkdepend.exe -f project.dep -p./obj/ -o.o -- -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3  -- main.c  boot.asm
+
+mkdepend.exe @mkdep
+
+mkdepend.exe @mkdep
+
+if exist output\MF_CS_SLIDE.rom del /F /Q  output\MF_CS_SLIDE.rom
+
+if exist output\MF_CS_SLIDE.hex del /F /Q  output\MF_CS_SLIDE.hex
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csd.o lib/csd.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdhl.o lib/csdhl.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdint.o lib/csdint.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/csdtable.o lib/csdtable.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/ezi2cs.o lib/ezi2cs.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/ezi2csint.o lib/ezi2csint.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_blue.o lib/led_blue.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_green.o lib/led_green.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/led_red.o lib/led_red.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfig.o lib/psocconfig.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/psocconfigtbl.o lib/psocconfigtbl.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_1.o lib/pwm8_1.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -o lib/obj/pwm8_1int.o lib/pwm8_1int.asm
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/csd.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/csdhl.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/csdint.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/csdtable.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/ezi2cs.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/ezi2csint.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/led_blue.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/led_green.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/led_red.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/psocconfig.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/psocconfigtbl.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_1.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/pwm8_1int.o
+
+c:\iccv8m8c/bin/iccm8c.exe -g -e -c -Wf-nomac -Wf-Osize -Wf-LMM2 -D_LMM -Wf-O48 -Wl-elim  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -o obj/main.o ./main.c
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+Linking with linkfile 
+
+-F0x30 -g -blit:0x150.0x1fff 
+
+ -bdata:0.0x100 -rwh:SSCParmBlk:0x00F7.0x00FF -BIols/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3   -g -n -o obj/boot.o ./boot.asm
+
+nterruptRAM:0 -Bvirtual_registers  
+
+ -BMF_CS_SLIDE_RAM 
+
+ -o"output/MF_CS_SLIDE" 
+
+obj/main.o 	
+
+ ./lib/libPSoc.a -Lc:\iccv8m8c/lib/LMM/eightpages C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/CY8C21030/cms.a c:\iccv8m8c/lib/LMM/UASW/NoMAC/arith.a  
+
+c:\iccv8m8c/bin/ilinkm8c.exe -u ./obj/boot.o @linkfile
+
+LMM info: area 'InterruptRAM' uses 64 bytes in SRAM bank 0
+
+LMM info: area 'ram2' item of 29 bytes allocated in SRAM page 0
+
+LMM info: area 'ram1' item of 28 bytes allocated in SRAM page 0
+
+LMM info: area 'bss' item of 14 bytes allocated in SRAM page 0
+
+LMM info: area 'bss' item of 6 bytes allocated in SRAM page 0
+
+LMM info: area 'virtual_registers' uses 4 bytes in SRAM page 0
+
+LMM info: area 'data' item of 2 bytes allocated in SRAM page 0
+
+idata dump at output/MF_CS_SLIDE.idata
+
+  ROM 47% full. 3842 out of 8192 bytes used (does not include absolute areas).
+
+  RAM 58% full. 147 bytes used (does not include stack usage).
+
+Built with ICCM8C PRO/DEMO V8.05.01E
+
+c:\iccv8m8c/bin/ilstm8c.exe -r output/MF_CS_SLIDE.rom
+
+verlst.exe MF_CS_SLIDE c:\iccv8m8c/bin
+
+makehex.exe output/MF_CS_SLIDE.rom FlashSecurity.txt 0x1fff 0x30 output/MF_CS_SLIDE.hex
+
+ 
+MF_CS_SLIDE - 0 error(s) 0 warning(s) 14:34:10
+

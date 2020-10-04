@@ -1,0 +1,478 @@
+XH
+H 4 areas 4B global symbols
+M csd.asm
+S CSD_bNoiseThreshold Ref0000
+S CSD_baLowBaselineReset Ref0000
+S CSD_baSnsDebounce Ref0000
+S CSD_bNegativeNoiseThreshold Ref0000
+S CSD_baSnsOnMask Ref0000
+S CSD_bDebounce Ref0000
+S CSD_bHysteresis Ref0000
+S CSD_bBaselineUpdateThreshold Ref0000
+S CSD_bLowBaselineReset Ref0000
+A text size 0 flags 0
+dbfile lib/csd.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/CSD.inc
+dbfunc 0 ? 0 I
+dbfile lib/csd.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/GlobalParams.inc
+dbfunc 0 ? 0 I
+dbfile lib/csd.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/csd.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+dbfunc 0 ? 0 I
+A bss size 10 flags 0
+S _CSD_waSnsResult Def0000
+S CSD_waSnsResult Def0000
+A InterruptRAM size 8 flags 20
+S CSD_MaxADCValueMSB Def0000
+S CSD_bSensorNum Def0007
+S _CSD_bADCStatus Def0003
+S CSD_wADC_Result Def0001
+S _CSD_bSensorNum Def0007
+S _CSD_wADC_Result Def0001
+S CSD_bADCStatus Def0003
+A UserModules size 290 flags 0
+dbfile lib/csd.asm
+dbfunc 0 ? 40 I
+dbline 3 40
+dbline 3 42
+dbline 3 45
+dbline BD 48
+dbline BF 4A
+dbline C0 4D
+dbline C1 4E
+dbline 3 50
+dbline C4 53
+dbline C6 55
+dbline C7 58
+dbline C8 5B
+dbline C9 5C
+dbline 3 5E
+dbline 4 60
+dbline CD 62
+dbline CE 65
+dbline CF 68
+dbline D0 6B
+dbline D1 6E
+dbline D2 71
+dbline D3 74
+dbline D5 77
+dbline D6 79
+dbline D7 7B
+dbline D9 7D
+dbline DA 7F
+dbline DD 81
+dbline 3 82
+dbline F4 85
+dbline F5 87
+dbline F6 89
+dbline F8 8B
+dbline F9 8D
+dbline FA 8E
+dbline FB 90
+dbline FC 92
+dbline FF 94
+dbline 101 96
+dbline 2 99
+dbline 10C 9B
+dbline 10D 9E
+dbline 10E A1
+dbline 110 A4
+dbline 111 A6
+dbline 112 A8
+dbline 113 A9
+dbline 114 AB
+dbline 115 AC
+dbline 116 AE
+dbline 117 B0
+dbline 118 B2
+dbline 119 B4
+dbline 11B B6
+dbline 11E B9
+dbline 11F BB
+dbline 120 BD
+dbline 2 BF
+dbline 124 C1
+dbline 125 C4
+dbline 126 C6
+dbline 127 C8
+dbline 129 CA
+dbline 12A CC
+dbline 12B CE
+dbline 12D D0
+dbline 12E D2
+dbline 130 D4
+dbline 131 D7
+dbline 132 DA
+dbline 135 DC
+dbline 136 DF
+dbline 137 E2
+dbline 2 E5
+dbline 13C E7
+dbline 13D E9
+dbline 13E EB
+dbline 140 ED
+dbline 141 EF
+dbline 144 F1
+dbline 3 FA
+dbline 168 FD
+dbline 169 FF
+dbline 16A 101
+dbline 16C 103
+dbline 16D 105
+dbline 16E 107
+dbline 190 109
+dbline 191 10B
+dbline 192 10C
+dbline 193 10E
+dbline 194 110
+dbline 195 111
+dbline 196 113
+dbline 197 115
+dbline 19A 117
+dbline 19B 119
+dbline 19C 11B
+dbline 19D 11C
+dbline 19E 11E
+dbline 19F 11F
+dbline 1A0 121
+dbline 1A2 123
+dbline 1A3 126
+dbline 1A4 128
+dbline 1A5 12A
+dbline 1A6 12C
+dbline 1A7 12E
+dbline 1AB 131
+dbline 1C4 132
+dbline 1C6 134
+dbline 1C7 135
+dbline 1C8 137
+dbline 1C9 139
+dbline 1CA 13A
+dbline 1CB 13B
+dbline 1CD 13D
+dbline 2 13E
+dbline 1E8 140
+dbline 1F7 143
+dbline 2 146
+dbline 1FD 148
+dbline 204 14B
+dbline 207 14E
+dbline 208 150
+dbline 209 153
+dbline 20B 156
+dbline 20C 159
+dbline 20F 15C
+dbline 227 15D
+dbline 22A 160
+dbline 22B 163
+dbline 22C 165
+dbline 22D 167
+dbline 2 169
+dbline 236 16B
+dbline 237 16E
+dbline 245 171
+dbline 2 174
+dbline 24B 176
+dbline 24C 179
+dbline 24D 17C
+dbline 254 17F
+dbline 258 182
+dbline 288 193
+dbline 289 194
+dbline 28A 195
+dbline 28B 197
+dbline 28C 198
+dbline 28D 199
+dbline 290 19B
+dbline 3 19C
+dbline 2B2 19F
+dbline 2B3 1A1
+dbline 2B4 1A2
+dbline 2B5 1A3
+dbline 2B6 1A4
+dbline 2B7 1A5
+dbline 2B9 1A6
+dbline 2BA 1A8
+dbline 2BB 1AA
+dbline 2 1AC
+dbline 2BD 1AE
+dbline 2BE 1B0
+dbline 2BF 1B2
+dbline 2C0 1B4
+dbline 2C1 1B7
+dbline 2C2 1B9
+dbline 2C3 1BB
+dbline 2C5 1BD
+dbline 2C6 1BE
+dbline 2C7 1C1
+dbline 2C8 1C3
+dbline 2C9 1C5
+dbline 2 1C7
+dbline 2CD 1C9
+dbline 3 1CA
+dbline 2EB 1CD
+dbline 2EC 1CE
+dbline 2 1D0
+dbline 2EE 1D2
+dbline 2EF 1D4
+dbline 2F0 1D6
+dbline 2 1D8
+dbline 2F3 1DA
+dbline 2F4 1DB
+dbline 2F5 1DC
+dbline 2F6 1DD
+dbline 2F8 1DE
+dbline 2F9 1E0
+dbline 2FA 1E2
+dbline 2 1E4
+dbline 2FD 1E6
+dbline 2FE 1E8
+dbline 2FF 1EA
+dbline 301 1EC
+dbline 302 1EF
+dbline 303 1F1
+dbline 304 1F3
+dbline 2 1F5
+dbline 308 1F7
+dbline 3 1F8
+dbline 3 1FA
+dbline 3 1FD
+dbline 327 1FF
+dbline 328 201
+dbline 329 203
+dbline 32B 205
+dbline 2 207
+dbline 32F 209
+dbline 2 20C
+dbline 332 20F
+dbline 333 212
+dbline 2 215
+dbline 336 218
+dbline 337 21A
+dbline 338 21C
+dbline 339 21E
+dbline 2 220
+dbline 33C 223
+dbline 33F 226
+dbline 340 228
+dbline 2 22A
+dbline 2 22D
+dbline 2 230
+dbline 347 233
+dbline 348 235
+dbline 349 236
+dbline 3 237
+dbline 34C 23A
+dbline 34D 23C
+dbline 34E 23E
+dbline 34F 240
+dbline 351 242
+dbline 352 244
+dbline 353 246
+dbline 3 248
+dbline 4 24A
+dbline 356 24C
+dbline 36F 24D
+dbline 371 24F
+dbline 372 250
+dbline 373 252
+dbline 374 253
+dbline 375 254
+dbline 377 256
+dbline 3 257
+dbline 3 259
+dbline 391 25C
+dbline 392 25D
+dbline 393 25E
+dbline 394 260
+dbline 3 262
+dbline 4 264
+dbline 396 266
+dbline 3 267
+dbline 2 26A
+dbline 3B7 26C
+dbline 3B8 26F
+dbline 3BE 272
+dbline 3BF 275
+dbline 2 278
+dbline 3C1 27A
+dbline 3C3 27D
+dbline 3C5 27F
+dbline 3C6 280
+dbline 2 282
+dbline 3C9 284
+dbline 3CA 287
+dbline 2 28A
+dbline 3CC 28C
+dbline 3CF 28F
+S _CSD_wReadSensor Def0257
+S _CSD_Resume Def015D
+S CSD_ClearSensors Def0132
+S $sb$CSD_EnableSensor Def019C
+S $se$CSD_EnableSensor Def01CA
+S _CSD_ScanAllSensors Def024D
+S $sb$CSD_ClearSensors Def0132
+S $se$CSD_ClearSensors Def013E
+S CSD_ScanSensor Def01F8
+S _CSD_Stop Def013E
+S $lb$CSD_Sensor_Table2 Def0183
+S $le$CSD_Sensor_Table2 Def0193
+S CSD_Start Def0040
+S CSD_VC1_Table Def0000
+S $sb$CSD_ScanSensor Def01F8
+S $se$CSD_ScanSensor Def024D
+S _CSD_EnableSensor Def019C
+S $lb$CSD_VC1_Table Def0000
+S $le$CSD_VC1_Table Def0040
+S $sb$CSD_Start Def0040
+S $se$CSD_Start Def0082
+S CSD_DisableSensor Def01CA
+S _CSD_ClearSensors Def0132
+S CSD_SetScanMode Def0082
+S CSD_SetRefValue Def00FA
+S $lb$CSD_Max_ADC_Value_MSB_Table Def00F2
+S $le$CSD_Max_ADC_Value_MSB_Table Def00FA
+S $sb$CSD_DisableSensor Def01CA
+S $se$CSD_DisableSensor Def01F8
+S _CSD_ScanSensor Def01F8
+S CSD_wGetPortPin Def0193
+S CSD_wReadSensor Def0257
+S _CSD_Start Def0040
+S CSD_Resume Def015D
+S $sb$CSD_wGetPortPin Def0193
+S $se$CSD_wGetPortPin Def019C
+S $sb$CSD_wReadSensor Def0257
+S CSD_ScanAllSensors Def024D
+S $se$CSD_wReadSensor Def0267
+S _CSD_DisableSensor Def01CA
+S $sb$CSD_Resume Def015D
+S $se$CSD_Resume Def0183
+S _CSD_SetScanMode Def0082
+S _CSD_SetRefValue Def00FA
+S CSD_Stop Def013E
+S $sb$CSD_ScanAllSensors Def024D
+S $se$CSD_ScanAllSensors Def0257
+S $sb$CSD_Precharge Def0267
+S $se$CSD_Precharge Def0290
+S $sb$_CSD_SetScanMode Def0082
+S $se$_CSD_SetScanMode Def00F2
+S CSD_EnableSensor Def019C
+S $sb$_CSD_SetRefValue Def00FA
+S _CSD_wGetPortPin Def0193
+S $sb$CSD_Stop Def013E
+S $se$_CSD_SetRefValue Def0132
+S $se$CSD_Stop Def015D
+T 00 00 07 17 37 77 0F 1F 3F 7F FF FF FF FF 1A 1A
+R 00 00 00 03
+T 00 0E 1A 1A 1A 22 2A 32 01 10 03 FC 03 FC 07 C8
+R 00 00 00 03
+T 00 1C 0D 34 13 C8 3D AE 3D AE 3D AE 3D AE 3D AE
+R 00 00 00 03
+T 00 2A 00 20 00 40 00 40 00 80 01 00 02 00 04 00
+R 00 00 00 03
+T 00 38 04 00 04 00 04 00 04 00 70 BF 62 D0 00 62
+R 00 00 00 03
+T 00 46 D3 00 00 57 00 56 00 00 00 79 DF FB 62 D3
+R 00 00 00 03 43 03 00 04 03 08 00 04
+T 00 52 00 00 57 07 56 00 00 03 56 00 00 32 79 DF
+R 00 00 00 03 43 02 00 01 03 07 00 02 03 0B 00 01
+T 00 5D F8 70 3F 71 C0 55 00 00 14 55 00 00 14 55
+R 00 00 00 03 03 08 00 00 03 0C 00 03
+T 00 69 00 00 C8 55 00 00 0A 55 00 00 03 55
+R 00 00 00 03 03 02 00 07 03 06 00 06 03 0A 00 05
+T 00 72 00 00 32 55 00 05 02 50 02 57 0C 90 05 90
+R 00 00 00 03 03 02 00 08 01 06 00 02
+T 00 7E DE 90 B1 7F 62 D0 00 39 04 C0 03 50 03 53
+R 00 00 00 03
+T 00 8C 00 01 4B 39 11 C0 03 50 10 53 00 02 16
+R 00 00 00 03 01 02 00 02 01 0C 00 02
+T 00 97 00 02 09 70 EF 41 27 FE 62 26 01 62 2A 00
+R 00 00 00 03 01 02 00 02
+T 00 A4 51 00 02 02 00 01 64 53 00 04 74 FF 66 60
+R 00 00 00 03 01 03 00 02 01 06 00 02 01 0A 00 02
+T 00 AF 25 51 00 04 FF 60 60 29 43 27 01 51 00 02
+R 00 00 00 03 01 04 00 02 01 0E 00 02
+T 00 BB FF 4F 60 62 71 10 62 DE 02 51 00 02 FF 3C
+R 00 00 00 03 01 0C 00 02
+T 00 C8 60 DF 51 00 01 FF 32 60 E1 51 00 01 B0 09
+R 00 00 00 03 01 05 00 02 01 0C 00 02
+T 00 D4 62 6B 44 43 22 C0 80 0A 62 6B 00 43 22 40
+R 00 00 00 03
+T 00 E2 41 22 7F 70 EF 51 00 02 F0 07 53 00 00 51
+R 00 00 00 03 01 08 00 02 01 0D 00 02
+T 00 EE 00 05 90 09 7F 01 03 07 0F 1F 3F 7F FF 62
+R 00 00 00 03 01 02 00 02
+T 00 FB D0 00 39 09 C0 03 50 08 53 00 05 01 04 53
+R 00 00 00 03 01 0B 00 02
+T 01 08 00 03 51 00 04 74 FF 1C 53 00 02 5C 51
+R 00 00 00 03 01 02 00 02 01 05 00 02 01 0B 00 02
+T 01 12 00 04 FF 15 53 00 01 7A 00 03 A0 09 4B 04
+R 00 00 00 03 01 02 00 02 01 07 00 02 01 0A 00 02
+T 01 1D 00 02 4B 0C 00 01 8F F5 41 27 FE 51 00 02
+R 00 00 00 03 01 02 00 02 01 06 00 02 01 0E 00 02
+T 01 28 60 26 51 00 01 60 2A 43 27 01 7F 50 07 08
+R 00 00 00 03 01 05 00 02
+T 01 35 90 5C 90 91 18 78 DF F8 7F 71 10 62 66 00
+R 00 00 00 03
+T 01 43 41 64 BF 70 EF 41 69 DF 41 27 FE 9F E2 41
+R 00 00 00 03
+T 01 51 77 FC 62 61 00 62 E6 00 41 64 FE 7F 43 77
+R 00 00 00 03
+T 01 5F 03 43 61 17 57 00 50 02 90 33 71 10 62 66
+R 00 00 00 03
+T 01 6D 02 43 76 40 62 64 40 70 EF 43 69 20 62 E6
+R 00 00 00 03
+T 01 7B 10 43 64 01 43 27 01 7F 02 01 02 02 02 04
+R 00 00 00 03
+T 01 89 02 08 02 10 02 20 02 40 02 80 64 5C FF EC
+R 00 00 00 03
+T 01 97 4B 74 FF E8 7F 62 D0 00 53 00 06 10 5B 64
+R 00 00 00 03 01 0B 00 02
+T 01 A4 64 5C 5E 03 2A 00 06 61 03 71 10 5E 01 2A
+R 00 00 00 03 01 07 00 02
+T 01 B1 00 06 61 01 36 00 06 FF 5E 00 22 00 06 61
+R 00 00 00 03 01 02 00 02 01 07 00 02 01 0D 00 02
+T 01 BC 00 20 36 00 06 FF 5E D8 2A 00 06 61 D8 70
+R 00 00 00 03 01 05 00 02 01 0B 00 02
+T 01 C8 EF 7F 62 D0 00 73 53 00 06 71 10 5E D8 22
+R 00 00 00 03 01 09 00 02
+T 01 D5 00 06 61 D8 70 EF 5B 64 64 5C 5E 03 22
+R 00 00 00 03 01 02 00 02
+T 01 E1 00 06 61 03 71 10 5E 01 22 00 06 61 01 36
+R 00 00 00 03 01 02 00 02 01 0B 00 02
+T 01 ED 00 06 FF 5E 00 2A 00 06 61 00 70 EF 7F 70
+R 00 00 00 03 01 02 00 02 01 08 00 02
+T 01 F9 BF 62 D0 00 70 BF 53 00 07 9F 90 9F 97 90
+R 00 00 00 03 01 09 00 02
+T 02 06 60 70 EF 62 DA FD 43 E0 02 62 DB FE 62 21
+R 00 00 00 03
+T 02 14 FF 43 E1 01 50 00 53 00 03 53 00 01 53
+R 00 00 00 03 01 09 00 02 01 0C 00 02
+T 02 1F 00 02 43 23 01 43 62 01 51 00 03 AF FD 41
+R 00 00 00 03 01 02 00 02 01 0B 00 02
+T 02 2B E0 FD 41 E1 FE 41 23 FE 51 00 07 64 5C 62
+R 00 00 00 03 01 0B 00 02
+T 02 38 D3 00 00 51 00 02 54 00 01 51
+R 00 00 00 03 41 03 00 01 01 06 00 02 01 09 00 01
+T 02 3F 00 01 54 00 00 51 00 07 9F 4D 9F 82 70 3F
+R 00 00 00 03 01 02 00 02 01 05 00 01 01 08 00 02
+T 02 4A 71 C0 7F 50 07 08 9F A6 18 78 DF FA 7F 70
+R 00 00 00 03
+T 02 58 BF 62 D3 00 00 64 5C 52 00 01 59 00 00 70
+R 00 00 00 03 41 05 00 01 01 0A 00 01 01 0D 00 01
+T 02 63 3F 71 C0 7F 62 D0 00 71 10 43 00 02 41 00
+R 00 00 00 03
+T 02 71 FD 43 0C 02 41 0D FD 70 EF 41 0F FD 57 14
+R 00 00 00 03
+T 02 7F 79 BF FE 71 10 43 0C 02 43 0D 02 70 EF 43
+R 00 00 00 03
+T 02 8D 0F 02 7F
+R 00 00 00 03

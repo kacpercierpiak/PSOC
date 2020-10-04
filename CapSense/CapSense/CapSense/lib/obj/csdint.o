@@ -1,0 +1,63 @@
+XH
+H 3 areas 6 global symbols
+M csdint.asm
+S CSD_MaxADCValueMSB Ref0000
+S CSD_wADC_Result Ref0000
+S CSD_bADCStatus Ref0000
+A text size 0 flags 0
+dbfile lib/csdint.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/csdint.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+dbfunc 0 ? 0 I
+A InterruptRAM size 0 flags 20
+A UserModules size 3C flags 0
+dbfile lib/csdint.asm
+dbfunc 0 ? 0 I
+dbline 3F 0
+dbline 5B 2
+dbline 88 3
+dbline AF 4
+dbline B9 5
+dbline BA 6
+dbline 2 9
+dbline BE C
+dbline BF F
+dbline C1 11
+dbline C3 14
+dbline C4 16
+dbline C6 18
+dbline C7 1B
+dbline C8 1E
+dbline CB 20
+dbline CC 22
+dbline CD 24
+dbline CE 26
+dbline D0 28
+dbline D1 2B
+dbline D2 2E
+dbline D6 30
+dbline D7 32
+dbline D8 34
+dbline D9 35
+dbline DC 37
+dbline DD 3A
+dbline F9 3B
+S _CSD_CMP_ISR Def0003
+S _CSD_CNT_ISR Def0000
+S _CSD_CMP0_ISR Def0005
+T 00 00 76 00 00 7E 7E 7E 08 41 62 FE 41 E1 FE 49
+R 00 00 00 02 03 03 00 01
+T 00 0D DB 01 A0 20 62 DB FE 76 00 00 D0 09 55
+R 00 00 00 02 03 0A 00 01
+T 00 19 00 00 FF 55 00 01 FF 80 18 51 00 00 3A
+R 00 00 00 02 03 02 00 01 03 06 00 01 03 0C 00 01
+T 00 23 00 00 C0 0B A0 09 5F 00 00 00 00 55
+R 00 00 00 02 03 02 00 00 03 09 00 01 03 0B 00 00
+T 00 2C 00 01 FF 80 08 5D 20 5D 22 73 53 00 01 55
+R 00 00 00 02 03 02 00 01 03 0D 00 01
+T 00 38 00 00 01 18 7E
+R 00 00 00 02 03 02 00 02

@@ -1,0 +1,441 @@
+XH
+H 6 areas 3F global symbols
+M csdhl.asm
+S CSD_ScanSensor Ref0000
+S CSD_bSensorNum Ref0000
+S CSD_waSnsResult Ref0000
+A text size 0 flags 0
+dbfile lib/csdhl.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/CSD.inc
+dbfunc 0 ? 0 I
+dbfile lib/csdhl.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/csdhl.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+dbfunc 0 ? 0 I
+A InterruptRAM size D flags 20
+S _CSD_bDebounce Def0004
+S _CSD_bHysteresis Def0003
+S _CSD_bBaselineUpdateThreshold Def0002
+S CSD_fIsPressed Def0007
+S CSD_bNoiseThreshold Def0000
+S _CSD_bLowBaselineReset Def0005
+S _CSD_bCurPos Def0008
+S CSD_bEndOfArray Def0006
+S CSD_bNegativeNoiseThreshold Def0001
+S _CSD_fIsPressed Def0007
+S CSD_bSnsMaskPtr Def0009
+S _CSD_bNoiseThreshold Def0000
+S CSD_bDebounce Def0004
+S _CSD_bEndOfArray Def0006
+S CSD_bHysteresis Def0003
+S CSD_bBaselineUpdateThreshold Def0002
+S _CSD_bNegativeNoiseThreshold Def0001
+S _CSD_bSnsMaskPtr Def0009
+S CSD_bLowBaselineReset Def0005
+S CSD_bCurPos Def0008
+A ram1 size 4 flags 20
+S _CSD_waSnsDiff Def0002
+S CSD_waSnsBaseline Def0000
+S CSD_waSnsDiff Def0002
+S _CSD_waSnsBaseline Def0000
+A ram2 size 5 flags 20
+S CSD_baBtnFThreshold Def0001
+S CSD_baLowBaselineReset Def0004
+S CSD_baSnsDebounce Def0003
+S _CSD_baBtnFThreshold Def0001
+S CSD_baSnsOnMask Def0002
+S _CSD_baSnsOnMask Def0002
+A bss size 0 flags 0
+A UserModules size 1F2 flags 0
+dbfile lib/csdhl.asm
+dbfunc 0 ? 0 I
+dbline 3 0
+dbline 3 2
+dbline 122 5
+dbline 123 7
+dbline 124 8
+dbline 3 9
+dbline 128 C
+dbline 3 E
+dbline 12A 11
+dbline 3 13
+dbline 12C 16
+dbline 3 18
+dbline 12E 1B
+dbline 3 1D
+dbline 130 20
+dbline 3 22
+dbline 132 25
+dbline 133 27
+dbline 136 29
+dbline 137 2C
+dbline 138 2E
+dbline 139 30
+dbline 145 32
+dbline 147 34
+dbline 148 36
+dbline 149 38
+dbline 3 39
+dbline 14B 3C
+dbline 14C 3E
+dbline 14D 40
+dbline 14E 42
+dbline 14F 44
+dbline 150 46
+dbline 153 48
+dbline 154 4B
+dbline 155 4C
+dbline 156 4D
+dbline 3 4E
+dbline 158 51
+dbline 159 54
+dbline 15D 57
+dbline 15E 59
+dbline 15F 5A
+dbline 3 5B
+dbline 162 5E
+dbline 163 61
+dbline 164 63
+dbline 165 65
+dbline 166 67
+dbline 169 69
+dbline 16D 6B
+dbline 16E 6E
+dbline 16F 70
+dbline 170 72
+dbline 171 74
+dbline 172 76
+dbline 3 78
+dbline 176 7B
+dbline 177 7E
+dbline 179 81
+dbline 17A 82
+dbline 17B 83
+dbline 3 84
+dbline 17D 87
+dbline 17E 89
+dbline 17F 8A
+dbline 180 8C
+dbline 182 8E
+dbline 183 90
+dbline 184 91
+dbline 185 92
+dbline 186 93
+dbline 187 94
+dbline 188 95
+dbline 3 97
+dbline 18C 9A
+dbline 3 9C
+dbline 18E 9F
+dbline 3 A1
+dbline 190 A4
+dbline 3 A6
+dbline 192 A9
+dbline 196 AB
+dbline 197 AD
+dbline 198 AE
+dbline 3 AF
+dbline 19A B2
+dbline 19B B5
+dbline 19D B8
+dbline 19E B9
+dbline 19F BA
+dbline 3 BB
+dbline 1A1 BE
+dbline 1A2 C0
+dbline 3 C2
+dbline 4 C4
+dbline 1A6 C6
+dbline 3 C7
+dbline 3 C9
+dbline 1C6 CC
+dbline 1C7 CD
+dbline 3 CE
+dbline 1C9 D1
+dbline 1CA D3
+dbline 1CB D5
+dbline 1CD D8
+dbline 1CE D9
+dbline 1CF DA
+dbline 3 DC
+dbline 1D1 DF
+dbline 1D2 E1
+dbline 1D6 E3
+dbline 1D7 E5
+dbline 1D8 E7
+dbline 1D9 EA
+dbline 1DA EB
+dbline 1DB EC
+dbline 3 ED
+dbline 1DD F0
+dbline 1DE F2
+dbline 1DF F4
+dbline 1E0 F6
+dbline 1E1 F8
+dbline 1E2 FA
+dbline 1E3 FB
+dbline 1E4 FC
+dbline 3 FD
+dbline 1E6 100
+dbline 1E7 102
+dbline 1E8 103
+dbline 1E9 105
+dbline 1EA 106
+dbline 1EB 107
+dbline 1EC 108
+dbline 1ED 109
+dbline 1EE 10A
+dbline 1EF 10C
+dbline 1F3 10E
+dbline 1F4 110
+dbline 1F5 112
+dbline 1F6 115
+dbline 1F7 116
+dbline 1F8 117
+dbline 3 118
+dbline 1FA 11B
+dbline 1FB 11D
+dbline 1FC 11F
+dbline 1FD 121
+dbline 1FE 123
+dbline 201 125
+dbline 202 126
+dbline 203 127
+dbline 3 129
+dbline 205 12C
+dbline 206 12E
+dbline 207 130
+dbline 209 132
+dbline 20A 133
+dbline 20B 134
+dbline 20C 135
+dbline 20D 137
+dbline 3 138
+dbline 20F 13B
+dbline 3 13D
+dbline 211 140
+dbline 212 141
+dbline 213 143
+dbline 214 145
+dbline 215 147
+dbline 217 149
+dbline 218 14A
+dbline 219 14B
+dbline 21A 14D
+dbline 3 14E
+dbline 21C 151
+dbline 21D 153
+dbline 3 155
+dbline 4 157
+dbline 220 159
+dbline 226 15A
+dbline 227 15B
+dbline 228 15C
+dbline 229 15D
+dbline 22A 15E
+dbline 22B 15F
+dbline 22C 160
+dbline 22D 162
+dbline 22E 164
+dbline 3 16D
+dbline 3 16F
+dbline 24D 172
+dbline 24F 174
+dbline 250 175
+dbline 251 176
+dbline 252 179
+dbline 253 17A
+dbline 254 17B
+dbline 3 17D
+dbline 4 17F
+dbline 256 181
+dbline 3 182
+dbline 270 184
+dbline 272 186
+dbline 273 187
+dbline 3 189
+dbline 275 18B
+dbline 276 18C
+dbline 277 18D
+dbline 278 18E
+dbline 3 18F
+dbline 27A 192
+dbline 3 194
+dbline 27C 197
+dbline 3 199
+dbline 27E 19C
+dbline 3 19E
+dbline 280 1A1
+dbline 281 1A3
+dbline 282 1A4
+dbline 283 1A5
+dbline 3 1A7
+dbline 4 1A9
+dbline 285 1AB
+dbline 3 1AC
+dbline 29E 1AE
+dbline 29F 1AF
+dbline 3 1B1
+dbline 2A1 1B3
+dbline 2A2 1B4
+dbline 2A3 1B5
+dbline 3 1B6
+dbline 2A5 1B9
+dbline 3 1BB
+dbline 2A7 1BE
+dbline 3 1C0
+dbline 2A9 1C3
+dbline 3 1C5
+dbline 2AB 1C8
+dbline 3 1CA
+dbline 4 1CC
+dbline 2AD 1CE
+dbline 3 1CF
+dbline 2C7 1D2
+dbline 2C8 1D5
+dbline 2CA 1D7
+dbline 2CB 1D8
+dbline 2CC 1DA
+dbline 2CD 1DC
+dbline 2CE 1DE
+dbline 2D0 1E1
+dbline 2D1 1E2
+dbline 2D2 1E3
+dbline 2D3 1E5
+dbline 2D7 1E7
+dbline 2F0 1E8
+dbline 2F2 1EA
+dbline 2F3 1EB
+dbline 2F4 1ED
+dbline 2F5 1EE
+dbline 2F6 1EF
+dbline 2F9 1F1
+S $se$CSD_InitializeBaselines Def01AC
+S _CSD_SetDefaultFingerThresholds Def016D
+S $sb$CSD_InitializeSensorBaseline Def01AC
+S $se$CSD_InitializeSensorBaseline Def01CF
+S $lb$CSD_bitlookup Def0165
+S $le$CSD_bitlookup Def016D
+S CSD_bIsSensorActive Def00C7
+S CSD_UpdateSensorBaseline Def0000
+S _CSD_InitializeBaselines Def0182
+S _CSD_InitializeSensorBaseline Def01AC
+S $sb$CSD_bIsSensorActive Def00C7
+S CSD_UpdateAllBaselines Def01E8
+S $se$CSD_bIsSensorActive Def015A
+S CSD_bIsAnySensorActive Def01CF
+S $sb$CSD_UpdateSensorBaseline Def0000
+S $se$CSD_UpdateSensorBaseline Def00C7
+S $sb$CSD_UpdateAllBaselines Def01E8
+S $se$CSD_UpdateAllBaselines Def01F2
+S $sb$CSD_bIsAnySensorActive Def01CF
+S $se$CSD_bIsAnySensorActive Def01E8
+S _CSD_bIsSensorActive Def00C7
+S _CSD_UpdateSensorBaseline Def0000
+S CSD_SetDefaultFingerThresholds Def016D
+S _CSD_UpdateAllBaselines Def01E8
+S _CSD_bIsAnySensorActive Def01CF
+S $sb$CSD_SetDefaultFingerThresholds Def016D
+S $se$CSD_SetDefaultFingerThresholds Def0182
+S CSD_InitializeBaselines Def0182
+S CSD_InitializeSensorBaseline Def01AC
+S $sb$CSD_InitializeBaselines Def0182
+T 00 00 70 BF 62 D0 00 53 00 00 64 5C 62 D3 00 00
+R 00 00 00 05 03 08 00 01 43 0E 00 02
+T 00 0C 52 00 01 62 D3 00 00 13 00 01 62 D3
+R 00 00 00 05 03 03 00 02 41 07 00 02 01 0A 00 02
+T 00 15 00 02 54 00 03 62 D3 00 00 52
+R 00 00 00 05 41 02 00 02 01 05 00 02 43 09 00 02
+T 00 1C 00 00 62 D3 00 00 1B 00 00 62 D3
+R 00 00 00 05 03 02 00 02 41 06 00 02 01 09 00 02
+T 00 24 00 02 54 00 02 C0 43 3D 00 02 00 A0 05 50
+R 00 00 00 05 41 02 00 02 01 05 00 02 01 0A 00 02
+T 00 2F FF 80 03 52 00 03 58 00 00 01 00 6D 62 D3
+R 00 00 00 05 01 06 00 02 03 09 00 01
+T 00 3B 00 00 05 00 00 C0 09 51 00 02 3B
+R 00 00 00 05 41 02 00 03 01 05 00 03 01 0A 00 01
+T 00 43 00 00 D0 12 A0 10 56 00 00 00 5B 64 5C 62
+R 00 00 00 05 01 02 00 03 01 09 00 03
+T 00 4F D3 00 00 07 00 01 01 0F 00 00 00 51
+R 00 00 00 05 41 03 00 02 01 06 00 02 01 0A 00 02
+T 00 58 00 00 64 5C 62 D3 00 02 3D 00 02 00 B0 56
+R 00 00 00 05 03 02 00 01 41 08 00 02 01 0B 00 02
+T 00 63 51 00 00 3B 00 03 C0 50 80 41 3D 00 02 FF
+R 00 00 00 05 01 03 00 01 01 06 00 02 01 0D 00 02
+T 00 6E B0 09 50 FF 12 00 01 3B 00 03 C0 20 62 D3
+R 00 00 00 05 01 07 00 01 01 0A 00 02
+T 00 7A 00 02 56 00 03 00 56 00 02 00 5B 67 5C 62
+R 00 00 00 05 41 02 00 02 01 05 00 02 01 09 00 02
+T 00 85 D3 00 04 52 00 04 78 D0 03 50 00 54 00 04
+R 00 00 00 05 41 03 00 03 01 06 00 03 01 0E 00 03
+T 00 90 08 5B 64 5C 18 B0 2C 62 D3 00 00 52 00 01
+R 00 00 00 05 43 0B 00 02 03 0E 00 02
+T 00 9C 62 D3 00 00 54 00 01 62 D3 00 00 52
+R 00 00 00 05 41 04 00 02 01 07 00 02 43 0B 00 02
+T 00 A5 00 00 62 D3 00 00 54 00 00 51
+R 00 00 00 05 03 02 00 02 41 06 00 02 01 09 00 02
+T 00 AC 00 00 64 5C 62 D3 00 02 56 00 03 00 56
+R 00 00 00 05 03 02 00 01 41 08 00 02 01 0B 00 02
+T 00 B6 00 02 00 5B 67 5C 62 D3 00 04 51 00 05 54
+R 00 00 00 05 01 02 00 02 41 0A 00 03 01 0D 00 01
+T 00 C1 00 04 70 3F 71 C0 7F 70 BF 62 D0 00 08 5C
+R 00 00 00 05 01 02 00 03
+T 00 CE 62 D3 00 01 52 00 01 53 00 0C 55
+R 00 00 00 05 41 04 00 03 01 07 00 03 01 0A 00 01
+T 00 D6 00 0B 00 18 08 90 7E 62 D3 00 02 23 00 02
+R 00 00 00 05 01 02 00 01 41 0B 00 03 01 0E 00 03
+T 00 E1 B0 2C 51 00 03 04 00 0C 0E 00 0B 00 18 64
+R 00 00 00 05 01 05 00 01 01 08 00 01 01 0B 00 01
+T 00 EC 5C 62 D3 00 02 52 00 03 12 00 0C 52
+R 00 00 00 05 41 05 00 02 01 08 00 02 01 0B 00 01
+T 00 F5 00 02 1A 00 0B C0 39 5B 67 5C 62 D3 00 03
+R 00 00 00 05 01 02 00 02 01 05 00 01 41 0E 00 03
+T 01 00 52 00 03 78 54 00 03 08 5B 64 5C 18 B0 3E
+R 00 00 00 05 01 03 00 03 01 07 00 03
+T 01 0C 80 18 51 00 03 14 00 0C 1E 00 0B 00 18 64
+R 00 00 00 05 01 05 00 01 01 08 00 01 01 0B 00 01
+T 01 17 5C 62 D3 00 02 52 00 03 12 00 0C 52
+R 00 00 00 05 41 05 00 02 01 08 00 02 01 0B 00 01
+T 01 20 00 02 1A 00 0B C0 0E 5B 67 90 31 62 D3
+R 00 00 00 05 01 02 00 02 01 05 00 01
+T 01 2B 00 02 2D 00 02 50 01 80 24 5B 67 08 90 23
+R 00 00 00 05 41 02 00 03 01 05 00 03
+T 01 37 73 62 D3 00 02 25 00 02 62 D3 00 03 20 51
+R 00 00 00 05 41 05 00 03 01 08 00 03 41 0C 00 03
+T 01 42 00 04 54 00 03 50 00 80 0D 5B 67 90 0D 73
+R 00 00 00 05 01 02 00 01 01 05 00 03
+T 01 4E 62 D3 00 02 25 00 02 50 00 70 3F 71 C0 7F
+R 00 00 00 05 41 04 00 03 01 07 00 03
+T 01 5A 08 67 67 67 5C 18 21 07 F0 01 7F 01 02 04
+R 00 00 00 05
+T 01 68 08 10 20 40 80 70 BF 62 D3 00 01 50 00 08
+R 00 00 00 05 41 0B 00 03
+T 01 75 5C 56 00 01 0A 18 78 DF F8 70 3F 71 C0 7F
+R 00 00 00 05 01 04 00 03
+T 01 82 70 BF 50 00 08 90 00 70 BF 18 08 64 5C 62
+R 00 00 00 05 06 07 00 00 00 00
+T 01 90 D3 00 00 52 00 01 62 D3 00 00 54
+R 00 00 00 05 43 03 00 02 03 06 00 02 41 0A 00 02
+T 01 98 00 01 62 D3 00 00 52 00 00 62 D3
+R 00 00 00 05 01 02 00 02 43 06 00 02 03 09 00 02
+T 01 A0 00 00 54 00 00 18 78 DF E0 70 3F 71 C0 7F
+R 00 00 00 05 41 02 00 02 01 05 00 02
+T 01 AC 70 BF 08 90 00 70 BF 18 64 5C 62 D3 00 00
+R 00 00 00 05 06 05 00 00 00 00 43 0E 00 02
+T 01 B9 52 00 01 62 D3 00 00 54 00 01 62 D3
+R 00 00 00 05 03 03 00 02 41 07 00 02 01 0A 00 02
+T 01 C2 00 00 52 00 00 62 D3 00 00 54
+R 00 00 00 05 43 02 00 02 03 05 00 02 41 09 00 02
+T 01 C9 00 00 70 3F 71 C0 7F 62 D0 00 55 00 07 00
+R 00 00 00 05 01 02 00 02 01 0D 00 01
+T 01 D5 50 00 08 9E ED 39 01 B0 04 55 00 07 01 18
+R 00 00 00 05 01 0C 00 01
+T 01 E2 78 DF F3 51 00 07 7F 50 00 08 9E 13 18 78
+R 00 00 00 05 01 06 00 01
+T 01 EF DF FA 7F
+R 00 00 00 05

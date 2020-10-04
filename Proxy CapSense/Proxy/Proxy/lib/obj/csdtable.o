@@ -1,0 +1,28 @@
+XH
+H 3 areas 8 global symbols
+M csdtable.asm
+A text size 0 flags 0
+dbfile lib/csdtable.asm
+dbfunc 0 ? 0 I
+dbfile ./lib/CSD.inc
+dbfunc 0 ? 0 I
+dbfile lib/csdtable.asm
+dbfunc 0 ? 0 I
+dbfile memory.inc
+dbfunc 0 ? 0 I
+dbfile lib/csdtable.asm
+dbfunc 0 ? 0 I
+dbfile C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C21~3/m8c.inc
+dbfunc 0 ? 0 I
+A UserModules size A flags 0
+S $lb$CSD_Sensor_Table Def0000
+S $le$CSD_Sensor_Table Def000A
+S _CSD_Diplex_Table Def0008
+S _CSD_Sensor_Table Def0000
+S CSD_Group_Table Def0002
+S CSD_Diplex_Table Def0008
+S _CSD_Group_Table Def0002
+S CSD_Sensor_Table Def0000
+A lit size 0 flags 1
+T 00 00 02 01 00 01 00 00 00 00 00 00 00 00
+R 00 00 00 01 41 0A 00 02 01 0C 00 02

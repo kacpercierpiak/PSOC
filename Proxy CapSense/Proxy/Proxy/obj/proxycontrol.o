@@ -1,0 +1,38 @@
+XH
+H 1 areas 9 global symbols
+M proxycontrol.c
+S _CSD_SetDefaultFingerThresholds Ref0000
+S _CSD_ScanAllSensors Ref0000
+S _CSD_InitializeBaselines Ref0000
+S __r0 Ref0000
+S _CSD_Start Ref0000
+S _CSD_UpdateAllBaselines Ref0000
+S _CSD_bIsAnySensorActive Ref0000
+A text size 1E flags 0
+dbfile ./proxycontrol.c
+dbfile D:\Studia\PSOC\Proxy\Proxy\Proxy\proxycontrol.c
+dbfunc e ProxyControl_INIT 0 fV
+dbline FFFFFFFF 0
+dbline 6 0
+dbline 7 0
+dbline 8 4
+dbline 9 7
+dbline A A
+dbline FFFFFFFE E
+dbline 0 E
+dbfunc e ProxyControl_Proxy F fc
+dbline FFFFFFFF F
+dbline D F
+dbline E F
+dbline F 13
+dbline 10 16
+dbline FFFFFFFE 1D
+dbline 0 1D
+S _ProxyControl_Proxy Def000F
+S _ProxyControl_INIT Def0000
+T 00 00 10 7C 00 00 7C 00 00 7C 00 00 7C
+R 00 00 00 00 02 04 00 04 02 07 00 01 02 0A 00 02
+T 00 0B 00 00 20 7F 10 7C 00 00 7C 00 00 7C
+R 00 00 00 00 02 02 00 00 02 08 00 01 02 0B 00 05
+T 00 17 00 00 20 62 D0 00 00 7F
+R 00 00 00 00 02 02 00 06 43 07 00 03

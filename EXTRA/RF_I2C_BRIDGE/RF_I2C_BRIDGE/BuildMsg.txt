@@ -1,0 +1,108 @@
+Starting MAKE...
+psocmakemake.exe RF_I2C_BRIDGE -oproject.mk
+
+creating project.mk 
+
+mkdepend.exe -f project.dep -p./obj/ -o.o -- -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1  -- main.c  boot.asm
+
+mkdepend.exe @mkdep
+
+mkdepend.exe @mkdep
+
+if exist output\RF_I2C_BRIDGE.rom del /F /Q  output\RF_I2C_BRIDGE.rom
+
+if exist output\RF_I2C_BRIDGE.hex del /F /Q  output\RF_I2C_BRIDGE.hex
+
+mkdir std
+
+mkdir std\obj
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/cyfisnp.o lib/cyfisnp.asm
+
+c:\iccv8m8c/bin/iccm8c.exe -g -e -c -Wf-Osize  -Wf-O48 -Wl-elim  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -o lib/obj/cyfisnp_debug.o lib/cyfisnp_debug.c
+
+c:\iccv8m8c/bin/iccm8c.exe -g -e -c -Wf-Osize  -Wf-O48 -Wl-elim  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -o lib/obj/cyfisnp_protocol.o lib/cyfisnp_protocol.c
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/cyfisnp_psoc_spim.o lib/cyfisnp_psoc_spim.asm
+
+c:\iccv8m8c/bin/iccm8c.exe -g -e -c -Wf-Osize  -Wf-O48 -Wl-elim  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -o lib/obj/cyfisnp_time.o lib/cyfisnp_time.c
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/cyfisnpint.o lib/cyfisnpint.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/i2ccommon.o lib/i2ccommon.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/i2cint.o lib/i2cint.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/i2cmstr.o lib/i2cmstr.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/i2crsrcinits.o lib/i2crsrcinits.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/psocconfig.o lib/psocconfig.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/psocconfigtbl.o lib/psocconfigtbl.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/timer8.o lib/timer8.asm
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -o lib/obj/timer8int.o lib/timer8int.asm
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnp.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnp_debug.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnp_protocol.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnp_psoc_spim.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnp_time.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/cyfisnpint.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/i2ccommon.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/i2cint.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/i2cmstr.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/i2crsrcinits.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/psocconfig.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/psocconfigtbl.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/timer8.o  
+
+c:\iccv8m8c/bin/ilibw.exe -a lib/libpsoc.a lib/obj/timer8int.o
+
+c:\iccv8m8c/bin/iccm8c.exe -g -e -c -Wf-Osize  -Wf-O48 -Wl-elim  -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -o obj/main.o ./main.c
+
+c:\iccv8m8c/bin/iasm8c.exe -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include -I./lib -I./std -I. -IC:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/include/CY8C27~1   -g -n -o obj/boot.o ./boot.asm
+
+Linking with linkfile 
+
+-F0x30 -g -blit:0x150.0x3fff 
+
+ -bdata:0.0xFF -rwh:SSCParmBlk:0x00F7.0x00FF   
+
+ -o"output/RF_I2C_BRIDGE" 
+
+obj/main.o 	
+
+ ./lib/libPSoc.a -Lc:\iccv8m8c/lib/SMM C:/PROGRA~2/Cypress/PSOCDE~1/5.4/Common/CYPRES~1/tools/lib/CY8C27000B/cms.a c:\iccv8m8c/lib/SMM/UASW/MAC/arith.a  
+
+c:\iccv8m8c/bin/ilinkm8c.exe -u ./obj/boot.o @linkfile
+
+  ROM 49% full. 7951 out of 16384 bytes used (does not include absolute areas).
+
+  RAM 52% full. 131 bytes used (does not include stack usage).
+
+Built with ICCM8C PRO/DEMO V8.05.01E
+
+c:\iccv8m8c/bin/ilstm8c.exe -r output/RF_I2C_BRIDGE.rom
+
+verlst.exe RF_I2C_BRIDGE c:\iccv8m8c/bin
+
+makehex.exe output/RF_I2C_BRIDGE.rom FlashSecurity.txt 0x3fff 0x30 output/RF_I2C_BRIDGE.hex
+
+ 
+RF_I2C_BRIDGE - 0 error(s) 0 warning(s) 13:07:51
+
